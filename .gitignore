@@ -24,6 +24,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-__pycache__
+**/__pycache__
 *.wav
 *.mp4
