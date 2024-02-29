@@ -1,0 +1,109 @@
+.personal-plot .sidebar {
+  padding: 40px 10px;
+}
+
+.personal-plot .button-row {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 0 auto;
+}
+
+.personal-plot .collections {
+  border: var(--matte-black) solid 1px;
+  border-radius: 10px;
+}
+
+.personal-plot .collection:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-right: 10px;
+}
+
+.personal-plot .collection {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.collection.first {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 7px;
+}
+.personal-plot .collection.true {
+  background-color: var(--eco-neutral);
+}
+
+.button-row.plot-types {
+  margin-top: 40px;
+  gap: 30px
+}
+
+.plot-type,
+.option-button {
+  padding: 7px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  min-width: 67px;
+}
+
+.plot-type.true,
+.option-button.true {
+  background-color: var(--matte-black);
+}
+
+.plot-type .label {
+  font-size: var(--fontsize-xs);
+}
+
+.plot-options {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  flex-direction: column;
+}
+
+.plot-options .option {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: var(--fontsize-sm);
+}
+
+.plot-options .dates {
+  align-self: center;
+}
+
+.plot.content {
+  display: flex;
+}
+
+.plot-options .mini-submit {
+  align-self: flex-end;
+  background-color: var(--calm-blue);
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  height: min-content;
+}
+
+.plot-options .stack {
+  width: fit-content;
+  align-self: flex-end;
+  margin-top: 15px;
+  padding-right: 25px;
+  font-size: var(--fontsize-xs);
+  text-align: center;
+  align-items: center;
+}
+
+.plot.content .chart {
+  max-height: 50%;
+  max-width: 80%;
+  margin: auto;
+}
