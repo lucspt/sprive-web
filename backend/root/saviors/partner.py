@@ -127,13 +127,14 @@ class Partner(Savior):
                 {"$match": {"savior_id": self.savior_id}},
                 {
                     "$group": {
-                        "_id": "$name", 
+                        "_id": "$product_id", 
                         "co2e": {"$sum": "$co2e"},
                         "co2e_avoided": {"$sum": "$co2e_avoided"},
                         "keywords": {"$first": "$keywords"},
                         "category": {"$first": "$category"},
                         "product_id": {"$first": "$product_id"},
-                        "rating": {"$first": "$rating"}
+                        "rating": {"$first": "$rating"},
+                        "name": {"$first": "$name"}
                     }
                 },
                 {"$sort": {"co2e": -1}}

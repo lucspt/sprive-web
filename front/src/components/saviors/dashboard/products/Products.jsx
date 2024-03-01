@@ -71,7 +71,7 @@ const ProductWidget = ({ nav, product: p }) => {
     onKeyDown={e => e.key === "Enter" && open()}
     >
       <div className="title description">
-        <span style={{fontSize: "1.12em"}} className="label">{p._id.replaceAll("%20", " ")}</span>
+        <span style={{fontSize: "1.12em"}} className="label">{p.name}</span>
         <span className={`rating ${rating || "B"}`}>{rating || "B"}</span>
         <div className="options">
           <button onClick={e  => {e.stopPropagation(); edit()}} style={{pointerEvents: "all"}}>
@@ -99,9 +99,8 @@ const ProductWidget = ({ nav, product: p }) => {
 
 const ProductRow = ({ nav, product: p }) => {
 
-  const { rating, _id: name, product_id } = p
+  const { rating, name, product_id } = p
   const link = `../products/${product_id}`
-  const edit = () => nav(`${link}/edit`)
   const open = () => nav(link)
   return (
     <div className="row"

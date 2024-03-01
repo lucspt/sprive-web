@@ -1548,6 +1548,7 @@ form.dashboard-sections.small > button {
     top: 39%;
     left: 0;
     right: 0;
+    z-index: 1;
     margin: auto;
     bottom: 0;
     width: fit-content;
