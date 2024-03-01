@@ -259,6 +259,7 @@ class Partner(Savior):
         product_id = product["product_id"]
         product["stars"] = self.db.stars.count_documents({"_id": product_id})
         product.pop("co2e", 0)
+        product.pop("activity")
         return self.db.products.update_many(
             {"product_id": product_id}, {"$set": product}
         ).acknowledged
