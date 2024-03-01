@@ -1,27 +1,28 @@
 import { useEffect, useState } from "react"
-import { fetchData, formatCO2e } from "../../../utils"
+import { fetchData } from "../../../../utils"
 import { useFetcher, useLoaderData } from "react-router-dom"
-import { CardWidget } from "../../Widgets"
-import Visualization from "../../Visualization"
-import ValidatedInput from "../../ValidatedInput"
+import { CardWidget } from "../../../Widgets"
+import Visualization from "../../../Visualization"
+import "./PledgeCard.css"
+import ValidatedInput from "../../../ValidatedInput"
 
 
 export const editPledge = async ({ request }) => {
-  let formData = await request.formData()
-  formData = Object.fromEntries(formData)
+  let formData = await request.formData();
+  formData = Object.fromEntries(formData);
   let pledgeId;
-  ({ pledgeId, ...formData } = formData)
-  const res = await fetchData(`saviors/pledges/${pledgeId}`, "PUT", formData)
+  ({ pledgeId, ...formData } = formData);
+  const res = await fetchData(`saviors/pledges/${pledgeId}`, "PUT", formData);
   if (res.ok) {
-    return null 
-  } else throw new Error("something went wrong..")
+    return null;
+  } else throw new Error("something went wrong..");
 }
 
 const PledgeCard = function PledgeCard() {
-  const pledgeId = useLoaderData()
-  const [ pledgeData, setPledgeData ] = useState({})
-  const [ editing, setEditing ] = useState({popup: false, warnCancel: false})
-  const fetcher = useFetcher()
+  const pledgeId = useLoaderData();
+  const [ pledgeData, setPledgeData ] = useState({});
+  const [ editing, setEditing ] = useState({popup: false, warnCancel: false});
+  const fetcher = useFetcher();
 
   useEffect(() => {
     Promise.all([
@@ -47,12 +48,12 @@ const PledgeCard = function PledgeCard() {
         topEmitter: {"name": res[1].content[0]._id, "co2e": res[1].content[0].co2e}
 
       })
-    })
+    });
 
   }, [])
 
   useEffect(() => {
-    editing.popup && setEditing({popup: false, warnCancel: false})
+    editing.popup && setEditing({popup: false, warnCancel: false});
     fetcher.formData && setPledgeData(prev => {
       return {
         ...prev,
@@ -61,11 +62,8 @@ const PledgeCard = function PledgeCard() {
     })
   }, [fetcher])
 
-  useEffect(() => {console.log(pledgeData)}, [pledgeData])
-
-  useEffect(() => {console.log("called")}, [pledgeData.pledge?.name])
   const stopPledge = async () => {
-    const res = await fetchData(
+    await fetchData(
       `saviors/pledges/${pledge._id}`, "PUT", {"status": "inactive"}
     )
     setPledgeData(prev => {
@@ -73,14 +71,12 @@ const PledgeCard = function PledgeCard() {
         ...prev,
         pledge: {...prev.pledge, "status": "inactive"}
       }
-    })
-    setEditing(prev => {return {...prev, warnCancel: false}})
+    });
+    setEditing(prev => {return {...prev, warnCancel: false}});
   }
 
-  useEffect(() => {console.log(editing)}, [editing])
-
   const startPledge = async () => {
-    const res = await fetchData(
+    await fetchData(
       `saviors/pledges/${pledge._id}`, "PUT", {"status": "active"}
     )
     setPledgeData(prev => {
@@ -88,7 +84,7 @@ const PledgeCard = function PledgeCard() {
         ...prev,
         pledge: {...prev.pledge, "status": "active"}
       }
-    })
+    });
   }
 
   const { pledge, topEmitter } = pledgeData

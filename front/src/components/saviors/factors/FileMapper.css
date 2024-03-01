@@ -1,0 +1,109 @@
+@media screen and (min-width: 600px) {
+
+  .emission-factors .file-mapping {
+    display: grid;
+    grid-template-rows: .2fr 1fr;
+    gap: 30px;
+    width: 100%;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+
+  .file-mapping .hanging-row {
+    display: flex;
+    justify-self: center;
+    margin-top: 20px;
+    border-radius: 7px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+    z-index: 1;
+    gap: 30px;
+    position: sticky;
+    top: -1px;
+    background-color: var(--secondary-color);
+    width: 100%;
+  }
+  .file-mapping form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    width: 100%;
+    color: var(--baby-pink);
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  .file-mapping .field label {
+    color: var(--baby-pink);
+    font-size: 1.2vmin;
+  }
+
+  .file-mapping .field input {
+    font-size: 1.1vmin;
+  }
+
+  .file-mapping .current-row {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .file-mapping input {
+    background-color: transparent;
+    border: transparent;
+    color: var(--soft-white);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+    font-size: 0.9em
+  }
+
+
+  .file-mapping .field {
+    border: var(--table-border);
+    padding: 10px;
+    
+  }
+
+  .file-mapping input[name="activity"] {
+    cursor: not-allowed;
+  }
+
+  .file-mapping .field.first {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .file-mapping .field.last {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .file-mapping .go-back {
+    display: flex;
+    text-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-start;
+    gap: 5px;
+    flex-direction: column-reverse;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .file-mapping .complete {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .file-mapping .go-back.true {
+    visibility: visible;
+    pointer-events: auto;
+    width: fit-content;
+  }
+}

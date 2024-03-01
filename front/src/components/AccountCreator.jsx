@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export const createAccount = async ({ request }) => {
   let _formData = await request.formData();
-  const { firstName, lastName, ...formData } = Object.fromEntries(_formData.entries())
+  const { firstName, lastName, ...formData } = Object.fromEntries(_formData.entries());
   let res = fetch("http://localhost:8000/saviors", {
     method: "POST",
     body: formData,
@@ -14,9 +14,9 @@ export const createAccount = async ({ request }) => {
   })
   res = await res.json()
   if (res.ok) {
-    const url = new URL(request.url)
-    const redirect = url.searchParams.get("redirect")
-    return redirect(redirect)
+    const url = new URL(request.url);
+    const redirect = url.searchParams.get("redirect");
+    return redirect(redirect);
   } else {
     throw new Error("oops...that did not work")
   }

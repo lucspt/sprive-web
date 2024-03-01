@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-
+import "./ValidatedInput.css"
 
 export default function ValidatedInput({ 
   name, 
@@ -18,11 +18,11 @@ export default function ValidatedInput({
 
   const onInvalid = useCallback(e => {
     e.preventDefault(); 
-    e.target.classList.add("invalid")
+    e.target.classList.add("invalid");
   }, [])
 
   const _onChange = useCallback(e => {
-    e.target.value && e.target.classList.remove("invalid")
+    e.target.value && e.target.classList.remove("invalid");
     onChange && onChange(e);
   }, [])
 
@@ -68,11 +68,11 @@ export const  ControlledValidatedInput = ({
 
   const onInvalid = useCallback(e => {
     e.preventDefault(); 
-    e.target.classList.add("invalid")
+    e.target.classList.add("invalid");
   }, [])
 
   const _onChange = useCallback(e => {
-    e.target.value && e.target.classList.remove("invalid")
+    e.target.value && e.target.classList.remove("invalid");
     onChange && onChange(e);
   }, [])
 

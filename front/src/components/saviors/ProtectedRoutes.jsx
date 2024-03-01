@@ -5,6 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 
 export default function ProtectedRoutes() {
-  const { isLoggedIn } = useContext(SaviorContext)
+  const { isLoggedIn } = useContext(SaviorContext);
+  
   return isLoggedIn ? <Outlet /> : <Navigate to="/" replace/>
 }

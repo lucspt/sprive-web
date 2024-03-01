@@ -2,7 +2,7 @@
 import { memo, useState, useRef, useEffect, useCallback } from "react"
 import { fetchData } from "../../../utils"
 import { useNavigate } from "react-router-dom"
-import ValidatedInput from "../../ValidatedInput"
+import "./FileMapper.css"
 
 const FileMapper = memo(function FileMapper({
   fileId, 

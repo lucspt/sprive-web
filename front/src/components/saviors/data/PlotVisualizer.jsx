@@ -1,5 +1,4 @@
 import { memo, useContext, useEffect, useReducer, useState } from "react";
-import { useFetcher } from "react-router-dom"
 import { SaviorContext } from "../../../contexts/SaviorContext";
 import "./PlotVisualizer.css"
 import { fetchData } from "../../../utils";
@@ -32,8 +31,9 @@ const PlotTypeBtn = ({ currentPlot, icon, switchPlot, plotType }) => (
     <span className="label">{plotType}</span>
   </button>
 )
+
 const fetchToPlot = (fetchResult, plotInfo, opts) => {
-  let data = Array.from(fetchResult, x => x.co2e)
+  let data = Array.from(fetchResult, x => x.co2e);
   let labels;
   switch (plotInfo.type) {
     case "line": {
@@ -51,7 +51,7 @@ const fetchToPlot = (fetchResult, plotInfo, opts) => {
       break
     }
   }
-  return {datasets: [{data: data, label: "CO2e", ...opts}], labels: labels}
+  return {datasets: [{data: data, label: "CO2e", ...opts}], labels: labels};
 }
 
 function plotReducer(state, action) {
@@ -78,12 +78,12 @@ const aggregationsReducer = (state, action) => {
       return {...state, currentCollection: action.payload}
     }
     case "updateMatch": {
-      const { payload, payload: { newMatch, plotType } } = action 
-      const currentCollection = state.currentCollection
-      const currentPlot = state[currentCollection][plotType]
-      const filters = currentPlot.filters 
-      console.log(filters, newMatch)
-      Object.assign(filters[0]["$match"], newMatch)
+      const { payload, payload: { newMatch, plotType } } = action ;
+      const currentCollection = state.currentCollection;
+      const currentPlot = state[currentCollection][plotType];
+      const filters = currentPlot.filters ;
+      console.log(filters, newMatch);
+      Object.assign(filters[0]["$match"], newMatch);
       const res = {
         ...state,
         [currentCollection]: {
@@ -91,14 +91,13 @@ const aggregationsReducer = (state, action) => {
           [plotType]: {...currentPlot, filters: filters}
         }
       }
-      console.log(res)
-      return res
+      return res;
     }
   }
 }
 
 const PlotVisualizer = memo(function PlotVisualizer() {
-  const { savior: { savior_type } } = useContext(SaviorContext)
+  const { savior: { savior_type } } = useContext(SaviorContext);
   const [ aggregation, dispatch ] = useReducer(aggregationsReducer, {
     logs: {
       line: {
@@ -167,14 +166,13 @@ const PlotVisualizer = memo(function PlotVisualizer() {
         borderColor: "#1B4242",
         barThickness: 40,
       }
-  })
+  });
 
   useEffect(() => {
     const getPlot = async () => {
       const res = await fetchData(
         "saviors/data", "POST", aggregation[aggregation.currentCollection][plot.type]
-      )
-      console.log(res, "reS")
+      );
       plotDispatch({
         type: "update",
         payload: fetchToPlot(
@@ -182,7 +180,7 @@ const PlotVisualizer = memo(function PlotVisualizer() {
           {type: plot.type, stacked: plot.stacked},
           plot.datasetOptions
         ),
-      })
+      });
     }
     getPlot();
   }, [aggregation, plot.type])
@@ -191,7 +189,7 @@ const PlotVisualizer = memo(function PlotVisualizer() {
     dispatch({
       type: "switchCollection",
       payload: collection
-    })
+    });
   }
 
   return (

@@ -1,7 +1,27 @@
 import { memo } from "react"
 import { formatCO2e } from "../../../../utils"
 
-
+const MobileOverview = memo(function MobileOverview({ content }) {  
+  const { emissions, pledges } = content;
+  return emissions && (
+    <> 
+      <div className="overview-widgets" id="tuple1">
+        <WidgetSquare title="total emissions" 
+          infoDigit={emissions.total_co2e} 
+          slideInDirection={"right"} 
+        />
+        <WidgetSquare title="emissions saved" 
+          infoDigit={pledges.total_co2e} 
+          slideInDirection={"left"} 
+        />
+      </div>
+      <LongWidget id={"long1"} >
+      </LongWidget>
+      <WidgetTuple id={"tuple2"}/>
+      <LongWidget id={"long2"}/>
+    </>    
+  )
+})
 
 const WidgetTuple = ({ id }) => {
   return (
@@ -18,7 +38,7 @@ const WidgetTuple = ({ id }) => {
    </div>
   )
 }
-const randomDelay = () => Math.random() * 0.1
+const randomDelay = () => Math.random() * 0.1;
 
 const LongWidget = ({ id, children }) => {
   return (
@@ -53,26 +73,4 @@ const WidgetSquare = ({ title, infoDigit, slideInDirection }) => {
     </div>
   )
 }
-const MobileOverview = memo(function MobileOverview({ content }) {  
-  const { emissions, pledges, pie_chart } = content 
-  return emissions && (
-    <> 
-      <div className="overview-widgets" id="tuple1">
-        <WidgetSquare title="total emissions" 
-          infoDigit={emissions.total_co2e} 
-          slideInDirection={"right"} 
-        />
-        <WidgetSquare title="emissions saved" 
-          infoDigit={pledges.total_co2e} 
-          slideInDirection={"left"} 
-        />
-      </div>
-      <LongWidget id={"long1"} >
-      </LongWidget>
-      <WidgetTuple id={"tuple2"}/>
-      <LongWidget id={"long2"}/>
-    </>    
-  )
-})
-
 export default MobileOverview

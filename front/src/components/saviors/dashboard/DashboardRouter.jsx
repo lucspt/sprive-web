@@ -2,6 +2,7 @@ import { memo, useContext, useEffect, useRef } from "react";
 import { Form, useLocation, Link } from "react-router-dom";
 import { windowSize } from "../../../utils";
 import { SaviorContext } from "../../../contexts/SaviorContext";
+import "./DashboardRouter.css"
 
 const saviorSections = {
   "partners": ["suppliers", "products",],
@@ -9,7 +10,7 @@ const saviorSections = {
 }
 
 const SectionBtn = ({ section, currentSection, loc }) => {
-  const isDisabled = loc?.search?.includes(section)  
+  const isDisabled = loc?.search?.includes(section);
   return (
     <button 
       type="submit"
@@ -28,24 +29,24 @@ const SectionBtn = ({ section, currentSection, loc }) => {
 }
 const DashboardRouter = memo(function DashboardRouter({ currentSection }) {
   
-  const hideBanner = useRef(false)
-  const form = useRef()
+  const hideBanner = useRef(false);
+  const form = useRef();
   
-  const { savior, getTasks, tasks } = useContext(SaviorContext)
-  const loc = useLocation()
+  const { savior, getTasks, tasks } = useContext(SaviorContext);
+  const loc = useLocation();
 
   useEffect(() => {
     if (!hideBanner.current) {
-      hideBanner.current = true
+      hideBanner.current = true;
     }
   }, [])
 
   useEffect(() => {
-    getTasks()
+    getTasks();
   }, [])
   
-  const sections = saviorSections[savior.savior_type]
-  const { pending } = tasks
+  const sections = saviorSections[savior.savior_type];
+  const { pending } = tasks;
   return (
     <Form 
       className={`dashboard-sections ${windowSize}${loc.search.includes("overview") ? "" : " compact"}`} 

@@ -1,21 +1,21 @@
 import { useEffect, useState, memo } from "react"
-import { fetchData, formatCO2e, isObjectEmpty } from "../../../utils"
-import { useLoaderData, useLocation, useNavigate } from "react-router-dom"
-import DataTable from "../../DataTable"
+import { fetchData, formatCO2e } from "../../../utils"
+import { useLoaderData, useNavigate } from "react-router-dom"
+import DataTable from "../../DataTable";
+import "./FileViewer.css";
 
-export const FileViewer = memo(function SaviorData() {
-  const tableId = useLoaderData()
-  const nav = useNavigate()
-  const [ tableData, setTableData ] = useState([])
+ const FileViewer = memo(function SaviorData() {
+  const tableId = useLoaderData();
+  const nav = useNavigate();
+  const [ tableData, setTableData ] = useState([]);
 
   useEffect(() => {
     if (tableId && !tableData.length) {
-      fetchData(`saviors/files/${tableId}`, "GET", {}, {}, setTableData)
+      fetchData(`saviors/files/${tableId}`, "GET", {}, {}, setTableData);
     }
 
   }, [tableId])
 
-  console.log(tableData)
   return (
     <div className="file-viewer">
       <div className="content">
@@ -37,7 +37,7 @@ export const FileViewer = memo(function SaviorData() {
         className="file-logs"
         >
         { tableData.length ?
-        tableData.map(row => 
+        tableData.map(row => (
           <FileLog 
             key={row._id}
             name={row.name}
@@ -48,7 +48,7 @@ export const FileViewer = memo(function SaviorData() {
             activity={row.activity}
             co2e={row.co2e}
           />
-          )
+          ))
           : <span>this file has</span>}
       </DataTable>
       </div>
@@ -89,60 +89,4 @@ const FileLog = ({
   )
 }
 
-export const UploadedFiles = memo(function UploadedFiles() {
-  const [ files, setFiles ] = useState([])
-  const nav = useNavigate()
-
-  useEffect(() => {
-    if (isObjectEmpty(files)) {
-      fetchData("saviors/files", "GET", {}, {}, setFiles)
-    }
-  }, [])
-
-  useEffect(() => console.log(files, "files"), [files])
-
-  return (
-      <DataTable 
-        columns={["upload date", "filename", "size", "total CO2e calculation"]}
-        title={"uploaded files"}
-        className="files">
-        {files?.map(file => (
-          <UploadedFile 
-            key={file._id}
-            date={file.date}
-            filename={file._id}
-            size={file.size}
-            co2e={file.co2e}
-            needsProcessing={file.needs_processing}
-            nav={nav}
-          />
-          ))
-        } 
-      </DataTable>
-  )
-})
-
-const UploadedFile = ({ date, filename, size, co2e, needsProcessing, nav }) => {
-  const uploadDate = new Date(date).toLocaleDateString(
-    undefined, {month: "2-digit", year: "2-digit"}
-  )
-
-  return (
-    <div className={`row${needsProcessing ? " needs-processing" : ""}`} onClick={() => nav(`./${filename}`, {state: co2e})}>
-      <span>{uploadDate}</span>
-      <span>{filename || "fname"}</span>
-      <span>{size || "50 KB"}</span>
-      <span className="align-end">{formatCO2e(co2e).join(" ")}</span>
-      {needsProcessing && 
-      <>
-          <span 
-          className="material-symbols-rounded processing-notice align-end"
-          >
-            report
-        </span>
-        <span className="hover">this file is awaiting CO2e calculations</span>
-      </>
-      }
-    </div>
-  )
-}
+export default FileViewer

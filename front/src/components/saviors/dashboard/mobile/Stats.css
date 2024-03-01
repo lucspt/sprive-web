@@ -1,0 +1,68 @@
+main.small {
+  display: grid;
+  grid-template-rows: 1fr minmax(75px, 10%);
+  grid-template-areas: "main" "stats";
+}
+
+div.plot.stats {
+  background: var(--black);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-area: stats;
+}
+
+.plot.stats.small {
+  width: 96%;
+  padding: 5px 7px;
+  z-index: 1;
+  font-size: 0.89em;
+  grid-template-columns: 1fr;
+  border-radius: 7px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  max-height: 73px;
+  height: 100%;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  gap: 0;
+  /* position: absolute; */
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.stats-bg {
+  position: absolute;
+  padding: 45px 0;
+  width: 100%;
+  pointer-events: none;
+  opacity: 0.09;
+  animation: rainbow 10s infinite ease;
+  animation-delay: 20s;
+}
+
+.stats .long,
+.stats .half {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats .half div:last-child {
+  align-self: unset;
+}
+  
+.overview .stats .half div:last-child {
+  align-self: unset;
+}
+
+@media screen and (min-width: 600px) {
+  .plot.stats.small {
+    display: none;
+  }
+}
+
+@media screen and (min-height: 700px) {
+  .plot.stats.small {
+    font-size: .97em;
+  }
+}

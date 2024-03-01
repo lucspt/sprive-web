@@ -17,7 +17,7 @@ const reducer = (state, action) => {
 
 export default function Plots() {
 
-  const [ state, dispatch ] = useReducer(reducer, {})
+  const [ state, dispatch ] = useReducer(reducer, {});
 
   return (
     <div className="plots">

@@ -1,16 +1,15 @@
-import ValidatedInput from "../../ValidatedInput"
+import ValidatedInput from "../../../ValidatedInput"
 import { useEffect, useState } from "react"
 
 const ReformationPledgeForm = ({
   factor, 
   setChoosingFactor, 
   isRecurring, 
-  formRef,
   setFactor,
 }) => {
 
-  const [ reformationInfo, setReformationInfo ] = useState({activity: ""})
-  const [ step, setStep ] = useState(1)
+  const [ reformationInfo, setReformationInfo ] = useState({activity: ""});
+  const [ step, setStep ] = useState(1);
     
   const getInputNames = () => {
     return isRecurring 
@@ -19,23 +18,19 @@ const ReformationPledgeForm = ({
   }
 
   const setReformation = (name, value) => {
-    setReformationInfo(prev => {return {...prev, [name]: value}})
+    setReformationInfo(prev => {return {...prev, [name]: value}});
   }
 
   useEffect(() => {
     if (step === 2) {
-      setReformationInfo(prev => {return {...prev, ...factor}})
+      setReformationInfo(prev => {return {...prev, ...factor}});
     }
   }, [factor])
 
   const toStepThree = () => {
-    setFactor({activity: "", activity_unit_type: ""})
-    setStep(3)
+    setFactor({activity: "", activity_unit_type: ""});
+    setStep(3);
   }
-
-  useEffect(() => {console.log(reformationInfo, "REFORMATION")}, [reformationInfo])
-
-  useEffect(() => {console.log(factor, "FACTORRRR")}, [factor])
 
   return (
     <>

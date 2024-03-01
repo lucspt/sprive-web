@@ -2,7 +2,7 @@ import { formatCO2e } from "../utils";
 
 
 export default function CarbonDigit({ co2e }) {
-  const [ digit, metric ] = formatCO2e(co2e)
+  const [ digit, metric ] = formatCO2e(co2e);
 
   return (
     <div>

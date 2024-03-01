@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useLoaderData, useNavigate } from "react-router-dom"
 import ValidatedInput from "../../../ValidatedInput"
 import { fetchData } from "../../../../utils"
+import "./ProductCreator.css"
 
 export const productNamesFetcher = async () => {
   const res = await fetchData("/saviors/products/names");

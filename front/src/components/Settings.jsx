@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Settings() {
-  const { savior, logout } = useContext(SaviorContext)
-  const nav = useNavigate()
+  const { savior, logout } = useContext(SaviorContext);
+  const nav = useNavigate();
 
   return (
     <div>

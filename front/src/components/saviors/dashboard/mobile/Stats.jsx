@@ -3,10 +3,11 @@ import { memo, useContext, useEffect, useState } from "react"
 import { formatCO2e, isObjectEmpty, windowSize } from "../../../../utils"
 import { SaviorContext } from "../../../../contexts/SaviorContext"
 import { useLocation } from "react-router-dom"
+import "./Stats.css"
 
 
 const CO2eDigit = ({ co2e }) => {
-  const [ digit, metric ] = formatCO2e(co2e)
+  const [ digit, metric ] = formatCO2e(co2e);
 
   return (
     <>
@@ -16,33 +17,33 @@ const CO2eDigit = ({ co2e }) => {
   )
 }
 export const StatsPanel = memo(function StatsPanel({ pledges, emissions, fetchStats }) {
-  const [ stats, setStats ] = useState({})
-  const { getData, savior } = useContext(SaviorContext)
-  const { search } = useLocation()
-  const [ hide, setHide ] = useState(false)
+  const [ stats, setStats ] = useState({});
+  const { getData, savior } = useContext(SaviorContext);
+  const { search } = useLocation();
+  const [ hide, setHide ] = useState(false);
   useEffect(() => {
     if (search.includes("overview") && !hide) {
       setHide(true);
     } else if (hide) {
-      setHide(false)
+      setHide(false);
     }
   }, [search]) 
 
   useEffect(() => {
     if (hide) return;
     if (isObjectEmpty(savior)) {
-      setStats({})
+      setStats({});
     } else if (fetchStats && isObjectEmpty(stats)) {
         async function getStats() {
-          const response = await getData("stats")
-          setStats(response.content)
+          const response = await getData("stats");
+          setStats(response.content);
         }
-      getStats()
+      getStats();
     } else if (pledges && emissions) {
       setStats({
         "pledges": pledges,
         "emissions": emissions
-      })
+      });
     }
   }, [fetchStats, savior, stats])
 

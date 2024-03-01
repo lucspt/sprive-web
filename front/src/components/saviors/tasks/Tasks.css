@@ -1,0 +1,81 @@
+@media screen and (min-width: 600px) {
+
+  .tasks .status::before {
+    /* content: ""; */
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--soft-grey);
+
+  }
+
+  .tasks .status.complete {
+    background-color: var(--eco-great);
+  }
+
+  .tasks .status.progress {
+    background-color: var(--eco-neutral);
+  }
+
+  .create-task {
+    position: absolute;
+    height: 87%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    background: black;
+    inset: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .tasks-content .top-flex,
+  .tasks-content .todo-list {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .tasks-content .top-flex {
+    height: fit-content;
+    margin-bottom: 15px;
+  }
+
+  .tasks-content {
+    padding: 90px;
+    margin-top: 30px;
+  }
+
+  .tasks .cells .row:last-of-type,
+  .pledges .cells .row-wrapper:last-of-type,
+  .table.encased .row-wrapper:last-of-type {
+    border-bottom: none;
+  }
+
+  .tasks .content {
+    position: relative;
+  }
+
+  .tasks-content .headers span:last-child {
+    text-align: unset;
+  }
+
+  .tasks .content .create {
+    background-color: var(--soft-white);
+    width: 60px;
+    height: 20px;
+    justify-self: flex-end;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+  }
+
+  .table.tasks {
+    padding: 0;
+  }
+}

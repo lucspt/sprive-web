@@ -1,25 +1,24 @@
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
-import { redirect, useFetcher, useNavigate } from "react-router-dom"
-import { fetchData } from "../../../utils";
+import { useContext, useMemo, useRef, useState } from "react";
+import { redirect, useFetcher } from "react-router-dom"
+import { fetchData } from "../../../../utils";
 import KaizenPledgeForm from "./KaizenPledgeForm"
-import EmissionFactors from "../factors/EmissionFactors"
+import EmissionFactors from "../../factors/EmissionFactors"
 import ReformationPledgeForm from "./ReformationPledgeForm";
 import ZenithPledgeForm from "./ZenithPledgeForm"
-import { SaviorContext } from "../../../contexts/SaviorContext";
-
+import { SaviorContext } from "../../../../contexts/SaviorContext";
 
 export const createPledge = async ({ request }) => {
-  let formData = await request.formData()
-  formData = Object.fromEntries(formData)
-  formData.value = Number(formData.value)
-  formData.recurring = JSON.parse(formData.recurring)
-  const numberKeys = []
+  let formData = await request.formData();
+  formData = Object.fromEntries(formData);
+  formData.value = Number(formData.value);
+  formData.recurring = JSON.parse(formData.recurring);
+  const numberKeys = [];
   if (formData.recurring) {
-    numberKeys.push("frequency_value")
+    numberKeys.push("frequency_value");
   }
   if (formData.type === "reformation") {
-    numberKeys.push("_value")
-    numberKeys.map(x => numberKeys.push(`_${x}`))
+    numberKeys.push("_value");
+    numberKeys.map(x => numberKeys.push(`_${x}`));
   } 
   if (numberKeys) {
     numberKeys.map(x => {
@@ -28,44 +27,23 @@ export const createPledge = async ({ request }) => {
       }
     )
   }
-  const res = await fetchData("saviors/pledges", "POST", formData)
-  return redirect(`../${res.content}`)
+  const res = await fetchData("saviors/pledges", "POST", formData);
+  return redirect(`../${res.content}`);
 }
-
-export const SubmitBtn = ({ 
-  type="submit", 
-  onClick=() => null, 
-  text="initiate", 
-  disabled=false 
-}) => (
-    <div 
-      className="submit"
-      style={{ justifySelf: "flex-end" }} 
-    >
-      <button 
-        type={type}
-        onClick={onClick}
-        className="default-btn"
-        disabled={disabled}
-        >
-        {text}
-      </button>
-  </div>
-)
 
 const PledgeCreator = function PledgeCreator() {
 
-  const fetcher = useFetcher()
-  const [ pledgeType, setPledgeType ] = useState("")
-  const [ activity, setActivity ] = useState({activity: "", activity_unit_type: ""})
-  const [ choosingFactor, setChoosingFactor ] = useState(false)
-  const [ isRecurring, setIsRecurring ] = useState(false)
-  const formRef = useRef()
-  const { savior: { username } } = useContext(SaviorContext)
+  const fetcher = useFetcher();
+  const [ pledgeType, setPledgeType ] = useState("");
+  const [ activity, setActivity ] = useState({activity: "", activity_unit_type: ""});
+  const [ choosingFactor, setChoosingFactor ] = useState(false);
+  const [ isRecurring, setIsRecurring ] = useState(false);
+  const formRef = useRef();
+  const { savior: { username } } = useContext(SaviorContext);
 
 
   const forms = useMemo(() => {
-    const { activity: _activity } = activity
+    const { activity: _activity } = activity;
     return {
       "kaizen": <KaizenPledgeForm 
         activity={_activity} 
@@ -85,16 +63,9 @@ const PledgeCreator = function PledgeCreator() {
   }, [activity, choosingFactor, formRef, isRecurring])
 
   const getFactor = factor => {
-    setActivity(factor)
-    setChoosingFactor(false)
+    setActivity(factor);
+    setChoosingFactor(false);
   }
-
-  useEffect(() => {
-    console.log("fetcher here", fetcher.state, fetcher.data)
-    if (fetcher.state === "idle" && fetcher.data) {
-      console.log(fetcher.data, "fetcher data")
-    }
-  }, [fetcher])
 
   return (
     <div className="pledge-creator">

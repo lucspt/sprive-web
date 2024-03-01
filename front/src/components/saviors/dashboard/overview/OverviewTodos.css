@@ -1,0 +1,107 @@
+@media screen and (min-width: 600px) {
+
+  .todo-list .content {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .todo .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .todo {
+    max-height: 875px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    justify-self: center;
+    max-width: 1100px;
+  }
+
+  .todo .widget.heading {
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+  }
+
+  .todo .widget {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 40px;
+    flex-direction: column;
+    animation-duration: 0.1s;
+    animation-delay: 0s;
+    height: auto;
+    min-height: 13rem;
+    justify-content: unset;
+  }
+
+  .todo .list {
+    scrollbar-color: var(--baby-pink);
+    display: flex;
+    overflow: scroll;
+    flex-direction: column;
+    min-height: 100px;
+    width: 100%;
+    overflow: scroll;
+  }
+
+  .todo .labels {
+    border-bottom: var(--table-border);
+  }
+
+  .todo .item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    
+  }
+
+  .todo .item .indication {
+    width: fit-content;
+    padding: 0 10px;
+    border-color: currentColor;
+    background-color: transparent;
+    user-select: none;
+  }
+
+  .todo .indication::after {
+    background-color: currentColor;
+  }
+
+  .overview .todo-list {
+    display: none;
+    width: 80%;
+  }
+  
+  .overview .todo {
+    width: 100%;
+  }
+
+  .overview .todo-list {
+    display: unset;
+    justify-self: center;
+    min-width: 520px;
+  }
+  .overview .todo-list .content {
+    transition-timing-function: linear;
+    transition-duration: 0.23s;
+  }
+
+  .overview .todo-list .item:hover {
+    border-radius: 0px;
+    transform: unset;
+  }
+
+  .overview .todo-list .widget {
+    transition: border-radius 0.17s ease 0.3s;
+  }
+}

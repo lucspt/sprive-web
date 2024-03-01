@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
-import ValidatedInput from "../../ValidatedInput"
-import DropDownInput from "../../DropdownInput"
+import ValidatedInput from "../../../ValidatedInput"
+import DropDownInput from "../../../DropdownInput"
 
 export default function KaizenPledgeForm ({ 
   activity, 
@@ -8,22 +8,22 @@ export default function KaizenPledgeForm ({
   isRecurring, 
 }) {
 
-  const [ requiredInputs, setRequiredInputs ] = useState({})
+  const [ requiredInputs, setRequiredInputs ] = useState({});
 
   const setState = (e) => {
-    setRequiredInputs(prev => {return {...prev, [e.target.name]: e.target.value}})
+    setRequiredInputs(prev => {return {...prev, [e.target.name]: e.target.value}});
     // if (canInitiate())
   }
   useEffect(() => {
-    setRequiredInputs(prev => {return {...prev, "activity": activity}})
+    setRequiredInputs(prev => {return {...prev, "activity": activity}});
   }, [activity])
 
   const canInitiate =  useCallback(() => {
     const required = isRecurring ? 
     ["activity", "name", "description", "value", "unit", "frequency", "frequency_value"]
     : ["activity", "name", "description", "value", "unit"]
-    return required.every(x => requiredInputs[x])
-  }, [requiredInputs])
+    return required.every(x => requiredInputs[x]);
+  }, [requiredInputs]);
 
   return (
     <>

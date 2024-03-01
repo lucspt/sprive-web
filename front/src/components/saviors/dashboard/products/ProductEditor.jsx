@@ -1,22 +1,23 @@
 import { useReducer, useRef, useEffect, useState, useCallback } from "react"
 import EmissionFactors from "../../factors/EmissionFactors"
-import { useBeforeUnload, useFetcher, useLoaderData, useLocation, useNavigate } from "react-router-dom"
+import { useFetcher, useLoaderData, useLocation, useNavigate } from "react-router-dom"
 import { fetchData, formatCO2e } from "../../../../utils"
 import Visualization, { innerTextPlugin } from "../../../Visualization"
 import ValidatedInput from "../../../ValidatedInput"
+import "./ProductEditor.css"
 
 const objectsEqual = (newObj, oldObj) => {
-  return Object.keys(newObj).every(k => newObj[k] === oldObj[k])
+  return Object.keys(newObj).every(k => newObj[k] === oldObj[k]);
 }
 
 let pieCount = 0;
 const getPieChart = (stages) => {
   if (stages?.some(x => x.co2e)) {
     
-    const [ data, labels ] = [ [], [] ]
+    const [ data, labels ] = [ [], [] ];
     stages.map(x => {
       data.push(x.co2e);
-      labels.push(x.stage)
+      labels.push(x.stage);
     })
     pieCount++
     return {

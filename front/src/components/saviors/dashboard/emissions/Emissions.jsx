@@ -1,19 +1,20 @@
 import { memo, useState, useEffect, useCallback } from "react"
-import Visualization from "../../Visualization"
-import DataTable, { toggleRowDropdown } from "../../DataTable"
-import { innerTextPlugin } from "../../Visualization"
-import { fetchData, formatCO2e, formatRequest } from "../../../utils"
+import Visualization, { innerTextPlugin } from "../../../Visualization"
+import DataTable from "../../../DataTable"
+import { fetchData, formatRequest } from "../../../../utils"
+import Row from "./Row"
+import "./Emissions.css"
 
-const COLUMNS = ["name", "category", "activity", "value", "unit", "CO2e"]
+const COLUMNS = ["name", "category", "activity", "value", "unit", "CO2e"];
 const objToCsv = (data) => {
 
   let csvData = data.map(
     ({ activity, value, unit, co2e }) => [activity, value, unit, co2e].join(",")
-  ).join("\n")
+  ).join("\n");
 
-  csvData = [COLUMNS, csvData].join("\n")
+  csvData = [COLUMNS, csvData].join("\n");
 
-  return `data:text/csv;charset=utf-8, ${csvData}`
+  return `data:text/csv;charset=utf-8, ${csvData}`;
 }
 
 const Emissions = memo(function Emissions() {
@@ -22,9 +23,9 @@ const Emissions = memo(function Emissions() {
     return window.innerWidth <= 760 
       ? {"position": "bottom", "align": "center"} 
       : {"position": "left", "align": "start"}
-  }, [window.innerWidth])
+  }, [window.innerWidth]);
   
-  const [ data, setData ] = useState({})
+  const [ data, setData ] = useState({});
   
   useEffect(() => {
     
@@ -69,25 +70,24 @@ const Emissions = memo(function Emissions() {
         )
         return response.json()
       })
-    ])
-      return results
+    ]);
+      return results;
     }
     if (!data.length) {
       getData(Object.values(_AGGREGATIONS))
       .then(res => {
         let [ table, pieChart, barChart ] = res;
-        console.log(table, pieChart, barChart)
-        const { content: pieContent } = pieChart
-        const pieChartData = Array.from(pieContent, x => x.co2e)
+        const { content: pieContent } = pieChart;
+        const pieChartData = Array.from(pieContent, x => x.co2e);
         pieChart = {
           "labels": Array.from(pieContent, x => x._id),
           "data": pieChartData,
-        }
+        };
         setData({
           pieChart: pieChart,
           table: table.content,
           barChart: barChart.content.reverse()
-        })
+        });
       })
       }
 
@@ -100,17 +100,17 @@ const Emissions = memo(function Emissions() {
       }
       let currentYear;
       return barChart.map((x, i) => {
-        const { _id, _id: { month, year } } = x
+        const { _id, _id: { month, year } } = x;
         if (i !== 0 && month !== 12 && currentYear === year) {
-          return monthMappings[month]
+          return monthMappings[month];
         } else {
-          currentYear = year 
-          return year
+          currentYear = year ;
+          return year;
         }
       })
     }, [])
     
-  const { pieChart, table, barChart } = data
+  const { pieChart, table, barChart } = data;
   return table && (
     <div className="emissions">
       <div className="distribution">
@@ -194,49 +194,3 @@ const Emissions = memo(function Emissions() {
 })
 
 export default Emissions
-
-const Row = memo(({ rowData }) => {
-//   const date = new Date(
-//     rowData.created
-//   )
-//   const dateAbbreviation = date.toLocaleDateString(
-//     undefined, {month: "2-digit", year: "2-digit"}
-//   )
-//   const dateString = date.toDateString()
-
-  return (
-    <div className="row-wrapper white-hov"
-      onClick={toggleRowDropdown}>
-      <div className="row">
-        <span>{rowData.name}</span>
-        <span>{rowData.category}</span>
-        <span>{rowData.activity}</span>
-        <span>{rowData.value}</span>
-        <span>{rowData.unit}</span>
-        <span className="align-end">{formatCO2e(rowData.co2e).join(" ")}</span>
-        <span className="material-symbols-rounded align-end flip">
-          expand_more
-        </span>
-      </div>
-      <div className="dropdown">
-        <div className="insights">
-          <div className="info">
-            <span>data source:</span>
-            <span>{rowData.source_file.name}</span>
-          </div>
-          <div className="info">
-            <span>factor source:</span>
-            <span>{rowData.factor_source || "ecoinvent"}</span>
-          </div>
-        </div>
-        <div className="traceback">
-          <span>CO2e calculation:</span>
-          <div className="calculation">
-            <span>formula: value X factor = CO2e</span>
-            <span>{rowData.value} X {rowData.co2e / rowData.value} = {rowData.co2e}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-})

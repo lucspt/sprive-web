@@ -6,8 +6,8 @@ export const CardWidget = ({ title, infoDigit, infoMetric, style, co2e }) => {
   if (co2e) {
     ([ digit, metric ] = formatCO2e(co2e));
   } else {
-    digit = infoDigit
-    metric = infoMetric
+    digit = infoDigit;
+    metric = infoMetric;
   }
 
   return (

@@ -7,7 +7,7 @@ import DropdownInput from "./DropdownInput"
 
 export const P = ({}) => {
 
-  const nav = useNavigate()
+  const nav = useNavigate();
 
   return (
     <div className="tab data">

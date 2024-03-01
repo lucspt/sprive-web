@@ -1,12 +1,10 @@
-import { Link, NavLink, Route, useLocation, useNavigate } from "react-router-dom";
-import Branch from "./Branch";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, memo } from "react";
 import { SaviorContext } from "../../contexts/SaviorContext";
-import { getCookie, isObjectEmpty, windowSize } from "../../utils";
+import { windowSize } from "../../utils";
 
 const Branches = memo(function Branches() {
   const loc = useLocation()
-  const nav = useNavigate()
   const { isLoggedIn } = useContext(SaviorContext)
   
   

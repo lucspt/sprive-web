@@ -11,35 +11,37 @@ import EcoSystemProductCard, {
 } from './components/ecosystem/EcosystemProductCard'
 import Dashboard, {
   loader as dashboardLoader
-} from './components/saviors/Dashboard'
+} from './components/saviors/dashboard/Dashboard'
 import Settings from './components/Settings'
 import ProtectedRoutes from './components/saviors/ProtectedRoutes'
 import Plots from './components/saviors/Plots'
-import Data from './components/saviors/Data'
+import Data from './components/saviors/data/Data'
 import DataImporter from './components/saviors/data/DataImport'
 import EmissionFactors, { 
   loader as factorsLoader 
 } from './components/saviors/factors/EmissionFactors'
-import { UploadedFiles, FileViewer } from './components/saviors/data/SaviorFiles'
+import FileViewer from './components/saviors/data/FileViewer'
+import UploadedFiles from "./components/saviors/data/UploadedFiles"
 import Suppliers from "./components/saviors/dashboard/suppliers/Suppliers"
 import SuppliersMessenger, { 
   loader as suppliersMessengerLoader, action as messageSuppliers 
 } from './components/saviors/dashboard/suppliers/SuppliersMessenger'
 import { S, P, SPT, testSPT, _SPT } from './components/S'
 import TasksList, { 
-  configureTask,
   taskActions, 
-  TaskConfigurater
-} from './components/saviors/Tasks'
+} from './components/saviors/tasks/Tasks'
+import TaskConfigurator, { 
+  configureTask
+ } from './components/saviors/tasks/TaskConfigurator'
 import { Outlet, redirect } from 'react-router-dom'
 import { ProductCard, publishProduct } from './components/saviors/dashboard/products/ProductCard'
 import ProductCreator, { productNamesFetcher } from './components/saviors/dashboard/products/ProductCreator'
 import FileRequirements from './components/saviors/data/FileRequirements'
-import PledgeCreator, { createPledge } from "./components/saviors/pledges/PledgeCreator"
+import PledgeCreator, { createPledge } from "./components/saviors/dashboard/pledges/PledgeCreator"
 import ProductEditor, { productLoader } from './components/saviors/dashboard/products/ProductEditor'
 import FactorCreator, { action } from './components/saviors/factors/FactorCreator'
 import Error from './components/Error'
-import PledgeCard, { editPledge } from './components/saviors/pledges/PledgeCard'
+import PledgeCard, { editPledge } from './components/saviors/dashboard/pledges/PledgeCard'
 import PlotVisualizer from './components/saviors/data/PlotVisualizer'
 import Pitch, { 
   Advantages,
@@ -185,7 +187,7 @@ const routes = [
           },
           {
             path: "tasks/configure",
-            element: <TaskConfigurater />,
+            element: <TaskConfigurator />,
             action: configureTask
           },
           {

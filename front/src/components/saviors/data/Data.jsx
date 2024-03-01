@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { toggleRowDropdown } from "../DataTable";
+import "./Data.css";
 
 
 export default function Data() {
 
-  const pagesRef = useRef()
+  const pagesRef = useRef();
 
   return (
       <div className="data" style={{height: "100%", overflow: "scroll"}}>

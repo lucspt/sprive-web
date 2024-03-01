@@ -1,0 +1,51 @@
+@media screen and (min-width: 600px) {
+
+  .requirements {
+    max-width: 75%;
+    margin: 0 auto;
+  }
+
+  .requirements .row {
+    grid-template-columns: 17rem repeat(4, 1fr);
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .requirements .columns {
+    padding-left: 45px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .requirements .columns > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .requirements li li {
+    margin-top: 10px;
+  }
+
+  .requirements li > span {
+    color: var(--baby-blue);
+  }
+
+  .requirements a {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--baby-blue);
+  }
+
+  .requirements .back,
+  .upload .top button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .requirements .back span {
+    font-size: 28px;
+  }
+
+}

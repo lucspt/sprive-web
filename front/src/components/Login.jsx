@@ -3,12 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import { SaviorContext } from "../contexts/SaviorContext"
 
 export default function Login({ className="", title=null }) {
-  const nav = useNavigate()
-  const { state } = useLocation()
+  const nav = useNavigate();
+  const { state } = useLocation();
 
-  const [ isPartner, setIsPartner ] = useState(false)
-  const { login } = useContext(SaviorContext)
-  const [ error, setError ] = useState("")
+  const [ isPartner, setIsPartner ] = useState(false);
+  const { login } = useContext(SaviorContext);
+  const [ error, setError ] = useState("");
 
   return (
     <div className={`login${error ? " error" : ""} ${className}`}>

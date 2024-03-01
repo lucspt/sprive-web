@@ -1,14 +1,15 @@
 import { useEffect, memo, useContext, useMemo, useCallback, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import {  windowSize } from "../../utils"
-import { SaviorContext } from "../../contexts/SaviorContext";
+import {  windowSize } from "../../../utils"
+import { SaviorContext } from "../../../contexts/SaviorContext";
 import Pledges from "./pledges/Pledges";
-import Overview from "./dashboard/Overview";
-import MobileOverview from "./dashboard/mobile/Overview";
-import DashboardRouter from "./dashboard/DashboardRouter"
-import Products from "./dashboard/products/Products";
-import Suppliers from "./dashboard/suppliers/Suppliers";
-import Emissions from "./dashboard/Emissions";
+import Overview from "./overview/Overview";
+import MobileOverview from "./mobile/Overview";
+import DashboardRouter from "./DashboardRouter"
+import Products from "./products/Products";
+import Suppliers from "./suppliers/Suppliers";
+import Emissions from "./emissions/Emissions";
+import "./Dashboard.css"
 
 export const loader = async ({ request }) => {
   const url = new URL(request.url)
@@ -16,17 +17,16 @@ export const loader = async ({ request }) => {
   return section
 }
 
-
 const Dashboard = memo(function Dashboard() {
   
-  const { getData } = useContext(SaviorContext)
-  const [ data, setData ] = useState({})
-  const currentSection = useLoaderData()
+  const { getData } = useContext(SaviorContext);
+  const [ data, setData ] = useState({});
+  const currentSection = useLoaderData();
   
   const getDashboard = useCallback(async dashboard => {
-    const response = await getData(dashboard)
-    setData({...response, "currentSection": dashboard})
-  }, [data.data_type])
+    const response = await getData(dashboard);
+    setData({...response, "currentSection": dashboard});
+  }, [data.data_type]);
   
   useEffect(() => {
     if (currentSection !== data.data_type) {
@@ -34,12 +34,12 @@ const Dashboard = memo(function Dashboard() {
         setData({"currentSection": "emissions"});
         return 
       }
-      getDashboard(currentSection)
+      getDashboard(currentSection);
     }
   }, [currentSection])
 
   const componentMappings = useMemo(() => {
-    const content = data.content
+    const content = data.content;
     const mappings = windowSize !== "small" ? {
       "overview":  <Overview content={content}/>,
       "emissions": <Emissions content={content}/>,
@@ -50,7 +50,7 @@ const Dashboard = memo(function Dashboard() {
       "overview": <MobileOverview content={content} />
     }
     return mappings
-  }, [data, currentSection])
+  }, [data, currentSection]);
 
 
   return (

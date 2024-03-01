@@ -1,29 +1,14 @@
-import { NavLink, Route, useLocation, useNavigate } from "react-router-dom";
-import Branch from "./Branch";
+import {  useNavigate } from "react-router-dom";
+import RouteButton from "./RouteButton"
 import { useContext, memo } from "react";
 import { SaviorContext } from "../../contexts/SaviorContext";
 import { isObjectEmpty, windowSize } from "../../utils";
 
 const Branches = memo(function Branches() {
-  const loc = useLocation()
   const nav = useNavigate()
-  const { savior, logout } = useContext(SaviorContext)
+  const { savior } = useContext(SaviorContext)
   const isLoggedIn = !isObjectEmpty(savior)
   
-  
-  const RouteButton = ({ route, navRoute, icon }) => {
-    // const routeButton = <button className="focus" onClick={() => nav(navRoute)}>{route}</button>
-    const RouteElem = ({ children }) => <NavLink to={navRoute}>{route}{children}</NavLink>
-    if (windowSize !== "small") {
-      return <RouteElem />
-    } else {
-      return (
-        <RouteElem>
-          <span className="material-symbols-rounded">{icon}</span>
-        </RouteElem>
-      )
-    }
-  }
 
   return (
     <div className={`branches ${windowSize}`}>

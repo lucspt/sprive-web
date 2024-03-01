@@ -1,4 +1,4 @@
-import Visualization from "../../Visualization"
+;import Visualization from "../../Visualization"
 import { mockEmissions, mockPledges, mockPledgesLabels } from "../../../mock"
 import { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
@@ -6,8 +6,8 @@ import { formatRequest } from "../../../utils"
 
 export default function DataVis() {
 
-  const [ data, setData ] = useState({})
-  const nav = useNavigate()
+  const [ data, setData ] = useState({});
+  const nav = useNavigate();
 
   useEffect(() => {
     const _AGGREGATIONS = {
@@ -27,18 +27,16 @@ export default function DataVis() {
       "http://localhost:8000/saviors/data", 
       formatRequest("POST", _AGGREGATIONS["pieChart"])
     )
-    const res = await response.json()
-    console.log(res)
-    const content = res.content
+    const res = await response.json();
+    const content = res.content;
     setData({
       "labels": Array.from(content, (x) => x._id),
       "datasets": Array.from(content, (x) => x.co2e)
-    })
+    });
   }
-  getData()
+  getData();
   }, [])
 
-  useEffect(() => console.log(data), [data])
   return (
     data.datasets && (
       <div className="content">

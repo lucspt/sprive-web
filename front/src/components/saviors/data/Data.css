@@ -1,0 +1,131 @@
+@media screen and (min-width: 600px) {
+
+  .data .file-insert {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: unset;
+    opacity: 0;
+    height: 100%;
+    pointer-events: all;
+  }
+
+  .savior-data .top-flex {
+    margin-right: 30px;
+  }
+
+  .savior-data .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+
+  .quick-actions.widget {
+    height: 400px;
+    width: 450px;
+  }
+
+  .quick-actions .actions-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .quick-actions .action {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .quick-actions button {
+    font-size: var(--fontsize-sm);
+    width: fit-content;
+  }
+
+
+  .data-routes {
+    height: fit-content;
+    width: fit-content;
+    z-index: 1;
+    position: absolute;
+    top: 30px;
+    right: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .data-routes span {
+    font-size: 30px;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .data-routes a {
+    align-items: center;
+  }
+
+  .data-routes a:hover span {
+    color: var(--baby-pink)
+  }
+
+
+  .data-routes a:hover {
+    color: var(--white);
+  }
+
+  .data-routes .pages {
+    transition: height 0.17s ease, 
+                background-color 0.2s ease,
+                border-radius 0.17s ease 0.1s;
+    display: grid;
+    position: absolute;
+    height: 0%;
+    justify-content: center;
+    background-color: var(--deep-navy);
+    align-items: center;
+    top: 37px;
+    outline: none;
+  }
+
+  .data-routes:focus  .pages,
+  .data-routes:active .pages,
+  .data-routes:focus-within .pages {
+    grid-template-rows: repeat(3, 25px);
+    height: calc(40px * 4);
+    /* width: 15vw; */
+    z-index: 1;
+    padding: 20px;
+    border-radius: 20px;
+    justify-content: space-evenly;
+    text-wrap: nowrap;
+    gap: 20px;
+    font-size: var(--fontsize-sm);
+  }
+
+  .data-routes .page {
+    gap: 10px;
+    visibility: hidden;
+    display: flex;
+  }
+
+  .pages a {
+    font-variation-settings: none;
+  }
+
+  .data-routes:focus .page,
+  .data-routes:active .page,
+  .data-routes:focus-within .page,
+  .data-routes:focus-visible .page {
+    opacity: 1;
+    visibility: visible;
+    height: 25px;
+  }
+}

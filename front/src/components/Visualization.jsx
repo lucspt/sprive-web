@@ -1,4 +1,4 @@
-import { useEffect, memo, useState } from "react";
+;import { useEffect, memo, useState } from "react";
 import { Chart } from "chart.js/auto"
 import { formatCO2e } from "../utils";
 
@@ -27,42 +27,42 @@ const _colors = [
   "#4F6F52",
 ]
 
-let defaultbackgroundColor = "#0d3043"
-defaultbackgroundColor = "#0d3043" 
-defaultbackgroundColor = "transparent"
+let defaultbackgroundColor = "#0d3043";
+defaultbackgroundColor = "#0d3043" ;
+defaultbackgroundColor = "transparent";
 
-const defaults = Chart.defaults
-defaults.borderColor = "#181b1f"
-defaults.font.family = "monospace"
-defaults.color = "#eeeeee"
-defaults.elements.arc.borderWidth = 0
-defaults.plugins.title.font = {"weight": "normal", "size": 14, "family": "monospace"}
-defaults.plugins.title.padding = {"bottom": 20}
-defaults.plugins.tooltip.boxPadding = 4
+const defaults = Chart.defaults;
+defaults.borderColor = "#181b1f";
+defaults.font.family = "monospace";
+defaults.color = "#eeeeee";
+defaults.elements.arc.borderWidth = 0;
+defaults.plugins.title.font = {"weight": "normal", "size": 14, "family": "monospace"};
+defaults.plugins.title.padding = {"bottom": 20};
+defaults.plugins.tooltip.boxPadding = 4;
 
-let doughutOverrides = Chart.overrides.doughnut
-doughutOverrides.cutout = "73%"
-doughutOverrides = doughutOverrides.plugins.legend.labels
-doughutOverrides.boxWidth = 20
-doughutOverrides.boxHeight = 20
-doughutOverrides.padding = 20
+let doughutOverrides = Chart.overrides.doughnut;
+doughutOverrides.cutout = "73%";
+doughutOverrides = doughutOverrides.plugins.legend.labels;
+doughutOverrides.boxWidth = 20;
+doughutOverrides.boxHeight = 20;
+doughutOverrides.padding = 20;
 
 export const innerTextPlugin = {
   id: "innerText",
   afterDatasetDraw(chart, args, options) {
     const { ctx } = chart;
-    const meta = args.meta
-    const xCoor = meta.data[0].x
-    const yCoor = meta.data[0].y
-    const co2e = meta.total
-    ctx.save()
-    ctx.textAlign = "center"
-    ctx.textBaseline = "middle"
-    ctx.verticalAlign = "end"
-    ctx.font = "1.3em monospace"
-    ctx.fillStyle = "#fff"
-    ctx.fillText(formatCO2e(co2e).join(" "), xCoor, yCoor)
-    ctx.restore()
+    const meta = args.meta;
+    const xCoor = meta.data[0].x;
+    const yCoor = meta.data[0].y;
+    const co2e = meta.total;
+    ctx.save();
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.verticalAlign = "end";
+    ctx.font = "1.3em monospace";
+    ctx.fillStyle = "#fff";
+    ctx.fillText(formatCO2e(co2e).join(" "), xCoor, yCoor);
+    ctx.restore();
   }
 }
 
@@ -78,7 +78,7 @@ const backgroundColorPlugin = {
   }
 }
 
-Chart.register(backgroundColorPlugin)
+Chart.register(backgroundColorPlugin);
 
 const Visualization = memo(function Visualization({ 
   type,
@@ -94,7 +94,7 @@ const Visualization = memo(function Visualization({
   datasetsColors=null,
   ariaLabel
 }) {
-  const [ _chart, setChart ] = useState(null)
+  const [ _chart, setChart ] = useState(null);
 
   useEffect(() => {
     const visOptions = {
@@ -116,11 +116,11 @@ const Visualization = memo(function Visualization({
         },
       }
 
-    for (let [k, v] of Object.entries(options)) visOptions[k] = { ...visOptions[k], ...v }
+    for (let [k, v] of Object.entries(options)) visOptions[k] = { ...visOptions[k], ...v };
     let chart;
     if (chart) chart.destroy();
-    const _datasetsColors = datasetsColors || _colors
-    datasets.forEach(x => x.backgroundColor = _datasetsColors)
+    const _datasetsColors = datasetsColors || _colors;
+    datasets.forEach(x => x.backgroundColor = _datasetsColors);
     chart = new Chart(
         id, {
           type: type,
@@ -131,8 +131,8 @@ const Visualization = memo(function Visualization({
           options: visOptions,
           plugins: [backgroundColorPlugin, ...plugins]
         }
-        )
-    setChart(chart)
+        );
+    setChart(chart);
     return () => {
       if (chart) {
         chart.destroy();

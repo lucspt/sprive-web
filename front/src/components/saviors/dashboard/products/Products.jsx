@@ -2,10 +2,11 @@ import { memo, useEffect, useState } from "react"
 import { fetchData, formatCO2e, isObjectEmpty } from "../../../../utils"
 import { useNavigate } from "react-router-dom"
 import DataTable, { ViewAsTable } from "../../../DataTable"
+import "./Products.css"
 
 const Products = memo(function Products({ products: _products }) {
-  const [ products, setProducts ] = useState([])
-  const nav = useNavigate()
+  const [ products, setProducts ] = useState([]);
+  const nav = useNavigate();
   const [ viewAsTable, setViewAsTable ] = useState(
     JSON.parse(localStorage.getItem("prefersTableView")) || false
   )
@@ -13,15 +14,15 @@ const Products = memo(function Products({ products: _products }) {
   useEffect(() => {
     if (isObjectEmpty(products)) {
       if (isObjectEmpty(_products)) {
-        fetchData("saviors/products", "GET", {}, {}, setProducts)
+        fetchData("saviors/products", "GET", {}, {}, setProducts);
       } else {
-        setProducts(_products)
+        setProducts(_products);
       }
     }
-  }, [_products])
+  }, [_products]);
 
 
-  useEffect(() => console.log(viewAsTable), [viewAsTable])
+  useEffect(() => console.log(viewAsTable), [viewAsTable]);
 
   return (
     <div className="content"

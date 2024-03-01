@@ -1,4 +1,5 @@
 import { memo, useCallback, useEffect, useRef, useState } from "react"
+import "./DropdownInput.css"
 
 const DropDownInput = memo(({ 
   values,
@@ -17,62 +18,62 @@ const DropDownInput = memo(({
   style={},
  }) => {
 
-  const [ list, setList ] = useState([])
-  const [ inputVal, setInputVal ] = useState("")
-  const [ currentHover, setCurrentHover ] = useState(-1)
-  const [ isFocused, setIsFocused ] = useState(false)
+  const [ list, setList ] = useState([]);
+  const [ inputVal, setInputVal ] = useState("");
+  const [ currentHover, setCurrentHover ] = useState(-1);
+  const [ isFocused, setIsFocused ] = useState(false);
   const listRef = useRef();
   const submitForm = useRef();
 
   useEffect(() => {
-    if (values && ( list && !list.length)) setList(values)
+    if (values && ( list && !list.length)) setList(values);
   }, [values])
 
   useEffect(() => {
     if (initialValue && inputVal !== initialValue) {
-      setInputVal(initialValue)
-      onValid && onValid(initialValue)
+      setInputVal(initialValue);
+      onValid && onValid(initialValue);
     }
   }, [initialValue])
 
   const filter = useCallback(() => {
-      return values.filter(x => x.includes(inputVal))
+      return values.filter(x => x.includes(inputVal));
   }, [inputVal])
 
   useEffect(() => {
     if (!values) return;
-    const filters = filter()
-    setList(filters)
+    const filters = filter();
+    setList(filters);
   }, [inputVal])
 
-  const getElem = index => document.getElementById(`${id}-${index}`)
+  const getElem = index => document.getElementById(`${id}-${index}`);
 
   const click = () => {
     if (currentHover === -1) return;
     const elem = document.getElementById(`${id}-${currentHover}`)
-    elem.click()
-    const newVal = list[currentHover]
-    setInputVal(newVal)
-    onValid && onValid(newVal)
+    elem.click();
+    const newVal = list[currentHover];
+    setInputVal(newVal);
+    onValid && onValid(newVal);
     elem.blur();
   }
   
   const shouldScrollDown = elem => {
-    return elem.offsetTop + elem.clientHeight > listRef.current.scrollTop + listRef.current.clientHeight
+    return elem.offsetTop + elem.clientHeight > listRef.current.scrollTop + listRef.current.clientHeight;
   }
 
   const shouldScrollUp = elem => {
-    return elem.offsetTop < listRef.current.scrollTop
+    return elem.offsetTop < listRef.current.scrollTop;
   }
 
-  const isValid = useCallback(() => [...list, inputVal].some(x => x === inputVal), [inputVal, list])
+  const isValid = useCallback(() => [...list, inputVal].some(x => x === inputVal), [inputVal, list]);
 
   useEffect(() => {
     if (onValid && isValid()) {
-        onValid(inputVal)
+        onValid(inputVal);
     }
     if (onInvalid && !isValid()) {
-      onInvalid()
+      onInvalid();
     }
   }, [inputVal])
 
@@ -80,30 +81,30 @@ const DropDownInput = memo(({
     if (e.key === "ArrowDown" && list.length) {
       setCurrentHover(prev => {
         if (prev === list.length - 1) {
-          getElem(0).scrollIntoView()
-          return 0
+          getElem(0).scrollIntoView();
+          return 0;
         } else {
           const elem = getElem(prev + 1)
           if (shouldScrollDown(elem)) {
-            console.log("scrolling")
-            elem.scrollIntoView(true)
+            console.log("scrolling");
+            elem.scrollIntoView(true);
           }
-          return prev + 1
+          return prev + 1;
         }
       })
     } else if (e.key === "ArrowUp" && list.length) {
       setCurrentHover(prev => {
         if (prev <= 0) {
-          const lastIndex = list.length - 1 
-          const elem = getElem(lastIndex)
-          elem.scrollIntoView()
-          return lastIndex
+          const lastIndex = list.length - 1 ;
+          const elem = getElem(lastIndex);
+          elem.scrollIntoView();
+          return lastIndex;
         } else {
           const elem = getElem(prev - 1)
           if (shouldScrollUp(elem)) {
-            elem.scrollIntoView(true)
+            elem.scrollIntoView(true);
           }
-          return prev - 1
+          return prev - 1;
         }
       })
     } else if (e.key === "Enter") {
@@ -114,12 +115,12 @@ const DropDownInput = memo(({
   }
 
   const _onChange = e => {
-    const val = e.target.value 
+    const val = e.target.value ;
     if (val === "" && submitOnEmpty) {
       submitForm.current.click();
     }
-    setInputVal(val)
-    onChange && onChange(val)
+    setInputVal(val);
+    onChange && onChange(val);
   }
 
   return values && (

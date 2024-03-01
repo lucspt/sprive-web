@@ -1,35 +1,35 @@
 import { useFetcher, useLoaderData, useNavigate } from "react-router-dom";
-import { fetchData, isObjectEmpty } from "../../../../utils";
+import { fetchData } from "../../../../utils";
 import { useEffect, useState } from "react";
 
 export const loader = async ({ params }) => {
-    return params.ids.split("&")
+    return params.ids.split("&");
 }
 
 export const action = async ({ request }) => {
-  let formData = await request.formData()
-  formData = Object.fromEntries(formData)
-  console.log(formData)
-  return null
+  let formData = await request.formData();
+  formData = Object.fromEntries(formData);
+  console.log(formData);
+  return null;
 }
 
 export default function SuppliersMessenger() {
-  const suppliers = useLoaderData()
-  const [ suppliersData, setSuppliersData ] = useState([])
-  const fetcher = useFetcher()
-  const nav = useNavigate()
+  const suppliers = useLoaderData();
+  const [ suppliersData, setSuppliersData ] = useState([]);
+  const fetcher = useFetcher();
+  const nav = useNavigate();
 
   useEffect(() => {
     if (!suppliersData.length) {
       Promise.all(suppliers.map(id => (
         fetchData(`saviors/suppliers/${id}`)
-      ))).then(res => setSuppliersData(Array.from(res, x => x.content)))
+      ))).then(res => setSuppliersData(Array.from(res, x => x.content)));
     }
-  }, [suppliers])
+  }, [suppliers]);
 
-  useEffect(() => {console.log(suppliersData)}, [suppliersData])
+  useEffect(() => {console.log(suppliersData)}, [suppliersData]);
   
-  const emails = Array.from(suppliersData, x => ` ${x.email}`)
+  const emails = Array.from(suppliersData, x => ` ${x.email}`);
   return (
     <div style={{ height: "100%", padding: "40px" }}>
       <button onClick={() => nav(-1)} className="pink-hov">

@@ -2,8 +2,8 @@ import { useLocation, useNavigate } from "react-router-dom"
 
 
 export default function FileRequirements() {
-  const nav = useNavigate()
-  const { state } = useLocation()
+  const nav = useNavigate();
+  const { state } = useLocation();
 
   return (
     <>

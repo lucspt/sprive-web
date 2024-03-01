@@ -1,28 +1,22 @@
-import { useCallback, useRef, useState } from "react"
+import { useCallback, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { allowHeaders, getCookie } from "../../../utils"
-
-
-function reducer(state, action)  {
-  switch(action.type) {
-
-  }
-}
+import "./DataImport.css"
 
 const ACCEPTED_FILES = [
   ".csv",
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "application/vnd.ms-excel",
-].join(", ")
+].join(", ");
 
 export default function DataImporter() {
-  const nav = useNavigate()
-  const fileInput = useRef()
+  const nav = useNavigate();
+  const fileInput = useRef();
 
   const uploadData = useCallback(async (e) => {
-    const formData = new FormData()
-    formData.append("file[]", e.target.files[0])
-    console.log(e.target.files[0])
+    const formData = new FormData();
+    formData.append("file[]", e.target.files[0]);
+    console.log(e.target.files[0]);
     let response = await fetch(
       "http://localhost:8000/saviors/files", {
         method: "POST",
@@ -36,13 +30,14 @@ export default function DataImporter() {
         body: formData,
         credentials: "include",
       }
-    )
-    response = await response.json()
+    );
+    response = await response.json();
     if (response.ok) {
-      nav(`../tables/${response.content.filename}`)
+      nav(`../tables/${response.content.filename}`);
     }
 
-  }, [])
+  }, []);
+  
   return (
     <div className="upload">
       <div className="content" style={{height: "100%"}}>

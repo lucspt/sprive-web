@@ -4,6 +4,7 @@ import { useEffect, useState, memo } from "react"
 import { isObjectEmpty, fetchData, formatCO2e } from "../../../../utils"
 import ValidatedInput from "../../../ValidatedInput"
 import DropdownInput from "../.../../../../DropdownInput"
+import "./ProductCard.css"
 
 
 const aggregationRequests = (id) => {
@@ -34,9 +35,9 @@ const aggregationRequests = (id) => {
 }
 
 export const publishProduct = async ({ request }) => {
-  let formData = await request.formData()
-  formData = Object.fromEntries(formData)
-  console.log(formData, "FORMDATAAAA")
+  let formData = await request.formData();
+  formData = Object.fromEntries(formData);
+  console.log(formData, "FORMDATAAAA");
   return null;
   // fetchData("saviors/factors", "POST", formData)
 }
@@ -53,8 +54,8 @@ const Widget = ({
 
   let digit, metric;
   if (infoMetric) {
-    digit = infoDigit
-    metric = infoMetric
+    digit = infoDigit;
+    metric = infoMetric;
   } else {
     ([ digit, metric ] = formatCO2e(infoDigit));
   }
