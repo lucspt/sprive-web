@@ -33,7 +33,7 @@ import TasksList, {
 } from './components/saviors/Tasks'
 import { Outlet, redirect } from 'react-router-dom'
 import { ProductCard, publishProduct } from './components/saviors/dashboard/products/ProductCard'
-import ProductCreator from './components/saviors/dashboard/products/ProductCreator'
+import ProductCreator, { productNamesFetcher } from './components/saviors/dashboard/products/ProductCreator'
 import FileRequirements from './components/saviors/data/FileRequirements'
 import PledgeCreator, { createPledge } from "./components/saviors/pledges/PledgeCreator"
 import ProductEditor, { productLoader } from './components/saviors/dashboard/products/ProductEditor'
@@ -230,7 +230,7 @@ const routes = [
               {
                 path: "create",
                 element: <ProductCreator />,
-                loader: factorsLoader,
+                loader: productNamesFetcher
               },
               {
                 path: ":productId",

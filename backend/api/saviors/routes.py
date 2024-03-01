@@ -175,7 +175,8 @@ def supplier(savior: Partner, id: str) -> Response:
 @savior_route
 def products(savior: Partner) -> Response:
     """The product stages can get bulky, so even though we are duplicating data, 
-    we have chosen to use references to savior_id instead of embedding documents"""
+    we have chosen to use references to savior_id instead of embedding documents
+    """
     try:
         method = request.method 
         if method == "GET":
@@ -187,13 +188,30 @@ def products(savior: Partner) -> Response:
             insert = savior._get_insert(product_info)
             response = savior.db.products.insert_one(insert).inserted_id
         elif method == "PUT":
+            """for when a product is first created, and has no stages yet, 
+            we use this endpoint to verify a unique name and on success get an id
+            this allows it to be 'lazily' created
+            """
             response = ObjectId() 
-            # for when a product is been created, and has no stages yet, 
-            # we use this endpoint to get an id
         status = 200 
     except Exception as e:
         response, status = e, 400
     return send(content=response, status=status)
+
+@bp.get("/products/names")
+@savior_route
+def product_names(savior: Partner):
+    """Get distinct product names. 
+    This is used to verify a product name is unique when creating one
+    """
+    print(savior.db.products.distinct(
+            "name", {"savior_id": savior.savior_id}
+        ), "distinct")
+    return send(
+        status=200, content=savior.db.products.distinct(
+            "name", {"savior_id": savior.savior_id}
+        )
+    )
 
 @bp.route("/products/<string:id>", methods=["GET", "DELETE", "PATCH"])
 @savior_route

@@ -3214,6 +3214,15 @@ form.dashboard-sections.small > button {
     width: 100%;
   }
 
+  .product-creator .invalid-name {
+    margin: 0;
+    color: var(--eco-danger);
+    text-wrap: nowrap;
+    left: -30px;
+    position: absolute;
+    top: -20px;
+  }
+
   .product-editor {
     height: 100%;
   }
