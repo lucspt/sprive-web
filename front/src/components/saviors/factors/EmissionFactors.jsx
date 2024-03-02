@@ -2,11 +2,11 @@ import DataTable  from "../../DataTable"
 import {  useFetcher, useLocation, useNavigate } from "react-router-dom"
 import { fetchData } from "../../../utils"
 import { memo, useCallback, useContext, useEffect, useRef, useState } from "react"
-import { SaviorContext } from "../../../contexts/SaviorContext"
-import FileMapper from "./FileMapper"
-import DropdownInput from "../../DropdownInput"
-import FactorRow from "./FactorRow"
-import "./EmissionFactors.css"
+import { SaviorContext } from "../../../contexts/SaviorContext";
+import FileMapper from "./FileMapper";
+import DropdownInput from "../../DropdownInput";
+import FactorRow from "./FactorRow";
+import "./EmissionFactors.css";
 
 export const loader = async ({ request }) => {
   const req = request.url.split("?").slice(1).at(0)

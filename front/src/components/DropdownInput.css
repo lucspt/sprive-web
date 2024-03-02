@@ -8,20 +8,13 @@
   position: relative;
 }
 
-.datalist label, .datalist input {
-  color: var(--soft-white);
-}
-
 .datalist .list {
   opacity: 0;
   animation: none;
   visibility: hidden;
   z-index: 2;
-  /* grid-template-rows: repeat(auto-fit, minmax(32px, 42px)); */
   display: grid;
   position: absolute;
-  /* scroll-padding-top: 4px;
-  scroll-padding-bottom: 4px; */
   overflow-y: scroll;
   background: var(--white);
   max-height: calc(42px * 7);

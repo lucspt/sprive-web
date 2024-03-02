@@ -22,6 +22,9 @@
     gap: 20px;
   }
 
+  .data.tab .content {
+    padding: 60px
+  }
 
   .quick-actions.widget {
     height: 400px;

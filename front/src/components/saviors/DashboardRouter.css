@@ -1,0 +1,119 @@
+.dashboard-sections {
+  padding: 30px 20px 0 20px;
+}
+
+.dashboard-sections .section.active {
+  color: var(--white);
+  cursor: default;
+}
+
+div.dashboard-sections.small > button {
+  position: absolute;
+} 
+
+.dashboard-sections.small .heading a,
+.dashboard-sections.small .buttons {
+  display: none;
+}
+
+.dashboard-sections.small {
+  display: none;
+}
+
+.dashboard-sections.small .heading {
+  padding: 15px 15px 0px 15px;
+}
+
+
+@media screen and (min-width: 600px) { 
+  .dashboard-sections {
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+    transition: transform ease 0.5s, 
+                padding 0.17s ease;
+    width: 100%;
+    margin-top: 40px;
+    justify-self: center;
+    animation: slideInYAxis 0.3s ease-out forwards;
+    transform: translateY(-100px);
+  }
+
+  .dashboard-sections.compact .heading {
+    display: none;
+  }
+
+  .dashboard-sections .heading a,
+  .dashboard-sections .heading {
+    animation: fadeIn 1s ease 0.17s forwards;
+    opacity: 0;
+  }
+
+  .dashboard-sections.compact {
+    padding: 0;
+    min-height: unset;
+    background-color: transparent;
+  }
+
+  .dashboard-sections button {
+    cursor: pointer;
+    color: var(--soft-grey);
+    transition: color 0.3s ease;
+  }
+
+  .dashboard-sections button:hover,
+  .dashboard-sections svg:hover {
+    color: var(--white);
+  }
+
+
+  .dashboard-sections {
+    background: var(--black);
+    border-radius: 10px;
+    align-items: flex-end;
+  }
+
+  .dashboard-sections .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .dashboard-sections .heading {
+    align-self: flex-start;
+    text-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
+    height: 75%;
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (min-height: 800px) {
+  .dashboard-sections.small {
+    display: unset;
+    padding: 30px 20px 0 20px;
+  }
+  
+}
+
+@media screen and (min-width: 700px) {
+  .dashboard-sections {
+    flex-direction: column;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  div.dashboard-sections {
+    min-width: unset;
+    max-width: 1140px;
+    flex-direction: unset;
+  }
+
+  div.dashboard-sections.small > button {
+    position: absolute;
+  } 
+  
+}

@@ -1,48 +1,47 @@
-import Root from './Root'
-import Shop from './components/Shop'
-import Login from './components/Login'
-import AccountCreator, { createAccount } from "./components/AccountCreator"
-import Ecosystem, { loader as ecosystemLoader } from './components/ecosystem/Ecosystem'
+import Root from './Root';
+import Shop from './components/Shop';
+import Login from './components/Login';
+import AccountCreator, { createAccount } from "./components/AccountCreator";
+import Ecosystem, { loader as ecosystemLoader } from './components/ecosystem/Ecosystem';
 import PartnerCard, { 
   loader as partnerLoader, likePledge
-} from "./components/ecosystem/PartnerCard"
+} from "./components/ecosystem/PartnerCard";
 import EcoSystemProductCard, {
   loadProduct as ecosystemProductLoader, productActions
-} from './components/ecosystem/EcosystemProductCard'
-import Dashboard, {
-  loader as dashboardLoader
-} from './components/saviors/dashboard/Dashboard'
-import Settings from './components/Settings'
-import ProtectedRoutes from './components/saviors/ProtectedRoutes'
-import Plots from './components/saviors/Plots'
-import Data from './components/saviors/data/Data'
-import DataImporter from './components/saviors/data/DataImport'
+} from './components/ecosystem/EcosystemProductCard';
+import Settings from './components/Settings';
+import SaviorRoutes from './components/saviors/SaviorRoutes';
+import Plots from './components/saviors/Plots';
+import Data from './components/saviors/data/Data';
+import DataImporter from './components/saviors/data/DataImport';
 import EmissionFactors, { 
   loader as factorsLoader 
-} from './components/saviors/factors/EmissionFactors'
-import FileViewer from './components/saviors/data/FileViewer'
-import UploadedFiles from "./components/saviors/data/UploadedFiles"
-import Suppliers from "./components/saviors/dashboard/suppliers/Suppliers"
+} from './components/saviors/factors/EmissionFactors';
+import FileViewer from './components/saviors/data/FileViewer';
+import UploadedFiles from "./components/saviors/data/UploadedFiles";
+import Suppliers from "./components/saviors/suppliers/Suppliers";
 import SuppliersMessenger, { 
   loader as suppliersMessengerLoader, action as messageSuppliers 
-} from './components/saviors/dashboard/suppliers/SuppliersMessenger'
-import { S, P, SPT, testSPT, _SPT } from './components/S'
+} from './components/saviors/suppliers/SuppliersMessenger';
+import { S, P, SPT, testSPT, _SPT } from './components/S';
 import TasksList, { 
   taskActions, 
-} from './components/saviors/tasks/Tasks'
+} from './components/saviors/tasks/Tasks';
 import TaskConfigurator, { 
   configureTask
- } from './components/saviors/tasks/TaskConfigurator'
-import { Outlet, redirect } from 'react-router-dom'
-import { ProductCard, publishProduct } from './components/saviors/dashboard/products/ProductCard'
-import ProductCreator, { productNamesFetcher } from './components/saviors/dashboard/products/ProductCreator'
-import FileRequirements from './components/saviors/data/FileRequirements'
-import PledgeCreator, { createPledge } from "./components/saviors/dashboard/pledges/PledgeCreator"
-import ProductEditor, { productLoader } from './components/saviors/dashboard/products/ProductEditor'
-import FactorCreator, { action } from './components/saviors/factors/FactorCreator'
-import Error from './components/Error'
-import PledgeCard, { editPledge } from './components/saviors/dashboard/pledges/PledgeCard'
-import PlotVisualizer from './components/saviors/data/PlotVisualizer'
+ } from './components/saviors/tasks/TaskConfigurator';
+import { Outlet, redirect } from 'react-router-dom';
+import { ProductCard, publishProduct } from './components/saviors/products/ProductCard';
+import ProductCreator, { productNamesFetcher } from './components/saviors/products/ProductCreator';
+import Pledges from "./components/saviors/pledges/Pledges";
+import Products from "./components/saviors/products/Products";
+import FileRequirements from './components/saviors/data/FileRequirements';
+import PledgeCreator, { createPledge } from "./components/saviors/pledges/PledgeCreator";
+import ProductEditor, { productLoader } from './components/saviors/products/ProductEditor';
+import FactorCreator, { action } from './components/saviors/factors/FactorCreator';
+import Error from './components/Error';
+import PledgeCard, { editPledge } from './components/saviors/pledges/PledgeCard';
+import PlotVisualizer from './components/saviors/data/PlotVisualizer';
 import Pitch, { 
   Advantages,
   BusinessModel,
@@ -56,7 +55,17 @@ import Pitch, {
   Solutions, 
   Team,
   Why
-} from './components/pitch/Pitch'
+} from './components/pitch/Pitch';
+import Overview from './components/saviors/overview/Overview';
+import { fetchData } from './utils';
+import Emissions from './components/saviors/emissions/Emissions';
+
+const dashboardLoader = async (dashboardSection) => {
+  const res = await fetchData(`saviors/dashboard/${dashboardSection}`);
+  if (res.ok) {
+    return res.content ;
+  } else throw new Error("oops, that did not work");
+}
 
 const routes = [
   {
@@ -157,16 +166,35 @@ const routes = [
       },
       {
         path: "saviors",
-        element: <ProtectedRoutes />,
+        element: <SaviorRoutes />,
         children: [
           {
             path: "test",
             element: <_SPT />,
           },
           {
-            path: "dashboard",
-            element: <Dashboard />,
-            loader: dashboardLoader
+            path: "overview",
+            element: <Overview />,
+            loader: () => dashboardLoader("overview")
+          },
+          {
+            path: "emissions",
+            element: <Emissions />,
+          },
+          {
+            path: "pledges",
+            element: <Pledges />,
+            loader: () => dashboardLoader("pledges")
+          },
+          {
+            path: "suppliers",
+            element: <Suppliers />,
+            loader: () => dashboardLoader("suppliers"),
+          },
+          {
+            path: "products",
+            element: <Products />,
+            loader: () => dashboardLoader("products")
           },
           {
             path: "plots",
@@ -288,6 +316,6 @@ const routes = [
       },
     ]
   }
-]
+];
 
 export default routes

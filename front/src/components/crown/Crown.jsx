@@ -1,7 +1,8 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useContext, memo } from "react";
 import { SaviorContext } from "../../contexts/SaviorContext";
 import { windowSize } from "../../utils";
+import "./Crown.css"
 
 const Branches = memo(function Branches() {
   const loc = useLocation()
@@ -9,15 +10,14 @@ const Branches = memo(function Branches() {
   
   
   const RouteButton = ({ route, navRoute, icon }) => {
-    // const routeButton = <button className="focus" onClick={() => nav(navRoute)}>{route}</button>
-    const RouteElem = ({ children }) => <NavLink to={navRoute}>{route}{children}</NavLink>
     if (windowSize !== "small") {
-      return <RouteElem />
+      return <NavLink to={navRoute}>{route}{children}</NavLink>
     } else {
       return (
-        <RouteElem>
+        <NavLink to={navRoute}>
+          {route}
           <span className="material-symbols-rounded">{icon}</span>
-        </RouteElem>
+        </NavLink>
       )
     }
   }
@@ -52,7 +52,7 @@ const Branches = memo(function Branches() {
           includesSavior ? 
           <div className="branch-routes">
             <NavLink 
-              to="/saviors/dashboard?section=overview"
+              to="/saviors/overview"
               className="white-hov"
             >
                 dashboard

@@ -4,7 +4,7 @@ import "./styles/base.css"
 import "./styles/saviors.css"
 import Crown from './components/crown/Crown'
 import { isObjectEmpty, windowSize } from './utils'
-import { StatsPanel } from './components/saviors/dashboard/mobile/Stats'
+import { StatsPanel } from './components/saviors/mobile/Stats'
 import { memo } from 'react'
 
 const Root =  memo(function Root() {

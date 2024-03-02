@@ -1,4 +1,5 @@
 import { memo } from "react"
+import "./DataTable.css"
 
 const DataTable = memo(function DataTable({ 
   columns,

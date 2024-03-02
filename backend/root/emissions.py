@@ -100,12 +100,27 @@ class GHGCalculator:
             "parameters": parameters,
         }
         return data
+    
+    @staticmethod
+    def to_kg(
+        value: Number, unit: str, conversions: dict = {
+            "g": 0.001, "t": 1000, 
+        }
+    ) -> Number:
+        """Turn the co2e value from api response into kilograms to have 
+        one standard unit across all operations"""
+        if unit == "kg":
+            return value
+        elif unit == "g":
+            return value * 0.001
+        elif unit == "t":
+            return value * 1000
 
     def format_response(self, res: dict) -> dict:
         """Extract the wanted info from api response"""
         emissions = res["constituent_gases"]
         emissions = {
-            "co2e": res["co2e"], 
+            "co2e": self.to_kg(res["co2e"]), 
             "co2e_unit": res["co2e_unit"],
             **{g: emissions.get(g) for g in self.ghgs}
             }
@@ -135,14 +150,6 @@ class GHGCalculator:
         )
         print(res)
         return self.format_response(res.json())
-    
-    
-    @staticmethod
-    def to_chunks(data, chunksize=100):
-        """The batch endpoint accepts up to 100 calculations at a time
-        so this function splits batches into chunks of that size3"""
-        for i in range(0, len(data), chunksize):
-            yield data[i:i + chunksize]
             
     DataFrame = pd.DataFrame
     def calculate_batches(

@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useRef, useState } from "react"
 import "./DropdownInput.css"
 
-const DropDownInput = memo(({ 
+const DropdownInput = memo(({ 
   values,
   name,
   label,
@@ -180,4 +180,4 @@ const DropDownInput = memo(({
   )
 })
 
-export default DropDownInput
+export default DropdownInput

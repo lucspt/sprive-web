@@ -1,0 +1,144 @@
+@media screen and (min-width: 600px) {
+
+  .table header.downloadable {
+    display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  .table header.downloadable span {
+    font-size: 26px;
+
+  }
+
+  .table .row {
+    display: grid;
+    grid-template-columns: 13rem repeat(4, 1fr);
+    border-bottom: var(--table-border);
+    padding: 20px;
+    color: var(--soft-grey);
+    transition: color 0.3s ease;
+    user-select: none;
+    animation: blinkWhite 1.5s ease 0.1s;
+  }
+
+  .table .headers {
+    border-bottom: var(--table-border);
+  }
+
+  .row.thin {
+    padding: 13px;
+  }
+
+  .row .open {
+    margin-right: 15px;
+  }
+
+  .table.data .open {
+    display: none;
+  }
+
+  .table .row:hover {
+    color: var(--soft-white);
+  }
+
+  .table .row span {
+    align-self: center;
+  }
+
+  .data .table {
+    padding: 80px;
+    padding-top: 40px;
+  }
+
+  .row.headers {
+    padding: 20px;
+    padding-bottom: 10px;
+    color: var(--soft-white);
+    animation: none;
+  }
+
+
+  .row:hover .indication {
+    color: var(--white);
+  }
+
+  .row-wrapper .row {
+    padding: 20px;
+    pointer-events: none;
+    transition: border 19ms linear, color 0.2s ease-in;
+  }
+
+
+  .row-wrapper {
+    pointer-events: all;
+    cursor: pointer;
+    user-select: none;
+    transition: grid-template-rows 0.1s linear,
+                color 0.17s ease;
+    display: grid;
+    grid-template-rows: 1fr 0px;
+    border-bottom: var(--table-border);
+  }
+
+  .row-wrapper .row {
+    border-bottom: unset;
+  }
+
+  .row-wrapper.expand + .row-wrapper {
+    border-top: var(--table-border);
+  }
+
+  .row-wrapper:hover .row {
+    color: var(--white)
+  }
+
+  .row-wrapper.expand {
+    grid-template-rows: 1fr 400px;
+    padding-bottom: 60px;
+  }
+
+  .row-wrapper .flip {
+    transition: transform 0.21s ease-out;
+  }
+  .row-wrapper.expand .flip {
+    transform: rotateX(180deg);
+  }
+
+  .row-wrapper .dropdown {
+    visibility: hidden;
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: .45fr 1fr;
+    
+    padding: 30px;
+    padding-left: 45px;
+    opacity: 0;
+    transition: opacity 0.17s ease 0.1s
+  }
+
+  .row-wrapper .insights {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 30px);
+    align-self: flex-end;
+    padding-bottom: 40px;
+    text-wrap: nowrap;
+  }
+
+  .row-wrapper .info {
+    display: flex;
+    gap: 13px;
+  }
+
+  .row-wrapper.expand .dropdown {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+    cursor: default;
+  }
+
+  .row-wrapper.expand .row {
+    border-bottom-width: 0px;
+  }
+
+}

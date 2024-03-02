@@ -1,6 +1,7 @@
 import { useState, memo, useEffect } from "react"
 import { formatCO2e } from "../../../utils"
 import { toggleRowDropdown } from "../../DataTable"
+import DropdownInput from "../../DropdownInput"
 
 const FactorRow = memo(({
   factor, 
@@ -58,8 +59,8 @@ const FactorRow = memo(({
         <div className="description">
           <div className="title">
             <h4>{factor.activity}</h4>
-            <p>
-              {factor.description || "description here"}
+            <p className="line-clamp">
+              {factor.keywords}
             </p>
           </div>
           <div>
@@ -82,14 +83,14 @@ const FactorRow = memo(({
               <span>last updated:</span>
               <span>{factor.year || "2024"}</span>
             </div>
-            <div className="info">
+            {/* <div className="info">
               <span>keywords:</span>
               <span 
                 style={{maxWidth: 250, overflow: "hidden", textOverflow: "ellipsis"}}
               >
                 {factor.keywords}
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
           {setChosenActivity &&

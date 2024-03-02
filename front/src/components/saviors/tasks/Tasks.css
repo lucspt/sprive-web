@@ -78,4 +78,19 @@
   .table.tasks {
     padding: 0;
   }
+  
+  .status {
+    border-radius: 13px;
+    height: max-content;
+    font-size: var(--fontsize-xs);
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px;
+    color: var(--soft-white);
+    align-items: center;
+    width: fit-content;
+    cursor: pointer;
+    align-self: center;
+  }
 }

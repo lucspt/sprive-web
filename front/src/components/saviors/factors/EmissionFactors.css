@@ -134,19 +134,22 @@
     color: var(--soft-white);
   }
 
+  .emission-factors .description  {
+    height: fit-content;
+  }
+
   .emission-factors .description .title {
     align-self: flex-end;
+    max-width: 75%;
+    line-height: 1.5;
+    height: fit-content;
+    word-break: break-word;
   }
 
 
   .emission-factors .sidebar.sticky-background {
     background-color: var(--matte-black);
   } 
-
-  .emission-factors div.extra-options { 
-    justify-content: flex-start;
-    gap: 12px;
-  }
 
   .emission-factors .extra-options input {
     background-color: transparent;
@@ -173,7 +176,7 @@
 
   .table.factors .dropdown {
     grid-template-columns: 1fr;
-    grid-template-rows: 35% 1fr;
+    height: fit-content;
   }
 
   .factors .dropdown > div {
@@ -191,6 +194,11 @@
 
   .factors .dropdown {
     transition-duration: 55ms;
+  }
+
+  .emission-factors div.extra-options { 
+    justify-content: flex-start;
+    gap: 12px;
   }
 
 }

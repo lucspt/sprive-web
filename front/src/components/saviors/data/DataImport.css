@@ -6,6 +6,13 @@
     background: var(--secondary-color);
   }
 
+  .upload .top {
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+    margin-top: 27px;
+  }
+
   .upload .uploader {
     width: 60vw;
     display: flex;

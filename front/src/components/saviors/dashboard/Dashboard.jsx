@@ -4,7 +4,7 @@ import {  windowSize } from "../../../utils"
 import { SaviorContext } from "../../../contexts/SaviorContext";
 import Pledges from "./pledges/Pledges";
 import Overview from "./overview/Overview";
-import MobileOverview from "./mobile/Overview";
+import MobileOverview from "./mobile/MobileOverview";
 import DashboardRouter from "./DashboardRouter"
 import Products from "./products/Products";
 import Suppliers from "./suppliers/Suppliers";
