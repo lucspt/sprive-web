@@ -1,0 +1,418 @@
+.ecosystem {
+  position: relative;
+  transition: background-color 0.3s ease-in;
+  height: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ecosystem .intro {
+  align-self: flex-start;
+  padding: 10px 60px;
+  padding-top: 60px;
+}
+
+.ecosystem.dark {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.ecosystem .saviors {
+  padding: 80px;
+}
+
+.ecosystem .view-partner {
+  margin-left: auto;
+}
+
+.ecosystem .dark-bg {
+  position: absolute;
+  top: 300px;
+}
+
+.savior-card {
+  padding: 60px 80px;
+  display: grid;
+  height: fit-content;
+  grid-template-rows: min-content 20vh 1fr;
+  position: relative;
+}
+
+.savior-card .heading {
+  display: flex;
+  padding: 0px 60px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.savior-card .stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: min-content;
+  justify-content: space-between;
+  width: 100%;
+  justify-self: center;
+  max-width: 1200px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.savior-card .stat {
+  display: flex;
+  gap: 35px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 0;
+}
+
+.savior-card .stat,
+.savior-card .information {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.savior-card .stat .metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  gap: 3px;
+}
+
+.savior-card .information {
+  margin-top: 60px;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  height: 100%;
+  animation-delay: 2.33s;
+  opacity: 0;
+}
+
+.savior-card .sections {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sections button:disabled {
+  color: var(--soft-white);
+  cursor: default;
+}
+
+.sections button {
+  cursor: pointer;
+}
+
+.showcase {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.showcase-content {
+  /* animation: fadeIn forwards 0.3s ease-in; */
+  /* opacity: 0; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: calc(320px * 4);
+  margin: 0 auto;
+  gap: 20px;
+  padding-bottom: 80px;
+}
+
+.showcase .item {
+  animation: fadeIn 0.17s ease forwards; 
+  opacity: 0;
+  flex: 1;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: var(--fontsize-med);
+  min-width: 290px;
+  /* margin: 10px; */
+  min-height: 180px;
+  background-color: var(--matte-black);
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  transition: border-radius 0.17s ease;
+  border-radius: 10px;
+  /* opacity: 0; */
+  max-width: 400px;
+}
+
+.showcase .item:hover,
+.showcase .item.shown {
+  transform: scale(1.01);
+  border-radius: 0px;
+}
+
+.savior-card .products .info {
+  flex-direction: column;
+  justify-content: unset;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.savior-card .products .infos {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 4px;
+}
+
+.item .stat {
+  justify-content: center;
+}
+
+.item .star {
+  font-size: var(--fontsize-large);
+  pointer-events: none;
+}
+
+.item .liked {
+  color: var(--white);
+}
+
+.item .heading {
+  padding: unset;
+  padding-top: 10px;
+}
+
+.item .support {
+  pointer-events: all;
+}
+
+.item .info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fontsize-sm);
+}
+
+.popup-cover {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.popup {
+  position: absolute;
+  visibility: hidden;
+  height: 66vh;
+  width: 59vw;
+  max-width: 800px;
+  max-height: 750px;
+  animation: none !important;
+  transition: opacity 0.3s ease;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: translateY(6vh);
+}
+
+.popup.show,
+.popup-cover.show {
+  visibility: visible;
+  animation: fadeIn 0.3s ease !important;
+  pointer-events: all;
+}
+
+.pledge-popup {
+  height: 100%;
+  background-color: var(--primary-color);
+  box-shadow: var(--popup-shadow);
+}
+
+.popup .heading {
+  font-size: var(--fontsize-large);
+}
+
+.showcase-content .switch {
+  display: flex;
+  width: fit-content;
+  display: flex;
+  align-self: flex-end;
+  background-color: var(--highlight);
+  border: var(--black) solid 1.5px;
+  border-radius: 4px;
+}
+
+.switch button {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+/* .popup-card {
+  display: grid;
+  grid-template-rows: 10% 1fr 60px;
+  grid-template-areas: "heading" 
+                        "info" 
+                        "footer";
+} */
+
+.ecosystem-card {
+  grid-template-areas: "heading" 
+                        "info" 
+                        "footer";
+  display: grid;
+  grid-template-rows: min-content 1fr 80px;
+  height: 100%;
+}
+
+.ecosystem-card span {
+  animation: fadeIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stars .material-symbols-rounded {
+  font-size: 27px;
+  padding-bottom: 4px;
+}
+
+form.star {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 4px;
+}
+
+form.star span {
+  padding-bottom: 2px;
+}
+
+.login-popup .login:first-child {
+  padding: 0px 20px;  
+}
+
+.login-popup .form {
+  font-size: 0.9em;
+}
+
+.login-popup > .form {
+  gap: 10vh;
+}
+
+.login-popup .field {
+  font-size: inherit;
+}
+
+.login-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  background-color: var(--black);
+  margin: auto;
+  right: 0;
+  padding: 10px;
+  height: 55vh;
+  box-sizing: var(--popup-shadow);
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.27s ease;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.star .needs-login:focus .login-popup,
+.star .needs-login:focus-within .login-popup,
+.star .login-popup:focus-within,
+.login-cover.show .login-popup{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.login-cover {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.login-cover.show {
+  pointer-events: auto;
+}
+
+.ecosystem-card {
+  padding-top: 60px;
+}
+
+.ecosystem-card .digit,
+.savior-card .digit {
+  font-size: 2.4em
+}
+
+.ecosystem-card .star-footer {
+  font-size: var(--fontsize-med);
+  user-select: none;
+}
+
+.ecosystem-card#star {
+  font-size: 26px;
+}
+
+.ecosystem-card .heading {
+  font-size: var(--fontsize-large);
+}
+
+.ecosystem-card .empty {
+  text-align: center;
+  margin-top: 70px;
+  color: var(--soft-grey);
+}
+
+/* .ecosystem-card .stats-row {
+  padding: 0px 80px;
+  margin-top: 40px;
+  font-size: 0.99em;
+  display: flex;
+  justify-content: space-evenly;
+} */
+
+.ecosystem-card .heading {
+  padding: 0px 80px;
+  padding-top: 20px;
+  grid-area: heading;
+}
+
+.ecosystem-card .content {
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+}
+
+.ecosystem-card .stat {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 27px;
+}
+
+/* .ecosystem-card .product-body {
+  align-self: center;
+} */
+
+/* .star-footer .rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 0.7em;
+} */

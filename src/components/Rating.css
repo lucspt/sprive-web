@@ -1,0 +1,29 @@
+
+.rating-dot.great {
+  background-color: var(--eco-great);
+}
+
+.rating-dot.good {
+  background-color: var(--eco-neutral);
+}
+
+.rating-dot.ok {
+  background-color: var(--eco-warning);
+}
+
+.rating-dot.bad {
+  background-color: var(--eco-danger);
+}
+
+.rating {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-dot {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}

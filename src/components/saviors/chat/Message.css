@@ -1,0 +1,12 @@
+.chat-room .message {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.message .content {
+  max-width: 600px;
+  text-wrap: wrap;
+  word-break: break-word;
+  line-height: 2;
+}

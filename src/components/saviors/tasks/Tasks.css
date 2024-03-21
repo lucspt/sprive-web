@@ -1,0 +1,58 @@
+@media screen and (min-width: 600px) {
+
+  .tasks .status::before {
+    /* content: ""; */
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--soft-grey);
+
+  }
+
+  .tasks-content {
+    padding: 0px 30px;
+  }
+
+  .tasks .row {
+    grid-template-columns: 8rem repeat(3, 1fr);
+  }
+
+  .tasks .row.headers {
+    font-size: var(--fontsize-med);
+    display: block;
+  }
+
+  .tasks .status.complete {
+    background-color: var(--eco-great);
+  }
+
+  .tasks .status.progress {
+    background-color: var(--eco-neutral);
+  }
+
+  .tasks-content {
+    padding-top: 60px;
+    width: 100%;
+  }
+
+  .tasks.spacing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .tasks-table .headers {
+    border-radius: var(--table-border-radius);
+  }
+
+  .tasks-table {
+    width: 100%;
+  }
+
+  .tasks .table {
+    width: unset;
+    max-width: unset;
+  }
+  
+}

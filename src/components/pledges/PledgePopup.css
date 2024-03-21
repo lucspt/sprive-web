@@ -1,0 +1,65 @@
+.pledge-popup .heading {
+  padding: 0px 35px;
+  padding-top: 20px;
+}
+
+.pledge-popup .info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 30px;
+  padding-top: 50px;
+}
+
+.pledge-popup .footer,
+.star-footer {
+  grid-area: footer;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 25px;
+  align-items: center;
+}
+
+.pledge-popup .badge {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  justify-content: flex-end;
+  border-bottom: solid 1px var(--primary-color);
+  padding-bottom: 15px;
+}
+
+.recurring-pledge {
+  flex: 1;
+  position: relative;
+}
+
+.recurring-pledge span {
+  padding: 5px 10px;
+  color: var(--eco-good);
+}
+
+.recurring-pledge .hover {
+  position: absolute;
+  font-size: var(--fontsize-sm);
+  text-wrap: nowrap;
+  padding: 5px;
+  background-color: var(--eco-great);
+  border-radius: 7px;
+  top: -50px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.recurring-pledge .notice:hover + .hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pledge-content .pledge-popup {
+  left: var(--sidebar-width);
+}

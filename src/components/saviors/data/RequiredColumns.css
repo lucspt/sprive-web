@@ -1,0 +1,25 @@
+
+.required-columns {
+  display: flex;
+  flex-direction: column;
+}
+
+.required-columns p {
+  font-size: var(--fontsize-med);
+  max-width: 77%;
+  line-height: 1.8;
+  text-wrap: wrap;
+}
+
+.required-columns .cols {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20vh;
+  max-height: 400px;
+  margin-top: 60px;
+}
+
+.required-columns span {
+  font-size: var(--fontsize-med);
+}

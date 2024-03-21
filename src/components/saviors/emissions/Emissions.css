@@ -1,0 +1,70 @@
+@media screen and (min-width: 600px) {
+  .dashboard-grid > .emissions {
+    overflow-y: scroll;
+    padding: 60px 0px 20px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table .emissions {
+    margin: 0 auto;
+    height: fit-content;
+    padding: 0 50px;
+    padding-bottom: 90px;
+  }
+
+  .emissions .distribution {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    flex-basis: 20%;
+    height: fit-content;
+    padding-bottom: 25px;
+    align-items: center;
+    width: 100%;
+    max-width: 60vw;
+    margin: 0 auto;
+  }
+
+  .emissions .traceback {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-self: flex-end;
+    padding-right: 120px;
+    justify-content: space-around;
+  }
+
+  .emissions .calculation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .emissions .row {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .emissions .header {
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .emissions h1 {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .emissions .distribution {
+    max-width: unset;
+    gap: 80px;
+  }
+
+  .emissions .row {
+    grid-template-columns: 13rem repeat(6, 1fr);
+  }
+
+}

@@ -1,0 +1,73 @@
+.small .dashboard-container {
+  overflow: hidden;
+}
+
+.root {
+  height: 100%;
+}
+
+
+@media screen and (min-width: 600px) {
+  .dashboard {
+    display: grid;
+    column-gap: 3em;
+    flex-direction: column;
+    grid-template-rows: repeat(auto-fit, var(--banner-viewport-height));
+    animation: fadeIn ease 0.4s;
+    position: relative;
+  }
+
+
+  .compact + .dashboard {
+    grid-template-rows: repeat(auto-fit, var(--viewport-height))
+  }
+
+  /* .dashboard-container {
+    display: grid;
+    gap: 30px;
+    height: unset;
+    align-items: unset;
+    max-width: fit-content;
+    margin: 0 auto;
+    transition: grid-template-rows 1s ease;
+  } */
+
+  .dashboard-nav {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    position: relative;
+  }
+/* 
+  .dashboard-container:has( .compact) {
+    grid-template-rows: 60px 1fr;
+  } */
+
+
+  /* .dashboard-container {
+    grid-template-rows: 30vh 1fr;
+    width: 100%;
+
+  } */
+}
+
+@media screen and (min-width: 900px) {
+  
+  .dashboard-container:has( .static) .widget {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  .dashboard-container:has( .static) span {
+    animation-delay: 0s !important;
+  }
+
+  .small .dashboard-container {
+    overflow: scroll;
+  }
+  
+  .dashboard.small .plot {
+    width: 90%;
+  }
+}

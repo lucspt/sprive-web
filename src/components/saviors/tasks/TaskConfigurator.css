@@ -1,0 +1,138 @@
+@media screen and (min-width: 600px) {
+
+  @supports (-webkit-line-clamp: 3) {
+    .table span.line-clamp {
+      text-wrap: wrap;
+    }
+    .line-clamp:hover {
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        position: relative;
+        text-overflow: ellipsis;
+        text-wrap: wrap;
+      }
+  
+      .tasks-ul + .description {
+        max-height: unset;
+        -webkit-line-clamp: 3;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        text-wrap: wrap;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical
+      }
+  
+    }
+
+    .task-card + span {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  
+    .tasks-ul .description {
+      max-height: 40px;
+      max-width: unset;
+    }
+
+    
+  .tasks .description {
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+    white-space: nowrap;
+
+  }
+
+  .tasks-ul,
+  .sidebar-showcase {
+    display: flex;
+    gap: 30px;
+    padding-top: 30px;
+    justify-content: center;
+    align-self: flex-start;
+    flex-direction: column;
+  }
+
+  .tasks.sidebar {
+    display: grid;
+    grid-template-rows: 20% 1fr;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .tasks.sidebar header {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 30px;
+  }
+
+  .tasks-ul .item,
+  .sidebar-showcase .item {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    max-height: 200px;
+    align-self: center;
+    padding: 20px;
+    gap: 30px;
+    /* border: var(--table-border); */
+    border-radius: 20px;
+    width: calc(100% - 20px);
+  }
+
+  .tasks-ul .task-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tasks-ul .status {
+    width: min-content;
+    text-wrap: nowrap;
+    height: min-content;
+    align-self: flex-start;
+  }
+
+  .tasks form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+  }
+
+  .tasks form .top {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 35px;
+  }
+
+  .tasks textarea.rounded-input,
+  .tasks .field.large input {
+    --width: calc((190px * 2) + 30px);
+    width: var(--width);
+    max-width: var(--width);
+    max-height: 400px;
+    min-width: calc(var(--width) / 2);
+
+  }
+
+  .tasks .rounded-input {
+    width: 190px;
+    outline: none;
+  }
+
+  .tasks .field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+}

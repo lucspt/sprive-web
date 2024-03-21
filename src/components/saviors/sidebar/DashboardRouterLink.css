@@ -1,0 +1,15 @@
+
+.dashboard-route {
+  display: flex;
+  color: var(--soft-grey);
+  align-items: center;
+  gap: 10px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.dashboard-route.active,
+.dashboard-route:hover {
+  color: var(--soft-white);
+}

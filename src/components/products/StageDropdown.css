@@ -1,0 +1,67 @@
+
+.dropdown-row {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  padding: 8px 0px;
+  height: 60px;
+  font-size: 1.1em;
+}
+
+.ecosystem-stage {
+  position: relative;
+}
+
+.ecosystem-stage .details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 40px;
+  align-items: center;
+}
+
+.stage-dropdown {
+  cursor: pointer;
+}
+
+.stage-dropdown .emissions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stage-dropdown .percentage {
+  font-weight: var(--bold-1);
+  text-align: end;
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.stage-icon {
+  color: var(--black);
+  font-size: 36;
+}
+
+.processes {
+  overflow: hidden;
+  position: relative;
+  transition: height 0.3s ease;
+}
+
+.stage-dropdown .expand-more {
+  transition: transform 0.35s ease-in-out;
+  height: fit-content;
+}
+
+.stage-dropdown .flip {
+  transform: rotate(180deg);
+}
+
+.ecosystem-stage .add-process {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  z-index: 2;
+}

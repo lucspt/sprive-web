@@ -1,0 +1,284 @@
+@media screen and (min-width: 600px) {
+
+
+  .pledge-creator {
+    height: 100%;
+
+  }
+
+  .pledge-creator .container {
+    padding: 60px 100px;
+    height: 100%;
+  }
+
+  .pledge-creator .field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-wrap: nowrap;
+    width: fit-content;
+  }
+
+  .pledge-creator .type-choices {
+    transform: translateY(60px);
+    height: calc(100% - 110px);
+    display: grid;
+    grid-template-rows: 0.4fr 1fr;
+    gap: 4rem;
+    padding: 35px;
+    width: 80vw;
+    margin: 0 auto;
+  }
+  
+  .pledge-creator .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+    align-self: center;
+  }
+
+  .pledge-types .title {
+    font-size: 1.07em;
+  }
+
+  .pledge-creator .pledge-types {
+    gap: 60px;
+    justify-content: space-between;
+    max-width: 1112px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 270px));
+  }
+
+  .pledge-creator input[name="activity"]
+  .pledge-creator input[name="_activity"] {
+    cursor: pointer;
+    caret-color: transparent;
+  }
+  
+  .pledge-types button {
+    align-self: center;
+  }
+
+  .pledge-types .description {
+    line-height: 1.5;
+    text-align: center;
+    height: 75%;
+    align-self: flex-end;
+  }
+
+  .pledge-creator .type {
+    animation: none !important;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 1fr 60% 1fr;
+    height: 100%;
+    max-height: 360px;
+  }
+
+  .pledge-creator .invitation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+  }
+
+  .pledge-creator .reform-section {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .pledge-creator .type * {
+    animation: fadeIn 0.3s ease-in-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .pledge-creator .input-wrapper {
+    display: flex;
+    gap: 50px;
+  }
+
+  .pledge-creator .insert-image {
+    position: relative;
+    width: 80px;
+    margin: auto;
+    height: 120px;
+  }
+
+
+  .pledge-creator .insert-image * {
+    position: absolute;
+    height: fit-content;
+    align-self: center;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .pledge-creator .insert-image .image {
+    font-size: 2em;
+  }
+
+  .pledge-creator button[type="submit"]:disabled {
+    background-color: var(--soft-white) !important;
+  }
+
+  .pledge-creator .insert-image input {
+    pointer-events: all;
+    inset: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 59%;
+    opacity: 0;
+  }
+
+  .pledge-creator button.choose {
+    width: min-content;
+    padding: 0px 10px;
+    height: 20px;
+    align-self: flex-end;
+  }
+
+  .pledge-creator .reformation-row {
+    justify-content: space-evenly;
+    width: 100%;
+    height: fit-content;
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 150px);
+    gap: 20px;
+  }
+
+  .pledge-creator .progress {
+    display: flex;
+    justify-content: center;
+    width: 375px;
+    height: min-content;
+    gap: 5px;
+  }
+
+  .pledge-creator textarea {
+    background-color: inherit;
+    min-height: 118px;
+    width: 400px;
+    outline: none;
+    resize: none;
+    border-radius: 9px;
+    color: var(--soft-white);
+    padding: 15px;
+  }
+
+  .pledge-creator textarea::placeholder {
+    color: var(--soft-white);
+  }
+
+
+  .pledge-creator form {
+    width: 80%;
+    font-size: var(--fontsize-sm);
+    display: grid;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 700px;
+    position: relative;
+    margin: 0 auto;
+    height: 70%;
+    padding-top: 60px;
+    justify-items: center;
+  }
+
+  .pledge-creator label, .pledge-creator .label {
+    font-size: .9em;
+  }
+
+  .pledge-creator .submit button {
+    transition: background-color 0.34s ease;
+    align-self: flex-end;
+  }
+
+  .pledge-creator button[type="submit"]:hover {
+    background-color: var(--calm-blue);
+  }
+
+
+  .pledge-creator .activity-info {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "activity value"
+        "unit-type unit";
+    width: 100%;
+  }
+
+  .activity-info .input-field:nth-child(1) {
+    grid-area: activity;
+  }
+
+  .activity-info .input-field:nth-child(2) {
+    grid-area: value;
+    text-align: end;
+
+  }
+
+  .activity-info .input-field:nth-child(4) {
+    grid-area: unit;
+    text-align: end;
+  }
+
+  .activity-info .input-field:nth-child(3) {
+    grid-area: unit-type;
+
+  }
+
+  .input-field[name="value"]
+  .input-field[name="unit"] {
+    text-align: end;
+  }
+
+  .activity-info > div:not(.not) {
+    width: 100%;
+  }
+
+  .activity-info div.not {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .activity-info input[type="radio"]::after {
+    content: "";
+    background: var(--black);
+    width: 13px;
+    height: 13px;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border: 0.5px solid var(--soft-grey);
+    border-radius: 50%;
+  }
+
+  .activity-info input[type="radio"]:checked::after {
+    content: "";
+    background: var(--soft-grey);
+    width: 13px;
+    height: 13px;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border: 0.5px solid var(--soft-grey);
+    border-radius: 50%;
+  }
+}

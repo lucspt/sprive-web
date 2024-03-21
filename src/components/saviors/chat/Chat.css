@@ -1,0 +1,43 @@
+.chat {
+  height: 100%;
+}
+
+.chat-room {
+  display: grid;
+  grid-template-areas: "messages" "chat-box";
+  height: 100%;
+  grid-template-rows: 1fr .3fr;
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 60px;
+}
+
+.chat-box .send {
+  max-width: 600px;
+  width: 100%;
+}
+
+.chat-box textarea {
+  width: 100%;
+  resize: none;
+  padding: 17px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.chat-room .messages {
+  display: grid;
+  overflow-y: scroll;
+  padding: 20px 120px;
+  grid-template-rows: repeat(auto-fit, minmax(80px, 100px));
+  height: fit-content;
+  margin-top: auto;
+  row-gap: 3em;
+  width: 90vw;
+  margin-left: auto;
+}
