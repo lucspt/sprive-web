@@ -1,0 +1,22 @@
+@media screen and (min-width: 600px) {
+  .products .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .products .header .create {
+    align-self: flex-end;
+    margin-right: 20px;
+  }
+
+  .products .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+    column-gap: 7em;
+    row-gap: 3em;
+    height: fit-content;
+    justify-content: center;
+    padding: 20px 0px;
+  }
+  
+}

@@ -1,0 +1,9 @@
+.category-dropdown {
+  font-size: 1em;
+  padding: 8px;
+}
+
+.category-dropdown .title,
+.category-dropdown p {
+  font-size: 1.13em !important;
+}

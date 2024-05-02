@@ -1,0 +1,86 @@
+@media screen and (min-width: 600px) {
+
+  .file-logs {
+    max-width: 1100px;
+  }
+
+  .file-logs .row {
+    grid-template-columns: 13rem repeat(4, 1fr);
+  }
+
+
+  .file-logs .row span:first-child{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+
+  .file-log.processed-true {
+    color: var(--soft-grey) !important; 
+    position: relative;
+  }
+/* 
+  .file-log.processed-true::after {
+    content: "this activity's emissions have been calculated";
+    opacity: 0;
+    transition: opacity 0.17s ease;
+    position: absolute;
+    background-color: var(--matte-black);
+    color: var(--baby-pink);
+    width: fit-content;
+    text-wrap: nowrap;
+    padding: 10px 15px;
+    border-radius: 15px;
+    height: min-content;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    margin: 0 auto;
+  } */
+
+  .file-viewer .table {
+    margin: 60px auto;
+    padding: 0px;
+  }
+
+  .file-log.processed-true:hover::after {
+    opacity: 1;
+    transition-delay: 2s;
+  }
+
+  .file-viewer {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 90% 1fr;
+  }
+
+  .file-viewer .info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-left: 40px;
+  }
+
+  .file-viewer .content:first-of-type {
+    overflow-y: scroll;
+  }
+
+  .file-viewer .back {
+    margin-bottom: 40px;
+
+    cursor: pointer;
+  }
+
+  .file-viewer .bottom {
+    background: var(--secondary-bg);
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px;
+    position: sticky;
+    bottom: 0;
+    border-top: solid 1px var(--highlight);
+  }
+
+  
+}

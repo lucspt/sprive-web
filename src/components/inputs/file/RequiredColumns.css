@@ -1,0 +1,17 @@
+.required-columns {
+  --padding: 10px;
+}
+.required-columns p {
+  line-height: 1.7;
+  padding: var(--padding);
+  background-color: var(--darker);
+  text-wrap: wrap;
+}
+
+.required-columns .cols {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--padding);
+  gap: 20px;
+}

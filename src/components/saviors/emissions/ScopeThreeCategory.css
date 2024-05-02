@@ -1,0 +1,17 @@
+.category, .category .log {
+  --pad-left: 23px;
+}
+
+.scope-row.category {
+  padding: 0px;
+  margin-top: 17px;
+}
+
+.scope-row.category .title {
+  padding-left: var(--pad-left);
+  margin-bottom: 10px;
+}
+
+.category .title > span {
+  font-size: .9em;
+}

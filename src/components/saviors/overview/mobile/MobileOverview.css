@@ -1,0 +1,16 @@
+@media screen and (min-height: 700px) {
+  .widget.long#long2 {
+    display: none;
+  }
+  
+  #tuple2 .widget {
+    transform: translateY(200%);
+    animation: slideInYAxis 0.3s ease-in-out forwards;
+  }
+
+  #long1 {
+    animation: slideInYAxis 0.28s ease-in-out forwards;
+    transform: translateX(200%)
+  }
+
+}

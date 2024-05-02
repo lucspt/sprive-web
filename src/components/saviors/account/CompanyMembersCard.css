@@ -1,0 +1,57 @@
+.company-card {
+  --padding: 0px 15px;
+}
+
+.company-card .subtitle {
+  text-align: end;
+  padding-left: 15px;
+  font-size: .96em;
+  margin-right: 30px;
+}
+
+.company-card .pictures-row {
+  overflow: hidden;
+}
+
+.company-card input {
+  background-color: var(--primary-color);
+  color: var(--white);
+  width: 80%;
+}
+
+.company-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.company-card .pickers {
+  display: flex;
+  padding: 0px;
+  width: 80%;
+  gap: 20px;
+}
+
+.company-card .pickers .base-input {
+  padding: 0px;
+}
+
+.company-card .desc {
+  padding: var(--padding);
+  width: 90%;
+  font-size: 1.05em;
+  text-wrap: wrap;
+  line-height: 1.5;
+}
+
+.company-card .submit {
+  margin-top: 60px;
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+}
+
+.company-card .submit button {
+  padding: 20px 50px;
+}
+

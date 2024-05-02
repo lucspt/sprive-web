@@ -1,0 +1,42 @@
+.stats-row, .digits-row {
+  background-color: var(--darker);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px 0px;
+  align-items: center;
+  --border: solid 1px var(--highlight);
+  display: flex;
+  max-height: 110px;
+}
+
+.square {
+  border-left: var(--border);
+  padding: 10px 30px;
+  background-color: var(--darker);
+}
+
+.square:last-of-type {
+  border-right: var(--border);
+}
+
+.square p {
+  margin-top: 0;
+}
+
+.square .number {
+  font-size: 1em;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  justify-content: center;
+}
+
+.square .digit {
+  font-size: 1.7em;
+}
+
+.square .metric {
+  font-size: 1.25em;
+  align-self: flex-end;
+  color: var(--soft-grey);
+}

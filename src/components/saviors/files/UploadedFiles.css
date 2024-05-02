@@ -1,0 +1,34 @@
+@media screen and (min-width: 600px) {
+  .files .needs-processing {
+    position: relative;
+  }
+
+  .files .processing-notice {
+    font-size: 30px;
+    color: var(--eco-danger);
+  }
+
+  .files .needs-processing .hover {
+    position: absolute;
+    top: 0;
+    bottom: -55px;
+    visibility: hidden;
+    opacity: 0;
+    height: fit-content;
+    width: fit-content;
+    transition: opacity 0.2s ease;
+    border-radius: 13px;
+    padding: 10px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    font-size: var(--fontsize-sm);
+    background-color: var(--matte-black);
+    color: var(--baby-pink);
+  }
+
+  .files .needs-processing:hover .hover {
+    visibility: visible;
+    opacity: 1;
+  }
+}

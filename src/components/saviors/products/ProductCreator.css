@@ -1,0 +1,39 @@
+
+@media screen and (min-width: 600px) {
+
+
+  .product-creator .input-container {
+    background-color: var(--matte-black);
+    margin: auto;
+    display: flex;
+    padding: 30px;
+    width: 500px;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 170px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+  }
+
+  .product-creator input,
+  .product-creator .input-container .default-btn {
+    background-color: var(--primary-color);
+    color: var(--soft-white);
+  }
+
+  .product-creator .default-btn {
+    align-self: flex-end;
+  }
+
+  .product-creator .error-rel {
+    position: relative;
+  }
+
+  .product-creator .error {
+    color: var(--eco-danger);
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
+    font-size: .97em;
+  }
+}

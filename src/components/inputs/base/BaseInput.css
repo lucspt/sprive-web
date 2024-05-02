@@ -1,0 +1,6 @@
+.base-input, .base-input label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0px;
+}

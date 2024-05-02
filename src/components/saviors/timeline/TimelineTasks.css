@@ -1,0 +1,91 @@
+.timeline .content {
+  --border: solid 1px var(--matte-black);
+  border-top: var(--border);
+}
+
+.timeline .tasks {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks section {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 10px;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.tasks section:first-of-type {
+  border: none;
+  margin-top: 25px;
+}
+
+.tasks .task-info {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-right: 20px;
+  gap: 30px;
+  font-size: 1.05em;
+  max-width: 670px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+
+.tasks .progress {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+  align-self: center;
+  width: 100%;
+}
+
+.tasks .progress .bar {
+  height: 15px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  opacity: 0.2;
+}
+
+.tasks .bar.complete {
+  opacity: 1;
+  background-color: var(--eco-great);
+}
+
+.task-info p {
+  display: flex;
+  font-size: 1.09em;
+  flex: 1;
+  align-items: center;
+  gap: 7px;
+  font-weight: var(--bold-1);
+}
+
+.task-info p span {
+  font-size: 1.6em;
+  color: var(--eco-warning);
+}
+
+.task-info .view-task {
+  margin-left: auto;
+}
+
+.task-info .view-task button {
+  background-color: var(--matte-black);
+  color: var(--white);
+  margin-left: auto;
+}
+
+p.section-completed {
+  margin-left: auto;
+  font-size: var(--fontsize-med);
+}
+
+p.section-completed span{
+  font-size: 28px;
+  color: var(--eco-great);
+}

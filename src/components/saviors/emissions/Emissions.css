@@ -1,0 +1,134 @@
+@media screen and (min-width: 600px) {
+  .dashboard-grid > .emissions {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table .emissions {
+    --border: solid 1px var(--darker);
+    margin: 0 auto;
+    height: fit-content;
+    padding-bottom: 90px;
+  }
+
+  .emissions .table-border {
+    border: none;
+  }
+  .emissions .traceback {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-self: flex-end;
+    padding-right: 120px;
+    justify-content: space-around;
+  }
+
+  .emissions .calculation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .emissions .row {
+    display: grid;
+    grid-template-columns: repeat(3, calc(100% / 3));
+    border-bottom: var(--border);
+    padding: 10px;
+  }
+
+  .emissions .row.total-emissions {
+    display: flex;
+    justify-content: space-between;
+    color: var(--soft-white);
+    padding: 10px;
+  }
+
+  .emissions .row > span:nth-child(2) {
+    text-align: start;
+    padding-left: 35%;
+  }
+
+  .scopes-doughnut {
+    height: 300px;
+    width: 100%;
+    max-width: 270px;
+    flex-basis: 25%;
+    flex: 1;
+  }
+
+  .emissions .charts {
+    padding-left: 60px;
+    padding-right: 40px;
+    gap: 30px;
+    margin-top: 50px;
+    display: flex;
+  }
+
+  .emissions .charts .chart-wrapper {
+    max-height: 460px;
+  }
+
+  .emissions .monthly-bar {
+    flex: 2;
+    height: 100%;
+    margin: 0px 20px;
+    width: 100%;
+    max-width: 900px;
+    flex-basis: 75%;
+    margin-left: auto;
+  }
+
+  .emissions .chart-wrapper {
+    flex-basis: 50%;
+  }
+
+  .footprint-charts {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: var(--page-spacing);
+  }
+
+  .emissions .row.headers {
+    background-color: unset;
+  }
+
+  .emissions .table {
+    font-size: .95em;
+  }
+
+  .emissions .popup-card {
+    max-width: 425px;
+
+  }
+
+}
+
+@media screen and (min-width: 900px) {
+
+  .emissions .table {
+    font-size: var(--default-fontsize);
+  }
+
+  .emissions .popup-card {
+    max-width: 620px;
+  }
+
+  .emissions .chart-wrapper {
+    flex-basis: unset;
+  }
+
+  .emissions .distribution {
+    max-width: unset;
+    gap: 80px;
+  }
+
+  #scopes-table-download * {
+    pointer-events: none;
+  }
+
+  #scopes-table-download {
+    pointer-events: all;
+  }
+}

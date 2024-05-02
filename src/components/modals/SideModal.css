@@ -1,0 +1,65 @@
+.side-modal {
+  --animation-dur: 0.16s;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  max-width: calc(100% - var(--sidebar-width));
+  margin-left: auto;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  z-index: 2;
+}
+
+.side-modal .opacity {
+  opacity: 0;
+  animation: overlay var(--animation-dur) ease-in-out forwards;
+  background-color: rgba(0, 0, 0, 0.5);
+  flex: 1;
+  width: 100vw;
+}
+
+@keyframes overlay {
+  to { opacity: 0.7 }
+}
+
+.side-modal .modal-content {
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  transform: translateX(100%);
+  text-wrap: nowrap;
+  animation: slideIn var(--animation-dur) ease-out forwards;
+  height: 100%;
+}
+
+@keyframes slideIn {
+  to { transform: translateX(0px); }
+}
+
+.side-modal .close {
+  width: fit-content;
+}
+
+.side-modal .close span {
+  font-size: 36px;
+}
+
+.side-modal .header-close {
+  padding: 30px 40px 0px 30px;
+}
+
+.side-modal input {
+  background-color: var(--primary-color);
+  color: var(--white);
+  width: 80%;
+}
+
+.side-modal .base-input {
+  width: 100%;
+  gap: 5px;
+}
+
+.side-modal .content-wrapper {
+  padding-top: 60px;
+  padding-left: 30px;
+}

@@ -1,0 +1,28 @@
+
+input.invalid {
+  border-bottom: var(--eco-danger) 0.01ch solid !important;
+}
+
+.input-field.invalid-rel {
+  position: relative;
+}
+.invalid-rel:has( .invalid) span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.invalid-rel input:focus + span {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.invalid-rel span {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 10px;
+  font-size: var(--fontsize-sm);
+  pointer-events: none;
+  left: 5px;
+  color: var(--eco-danger);
+}

@@ -1,0 +1,64 @@
+
+.picker {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: var(--primary-color);
+  padding: 3px 7px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.picker-content {
+  display: none;
+  width: calc(100% - 10px);
+  margin-top: 7px;
+  position: absolute;
+  transform: translate(-50%, 0);
+  top: 100%;
+  border-radius: 8px;
+  z-index: 1;
+  background-color: var(--primary-color);
+  left: 50%;
+  overflow-y: scroll;
+  flex-direction: column;
+  max-height: 150px;
+}
+
+.picker .dropdown-button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.picker .choice {
+  padding: 8px 10px;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  text-align: start;
+}
+
+.picker:focus .picker-content,
+.picker:focus-within .picker-content,
+.picker:active .picker-content {
+  display: block;
+}
+
+.picker:invalid .picker-content {
+  display: none;
+}
+
+.picker .choice .bg {
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.picker .choice:hover .bg {
+  background-color: var(--eco-neutral);
+  opacity: 0.2;
+  z-index: -1;
+  filter: brightness(0.8);
+}

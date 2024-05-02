@@ -1,0 +1,24 @@
+.log.row:last-child {
+  border-bottom: none;
+}
+
+.log.row {
+  color: var(--soft-white);
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
+  animation: none;
+}
+
+.log .activity {
+  text-align: start;
+  padding-left: calc(var(--pad-left) + 20px);
+}
+
+.log .icon-text {
+  justify-content: flex-end;
+}
+
+.log .icon-text span:last-of-type {
+  cursor: pointer;
+}

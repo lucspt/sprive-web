@@ -1,0 +1,142 @@
+.process-editor {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-process .title {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.edit-process {
+  padding: 35px 60px;
+}
+
+.edit-process .title-wrapper * {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.process-editor .currently {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  width: 15vw;
+}
+
+.process-editor .current-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 8px;
+  flex-direction: column;
+  border-radius: 10px;
+  /* background-color: var(--secondary-bg); */
+}
+
+.process-editor .currently-row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.process-editor .currently .title {
+  font-size: var(--fontsize-med);
+  font-weight: 600;
+}
+
+.process-editor .name {
+  background: none;
+  border: none;
+  font-size: var(--fontsize-xl);
+  color: var(--soft-white);
+  display: flex;
+  font-weight: var(--bold-1);
+}
+
+.title-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.process-editor {
+  overflow: hidden;
+}
+
+.process-editor .emission-factors {
+  overflow-y: scroll;
+}
+
+.process-editor .emission-factors .create {
+  display: none;
+}
+
+.process-editor .emission-factors .limit {
+  margin-bottom: unset;
+}
+
+.process-editor .emission-factors {
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: unset;
+  row-gap: 3em;
+}
+
+.process-editor .emission-factors form {
+  flex-direction: row;
+}
+
+.process-editor .emission-factors .sidebar {
+  padding: unset;
+  padding-bottom: 20px;
+  z-index: 2;
+}
+
+.process-editor .emission-factors .content {
+  padding: unset;
+}
+
+.process-editor .factors-section {
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+  gap: 50px;
+}
+
+.process-editor .currently input {
+  padding: 8px 4px;
+  background-color: var(--soft-white);
+  max-width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}
+
+.process-editor input:read-only {
+  background-color: transparent;
+  color: var(--soft-white);
+}
+
+.process-editor .save-footer {
+  flex-basis: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 30px;
+  background-color: var(--secondary-bg);
+  border-top: var(--table-border);
+}
+
+.process-editor .save-footer button {
+  width: 120px;
+  height: 35px;
+  border-radius: 8px;
+}
+
+.process-editor .emission-factors .table-border {
+  margin: 0px 30px;
+}

@@ -1,0 +1,79 @@
+.create-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.create-account form {
+  background-color: var(--matte-black);
+  align-items: center;
+  display: flex;
+  padding: 40px 30px;
+  border-radius: 10px;
+  min-width: 500px;
+  min-height: 200px;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.create-account label {
+  font-size: 1.1em;
+  margin-bottom: 7px;
+}
+
+.create-account input {
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 10px;
+  color: var(--soft-white);
+}
+
+
+.create-account .input-container {
+  width: 100%;
+  position: relative;
+  min-height: 106px;
+}
+
+.create-account input:focus-visible {
+  outline: solid .6px var(--eco-neutral);
+}
+
+.create-account input {
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 100%;
+  height: fit-content;
+}
+
+.create-account input[type="email"]::placeholder {
+  color: var(--soft-grey);
+}
+
+.create-account .error {
+  color: var(--eco-danger);
+  position: absolute;
+  left: 5px;
+  bottom: 20px;
+}
+
+.continue-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.continue-btn button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+form.step-4 {
+  padding: 0px;
+  padding-left: 30px;
+  padding-right: 10px;
+}

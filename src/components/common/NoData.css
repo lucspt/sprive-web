@@ -1,0 +1,10 @@
+
+.no-data .subtitle {
+  font-size: .95em;
+  color: var(--soft-grey);
+  font-weight: normal;
+}
+
+.no-data .default-btn {
+  align-self: center;
+}

@@ -1,0 +1,84 @@
+.file-uploader {
+  padding: 30px 40px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+
+.file-uploader .default-btn {
+  background-color: var(--primary-color);
+  color: var(--soft-white);
+}
+
+.file-uploader .main {
+  display: flex;
+  flex: 1
+}
+
+.file-uploader .upload-btn {
+  align-self: center;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+
+.file-uploader input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  pointer-events: all;
+  z-index: 2;
+}
+
+.file-uploader .input-encasing {
+  max-width: 900px;
+  width: 80%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 30px 40px;
+  background-color: var(--matte-black);
+}
+
+.file-uploader .upload {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-uploader .input-content {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.file-uploader .submit {
+  align-self: flex-end;
+  padding: 10px 15px;
+  justify-content: flex-end;
+  min-width: 33%;
+  display: flex;
+}
+
+.file-uploader .required-columns {
+  font-size: 1.1em;
+  padding-right: 30px;
+  margin-top: 20px;
+}
+
+.file-uploader .cols {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.file-uploader .required-columns p {
+  background-color: var(--darker);
+  padding: 10px;
+}

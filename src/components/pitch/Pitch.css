@@ -1,0 +1,539 @@
+
+
+.pitch-index .topbar {
+  font-size: var(--fontsize-xl);
+  padding: 25px 50px;
+}
+
+.pitch .title {
+  font-size: 2.65em;
+  align-self: flex-start;
+  font-weight: 800;
+}
+
+.pitch .para {
+  font-size: 2.5em;
+  font-weight: 900;
+}
+
+.pitch-index .thrive {
+  font-size: 0.5em;
+  display: block;
+  margin-top: 20px;
+}
+
+.pitch {
+  padding: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  outline: none;
+}
+
+.pitch.problems .content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 40px;
+}
+
+.pitch .widget {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.pitch.problems .widget {
+  width: 100%;
+  font-size: 1.1em;
+  justify-content: unset;
+  height: 43vh;
+}
+
+.purpose .content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 120px;
+}
+
+.eco-neutral {
+  color: var(--eco-neutral);
+}
+
+.purpose .ellipsis {
+  text-align: end;
+  font-size: 1.8em;
+}
+
+.purpose {
+  align-self: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.purpose .break {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.125em;
+}
+
+.problems .widget {
+  flex-direction: column;
+}
+
+.problems .widget .list {
+  flex-direction: column;
+  display: flex;
+  gap: 35px;
+  font-size: 1.19em;
+  margin-top: 20px;
+  line-height: 1.5;
+  padding-bottom: 35px;
+}
+
+.problems .widget .list .item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 15%;
+  padding: 0px 10px;
+  align-items: flex-end;
+}
+
+.problems .widget {
+  font-size: 1em;
+}
+
+.problems .num {
+  font-size: var(--fontsize-xl);
+  color: var(--eco-neutral);
+  border-bottom: 10px solid var(--calm-blue);
+  padding: 10px;
+  padding-bottom: 5px;
+}
+
+.problems .widget-title,
+.solutions .widget-title {
+  text-align: center;
+  align-self: center;
+  font-size: 1.2em;
+}
+
+.solutions .pre {
+  font-size: 1.3em;
+  margin: 0 auto;
+  width: fit-content;
+  margin-bottom: 60px;
+}
+
+.solutions .widget-row {
+  gap: 10vw;
+}
+
+.solutions .widget {
+  width: 390px;
+  font-size: 1.7em;
+  height: 430px;
+  justify-content: unset;
+  gap: 15px;
+  align-items: center;
+  font-size: 1.2em;
+  flex-direction: column;
+  line-height: 1.8;
+  word-break: break-word;
+  text-align: start;
+}
+
+.solutions ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-size: 1.15em;
+  gap: 25px;
+  width: 100%;
+  align-self: flex-start;
+}
+
+.pitch .caps {
+  font-size: 1.3em;
+}
+
+.pitch .widget .lower {
+  font-size: .8em;
+}
+
+.product-cycle .content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.product-cycle .row-item,
+.product-cycle .row {
+  display: flex;
+  align-items: center;
+}
+
+.product-cycle .row-item {
+  flex-direction: column;
+  font-size: 1.3em;
+  justify-content: center;
+  line-height: 1.7;
+  text-wrap: wrap;
+  max-width: 270px;
+  text-align: center;
+  gap: 25px;
+}
+
+.product-cycle.consumers .widget-row {
+  height: 20vh;
+  align-items: flex-start;
+  padding-top: 35px;
+}
+
+.product-cycle .row-item .icon {
+  font-size: 52px;
+}
+
+.product-cycle .row {
+  gap: 30px;
+}
+
+.product-cycle .verts {
+  display: flex;
+  width: 100%;
+  height: 135px;
+  justify-content: space-between;
+}
+
+.pitch .bar {
+  max-width: 100%;
+  width: 0%;
+  height: 10px;
+  align-self: center;
+  background-color: var(--calm-blue);
+  border-radius: 13px;
+  animation: expand 0.4s ease-in forwards 0.3s;
+}
+
+.product-cycle .bar.vert {
+  animation: expandVertical 0.4s ease-in forwards 0.5s;
+  height: 0%;
+  width: 10px;
+}
+
+@keyframes expandVertical {
+  to { height: 100% }
+  
+}
+
+.market-validation .left {
+  display: flex;
+  flex-direction: column;
+}
+
+.market-validation .content {
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  position: relative;
+}
+
+.market-validation .logos {
+  padding-top: 25px;
+}
+
+.market-validation .paris span {
+  color: var(--eco-danger);
+  font-size: 120px;
+}
+
+.market-validation .top {
+  display: flex;
+  position: absolute;
+  left: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+  align-items: flex-start;
+}
+
+.market-validation .logos .logo {
+  width: 120px;
+  height: 120px;
+}
+
+.market-validation .logo-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.market-validation .logo.scale {
+  transform: scale(.8);
+  width: fit-content;
+}
+
+.market-validation .logo-row {
+  display: flex;
+  gap: 20px;
+}
+
+.business-model {
+  padding-top: 80px;
+  font-size: 1.5em;
+}
+
+.business-model .content {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 120px);
+  gap: 40px;
+  align-self: flex-start;
+}
+
+.business-model .pres {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  line-height: 1.8;
+  font-size: 1.4em;
+}
+
+
+.business-model .widget,
+.business-model .pre {
+  animation: fadeIn 0.4s ease-in forwards;
+  opacity: 0;
+}
+
+ .pitch .text-flow {
+  font-size: 1.9em;
+  align-self: center;
+  font-weight: bold;
+  background: linear-gradient(
+    -90deg,
+    var(--eco-neutral) 30%, 
+    var(--soft-white) 70%
+  );
+  background-size: 300%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textFlow 5s ease-in-out infinite alternate-reverse;
+  padding: 5px;
+  opacity: 1;
+}
+
+@keyframes textFlow {
+  0% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: 0%;
+  }
+}
+
+@keyframes textGradient {
+  from { background-position-x: 0% }
+  to { background-position-x: 200% }
+}
+
+.business-model .widget {
+  height: 200px;
+  width: 230px;
+}
+
+.business-model .text {
+  font-size: 1.3em;
+}
+
+.business-model .widget-title {
+  font-size: 1.25em;
+}
+
+.business-model .digit {
+  font-size: 2em;
+}
+
+.business-model .widget-row .widget {
+  width: fit-content;
+  height: fit-content;
+}
+
+.market-plan .plan.widget {
+  width: 283px;
+  height: 270px;
+  font-size: 1.3em;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  line-height: 2.3;
+}
+
+.market-plan .highlight {
+  color: var(--eco-neutral);
+}
+
+.advantages .grid-display .item {
+  width: 200px;
+  line-height: 1.7;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.advantages .purpose-first {
+  flex-direction: column;
+  justify-content: unset;
+  gap: 17px;
+  flex: 1;
+}
+
+.advantages .grid-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 90px;
+  padding: 0px 20px;
+  padding-top: 35px;
+}
+
+.advantages .widget {
+  max-width: 240px;
+  height: 20vh;
+  line-height: 1.7;
+  text-align: center;
+  padding-top: 20px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  font-size: 1.4em;
+}
+
+.advantages .item span {
+  line-height: 2.2;
+}
+
+.competition .content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: unset;
+  width: 40vw;
+}
+
+.competition .danger {
+  color: var(--eco-danger);
+}
+
+.competition .top {
+  display: grid;
+  grid-template-columns: 190px 1fr 190px;
+  width: 100%;
+}
+
+.competition .bar {
+  max-width: 90%;
+  margin: 0 auto;
+  background-color: var(--eco-danger);
+  animation-duration: 0.7s;
+}
+
+.competition .widget {
+  text-wrap: nowrap;
+  width: fit-content;
+  justify-self: center;
+}
+
+.competition .logos {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.competition .logos > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.competition .white-pad {
+  padding: 10px;
+  background-color: white;
+}
+
+.team .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.team .person {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+}
+
+.team .heading {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.team .person .description {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  align-items: flex-start;
+  gap: 5px;
+  font-size: .87em;
+}
+
+.team .person .name {
+  color: var(--eco-good);
+  text-transform: uppercase;
+}
+
+.why .content {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.why .reason {
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 1.7;
+  flex-direction: column;
+  gap: unset;
+  justify-content: unset;
+}
+
+.pitch .danger {
+  color: var(--eco-danger);
+}
+
+.pitch .widget-row .widget {
+  animation: fadeIn 0.4s ease-in forwards;
+  opacity: 0;
+}
+
+.pitch .widget-row .one {
+  animation-delay: 0.35s;
+}
+
+.pitch .widget-row .two {
+  animation-delay: 1.2s;
+}
+
+.pitch .widget-row .three {
+  animation-delay: 2.1s;
+}

@@ -1,0 +1,78 @@
+
+.popup-fill {
+  inset: 0;
+  position: absolute;
+}
+
+.popup-card {
+  pointer-events: all;
+  height: 100%;
+  box-shadow: var(--popup-shadow);
+  position: absolute;
+  height: 60vh;
+  width: 45vw;
+  margin: auto;
+  max-height: 590px;
+  min-width: 500px;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.popup-card.center {
+  left: var(--sidebar-width);
+}
+
+.popup-card .close.align-end {
+  align-self: flex-end;
+  width: fit-content;
+  margin-right: 25px;
+  margin-top: 25px;
+}
+
+.popup-card.small {
+  max-height: 400px;
+  min-width: unset;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.popup-card .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 35px;
+  padding-top: 20px;
+}
+
+.popup-card h1 {
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.popup-card.small .close {
+  width: 100%;;
+}
+
+.popup-card.small .close button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  border-top: solid 1px var(--highlight);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 100%;
+}
+
+.popup-card.small .close button:active {
+  background-color: var(--primary-color);
+}
+
+.modal-content {
+  overflow-y: scroll;
+  scroll-padding-bottom: 30px;
+}

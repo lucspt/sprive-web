@@ -1,0 +1,25 @@
+.scope-section {
+  overflow: hidden;
+}
+
+.scope-section .title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-top: 5px;
+  justify-content: space-between;
+  font-size: 1.25em;
+  min-height: 40px;
+  line-height: 1.7;
+}
+
+.scope-section span {
+  color: var(--soft-white);
+}
+
+.scope-section .dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px 20px;
+}

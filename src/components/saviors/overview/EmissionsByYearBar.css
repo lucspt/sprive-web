@@ -1,0 +1,126 @@
+@media screen and (min-width: 600px) {
+
+  .overview .main-chart .chart-wrapper {
+    min-height: 420px;
+    height: 40vh;
+    max-height: 360px;
+    width: 100%;
+  }
+  
+  #yearly-bar-legend ul {
+    right: 0px;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    margin: auto 0;
+    height: fit-content;
+    display: flex;
+    padding: 20px;
+    padding-top: 0px;
+    border-radius: 10px;
+    flex-direction: column;
+    transform: translate(35%);
+  }
+  
+  #yearly-bar-legend div {
+    flex-direction: column;
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    gap: 25px;
+  }
+  
+  #yearly-bar-legend li {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+  }
+  
+  #yearly-bar-legend span {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  
+  #yearly-bar-legend p {
+    margin: 0;
+    padding: 0;
+    color: var(--soft-white);
+  }
+  
+  #yearly-bar-legend .legend-title {
+    padding-top: 10px;
+    font-size: 1.07em;
+  }
+  
+  #yearly-bar-tooltip {
+    background: var(--darker);
+    border-radius: 3px;
+    color: var(--soft-white);
+    pointer-events: none;
+    position: absolute;
+    transform: translate(-50%, 0);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  #yearly-bar-tooltip .box {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  #yearly-bar-tooltip .tooltip {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 13px 25px;
+    height: 100%;
+    width: fit-content;
+    text-wrap: nowrap;
+  }
+  
+  #yearly-bar-tooltip .label-container {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  
+  #yearly-bar-tooltip .label {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex: 1;
+  }
+  
+  #yearly-bar-tooltip p {
+    margin: 0px;
+    padding: 5px 0px;
+    word-spacing: 0px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1.5px var(--primary-color);
+  }
+  
+  #yearly-bar-tooltip p div {
+    display: flex;
+    gap: 3px;
+  }
+
+}
+
+@media screen and (min-width: 900px) {
+  
+  .yearly-bar {
+    max-width: var(--main-chart-max-width);
+  }
+
+  #yearly-bar-legend ul {
+    transform: translateX(70%);
+  }
+
+}

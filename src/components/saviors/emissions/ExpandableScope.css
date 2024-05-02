@@ -1,0 +1,44 @@
+.scope-row {
+  color: var(--soft-white);
+  overflow: hidden;
+  padding: 10px;
+  padding-right: 0px;
+  user-select: none;
+}
+
+.scope-row .border, .scope-row {
+  border-bottom: var(--border);
+}
+
+
+.scope-row .row:last-child, .scope-row:last-child,
+.scope-row .border:last-child, .scope-row:last-child {
+  border-bottom: none;
+}
+
+.scope .title {
+  font-size: 1.12em;
+  display: flex;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scope .logs {
+  padding-top: 13px;
+  animation: none;
+}
+
+.scope .chevron {
+  transition: transform 0.1s linear;
+}
+
+.scope .right {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.scope .digit {
+  font-size: .9em;
+}

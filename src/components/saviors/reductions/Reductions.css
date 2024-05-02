@@ -1,0 +1,148 @@
+.reductions .chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reductions .no-data {
+  padding-left: 0px;
+}
+
+.chart-container .picker-content {
+  width: 120px;
+}
+
+.chart-container > .base-input .picker {
+  background-color: var(--darker);
+  width: fit-content;
+}
+
+.reductions .charts {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.reduction-chart {
+  width: 100%;
+  background-color: var(--darker);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 30px 40px 15px 20px;
+  max-width: 1000px;
+  height: fit-content;
+}
+
+.slider-container {
+  --fontsize: .85em;
+  width: 50%;
+  position: relative;
+  color: var(--soft-grey);
+}
+
+.reduction-slider {
+  width: 100%;
+}
+
+.slider-container .slider-tick {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 4px;
+  font-size: var(--fontsize);
+}
+
+.slider-tick.max {
+  left: calc(96% - var(--fontsize));
+}
+
+.reduction-chart .top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reduction-chart .chart-wrapper {
+  height: 225px;
+}
+
+
+.reduction-chart .reset {
+  color: var(--eco-neutral);
+  cursor: pointer;
+}
+
+.reduction-chart .subtitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.reduction-chart .base-input {
+  gap: unset;
+}
+
+.reductions .create button {
+  font-size: .8em;
+}
+
+.pledge-creator input, 
+.pledge-creator textarea {
+  background-color: var(--primary-color);
+  border: none;
+  max-width: 430px;
+  color: var(--soft-white);
+  border-radius: 0px;
+  padding: 5px;
+}
+
+.pledge-creator textarea {
+  resize: none;
+}
+
+.pledge-creator .base-input {
+  font-weight: normal;
+}
+
+.pledge-creator {
+  padding-top: 50px;
+}
+
+.pledge-creator form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.modal-slide-up .close span {
+  font-size: 27px;
+}
+
+.reductions .tabs {
+  padding: 20px 0px;
+  display: flex;
+}
+
+.reductions .tab-btn {
+  flex: 1;
+  max-width: 120px;
+  padding: 10px 0px;
+  opacity: 0.8;
+  color: var(--soft-grey);
+  background-color: var(--darker);
+  border: solid 1px var(--darker);
+}
+
+.tab-btn.active {
+  transform: scale(1.02);
+  color: var(--soft-white);
+  opacity: 1;
+  background-color: unset;
+}
+
+.tabs .create {
+  margin-left: auto;
+}

@@ -1,0 +1,66 @@
+.product-image {
+  height: 160px;
+  width: 160px;
+  align-self: center;
+}
+
+.ecosystem-product {
+  padding-top: 0px;
+  display: unset;
+  overflow: scroll;
+}
+
+.ecosystem-product .header {
+  padding-top: 40px;
+}
+
+.ecosystem-product.has-footer {
+  display: grid;
+  grid-template-rows: 1fr 70px;
+}
+
+.product-card .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ecosystem-product .stat-row {
+  align-self: flex-end;
+  margin-bottom: 30px;
+}
+
+.ecosystem-product .content {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.ecosystem-product .body {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 10%;
+}
+
+.ecosystem-product .traceback {
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+}
+
+.ecosystem-product .bold {
+  font-weight: var(--bold-1);
+  font-size: var(--fontsize-xl);
+}
+
+.ecosystem-product .stages {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  gap: 20px;
+  padding-top: 60px;
+}

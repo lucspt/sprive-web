@@ -1,0 +1,54 @@
+.dashboard-router {
+  --icon-width: 30px;
+  --icon-gap: 5px;
+  --title-gap: 5px;
+  --spacing-left: 14px;
+  background-color: var(--matte-black);
+  color: var(--soft-white);
+  height: 100%;
+  padding-top: 13px;
+  flex-direction: column;
+  display: flex;
+  z-index: 4;
+  gap: 50px;
+}
+
+.dashboard-router .top {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 17px;
+}
+
+.dashboard-routes {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.dashboard-router .account {
+  margin-top: auto;
+  margin-bottom: 17px;
+  padding-left: var(--spacing-left);
+}
+
+.dashboard-router .user {
+  display: flex;
+  gap: calc(var(--icon-gap) * 2);
+}
+
+.dashboard-router .names {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  padding-top: 5px;
+  font-size: 1.1em;
+}
+
+.names #company {
+  color: var(--soft-grey);
+  font-size: .9em;
+}

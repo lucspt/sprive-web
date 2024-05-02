@@ -1,0 +1,33 @@
+.modal-slide-up {
+  --animation-config: 0.3s ease-in-out forwards;
+  position: fixed;
+  display: grid;
+  grid-template-rows: 6vh 1fr;
+  inset: 0;
+  z-index: 4;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-slide-up .overlay {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn var(--animation-config);
+  opacity: 0;
+}
+
+.modal-slide-up .content {
+  background-color: var(--darker);
+  padding: 20px 40px;
+  padding-left: 60px;
+  animation: slideUp var(--animation-config);
+  transform: translateY(100vh);
+}
+
+.modal-slide-up .header {
+  font-weight: normal;
+}
+
+@keyframes slideUp {
+  to { transform: translateY(0px); };
+};

@@ -1,0 +1,98 @@
+
+.measurement-choices {
+  height: 80vh;
+  width: 55vw;
+  color: var(--soft-white);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.measurement-choices .choices {
+  overflow-y: scroll;
+  scroll-padding-bottom: 30px;
+  scroll-padding-top: 30px;
+  width: 100%;
+  height: 100%;
+}
+
+.measurement-choices .desc {
+  color: var(--calm-blue);
+  margin-bottom: 20px;
+  width: 80%;
+
+}
+
+.measurement-choices .title div {
+  display: flex;
+  align-items: center;
+}
+
+.measurement-choices p {
+  font-size: 1.3em;
+  color: var(--soft-white);
+  line-height: 1.9;
+  margin-bottom: 10px;
+}
+
+.measurement-choices .desc span:first-child {
+  color: var(--eco-danger);
+  margin-left: 10px;
+}
+
+.measurement-choices .select span {
+  color: var(--eco-great);
+  font-size: 1.4em;
+}
+
+.measurement-choices .submit {
+  height: min-content;
+  padding: 20px;
+  border-top: solid 1px var(--primary-color);
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.measurement-choices .default-btn {
+  background-color: var(--primary-color);
+  color: var(--soft-white);
+}
+
+.measurement-choices .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  min-height: 200px;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.measurement-choices .dropdown-content p {
+  display: block;
+  line-height: 2;
+  font-size: 1.05em;
+}
+
+.measurement-choices .definition {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.measurement-choices .link {
+  text-decoration: underline;
+  color: var(--calm-blue);
+}
+
+.measurement-choices .bottom {
+  display: flex;
+  justify-content: space-between;
+  text-wrap: nowrap;
+  margin-top: 20px;
+}
+
+.measurement-choices .select {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}

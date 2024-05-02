@@ -1,0 +1,124 @@
+.full-space.overview {
+  --main-chart-max-width: 680px;
+  --section-padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 35px;
+  padding-bottom: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-padding-bottom: 180px;
+  padding-top: var(--page-spacing-top);
+}
+
+.overview section {
+  width: 100%;
+  flex: 1;
+  padding: var(--section-padding);
+  padding-bottom: 0px;
+}
+
+section.overview-stats {
+  padding-top: 0px;
+  height: fit-content;
+  flex: unset;
+}
+
+.overview-bottom {
+  position: relative;
+}
+
+.overview-bottom #vis-threshold {
+  position: absolute;
+  top: calc(50% + 80px);
+}
+
+.overview-bottom .desc {
+  margin-bottom: 50px;
+}
+
+.overview-bottom p {
+  max-width: 35%;
+  line-height: 1.8;
+}
+
+section.overview-main {
+  display: flex;
+  margin-top: 120px;
+  min-height: 42vh;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.overview .main-chart {
+  position: relative;
+  width: calc(var(--main-chart-max-width) + 5vw);
+  min-width: fit-content;
+}
+
+.overview-bottom .bottom-charts {
+  padding-bottom: 35px;
+  min-height: 350px;
+  flex: 1;
+  padding-bottom: 55px;
+}
+
+.bottom-charts .charts {
+  display: flex;
+  gap: 50px
+}
+
+.overview-bottom .categorical-bar, 
+.overview-bottom .subcategory-doughnut {
+  max-width: 600px;
+  width: 50%;
+  height: 300px;
+}
+
+.overview .seperator {
+  width: 35%;
+  border-bottom: solid 1px var(--grey);
+  margin: 60px auto;
+  width: calc(100% - (var(--section-padding) * 2));
+}
+
+.overview-bottom .p-desc {
+  color: var(--soft-grey);
+}
+
+.overview-bottom .subcategory-doughnut {
+  max-width: 450px;
+  max-height: 270px;
+}
+
+.overview-stats {
+  margin-bottom: 35px;
+}
+
+.overview-stats .digit {
+  font-size: 1.8em;
+  text-align: center;
+  align-self: center;
+}
+
+.overview-stats .metric {
+  font-size: 1.25em;
+  color: var(--soft-grey);
+}
+
+
+.no-data {
+  display: flex;
+  flex: 1;
+  margin-top: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 10px 50px;
+}
+
+.no-data .subtitle {
+  color: var(--soft-grey);
+  font-weight: normal;
+}

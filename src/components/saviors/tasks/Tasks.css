@@ -1,0 +1,123 @@
+@media screen and (min-width: 600px) {
+
+  .tasks .status::before {
+    /* content: ""; */
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--soft-grey);
+
+  }
+
+  .tasks .row {
+    grid-template-columns: 25% 40% 1fr 1fr;
+    background-color: #131619;
+    color: var(--soft-white);
+    border-color: var(--primary-color);
+  }
+
+  .tasks .row span {
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-left: 10px;
+  }
+
+  .tasks .row span:nth-child(1) {
+    font-size: .9em;
+  }
+
+  .tasks-table .header {
+    font-size: var(--fontsize-med);
+    padding: 5px 20px;
+    font-weight: normal;
+    color: var(--black);
+    border-top-left-radius: var(--table-border-radius);
+    border-top-right-radius: var(--table-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tasks .status.complete {
+    background-color: var(--eco-great);
+  }
+
+  .tasks .status.progress {
+    background-color: var(--eco-neutral);
+  }
+
+  .tasks-content {
+    padding-top: 60px;
+    width: 100%;
+  }
+
+  .tasks.spacing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 70px;
+  }
+
+  .tasks-table {
+    width: 100%;
+  }
+
+  .tasks .table {
+    width: unset;
+    max-width: unset;
+  }
+
+  .tasks .action {
+    color: var(--eco-neutral);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .tasks button.action {
+    cursor: pointer;
+  }
+
+  .tasks .expand {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    border-bottom-left-radius: var(--table-border-radius);
+    border-bottom-right-radius: var(--table-border-radius);
+  }
+
+  .tasks .expand button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 7px;
+  }
+
+  .tasks div.assignees {
+    pointer-events: none;
+    filter: brightness(0.8);
+  }
+
+  .tasks .assignees {
+    max-height: 30px;
+    height: min-content;
+    width: 130px;
+    min-width: fit-content;
+    margin-left: 10px;
+  }
+
+  .tasks .base-input {
+    gap: unset;
+    height: 27px;
+  }
+
+  .tasks .picker {
+    padding: 0px;
+  }
+  
+}

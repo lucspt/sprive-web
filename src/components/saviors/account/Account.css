@@ -1,0 +1,158 @@
+.account.page {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  height: 40vh;
+  border-radius: 10px;
+  padding-left: 40px;
+  background-color: var(--matte-black);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.banner .header p {
+  margin: 0px;
+}
+
+.banner .names {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 15px;
+}
+
+.banner .icon-row {
+  display: flex;
+  width: 45%;
+  min-width: fit-content;
+  margin-right: auto;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border: solid 1.7px var(--primary-color);
+  border-radius: var(--table-border-radius);
+}
+
+.banner .icon {
+  display: flex;
+  text-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.banner .icon > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.account .grid-layout {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding-top: 30px;
+  gap: 25px;
+}
+
+.account-card {
+  height: 100%;
+  width: 30%;
+  max-width: 400px;
+  background-color: var(--darker);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-card .info {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.account-card .info .editable {
+  --border: solid 1px var(--primary-color);
+  padding: 5px;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.account-card .picture-wrapper {
+  display: flex;
+  height: 20%;
+  justify-content: space-between;
+}
+
+.picture-wrapper h2 {
+  margin: 0;
+  font-size: 1.25em;
+}
+
+.account-card .edit {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.account-card .edit a {
+  padding: 3px 12px;
+  width: fit-content;
+  margin-left: auto;
+  height: fit-content;
+  margin-top: auto;
+}
+
+.account-card .users {
+  height: fit-content;
+}
+
+.account-card .profile {
+  height: 40;
+}
+
+.account-card .pictures-row {
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: inherit;
+}
+
+.account .account-card {
+  padding: 30px 24px;
+  text-wrap: nowrap;
+  width: 340px;
+  max-width: 375px;
+}
+
+.account-card.users {
+  padding-top: 10px;
+}
+
+.account-card.users .invite {
+  margin-top: auto;
+  width: 100%;
+
+}
+
+.account-card .invite-btn {
+  width: 100%;
+  padding: 20px;
+}
+
+.account .logout {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.account .logout button {
+  background-color: var(--eco-danger);
+  width: fit-content;
+  border-radius: 10px;
+  cursor: pointer;
+}

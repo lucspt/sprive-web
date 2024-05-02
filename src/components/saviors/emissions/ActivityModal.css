@@ -1,0 +1,95 @@
+.log-popup * {
+  --border: solid 1px var(--primary-color)
+}
+
+.log-popup {
+  height: 70vh;
+  max-height: 700px;
+}
+
+.log-popup .popup-content {
+  padding-top: 40px;
+  color: var(--soft-white);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.log-popup .summary {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: var(--border);
+  padding-bottom: 30px;
+  margin: 0px 20px;
+}
+
+.log-popup .detail {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: fit-content;
+  text-align: start;
+}
+
+.log-popup .summary span {
+  font-size: var(--fontsize-lg);
+}
+
+.log-popup span {
+  max-width: unset;
+  align-self: unset;
+}
+
+.log-popup .header {
+  padding-top: 35px;
+  padding-left: 20px;
+  color: var(--soft-white);
+}
+
+.log-popup span.detail-title {
+  font-size: 0.9em;
+  text-wrap: nowrap;
+  overflow: visible;
+}
+
+.log-popup .file {
+  padding: 20px;
+  border-bottom: var(--border);
+  border-top: var(--border)
+}
+
+.log-popup .file {
+  display: flex;
+  justify-content: space-between;
+}
+
+.log-popup .file .info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  text-align: start;
+}
+
+.log-popup .file-date {
+  font-size: .9em;
+  color: var(--soft-grey);
+}
+
+.log-popup .source-files {
+  padding: 0px 25px;
+}
+
+.log-popup .source-files .header {
+  margin-bottom: 10px;
+  padding-left: 0px;
+}
+
+.log-popup .source-files button {
+  cursor: pointer;
+}
+
+.log-popup .files {
+  overflow-y: scroll;
+  padding-bottom: 30px;
+  height: 90%;
+}
