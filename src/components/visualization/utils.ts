@@ -9,7 +9,14 @@ const metricToScaleValue = {
   "Gt": kgsInMt,
 };
 
-
+/**
+ * A class that will infer the best metric to utilize for a `<Visualization />` component.
+ * 
+ * Construct this class with the chartjs datasets, a number or an array of chart data,
+ * and it will find the best metric to use. Then, call the `format` method in 
+ * `chart.options.scales.<scale to format>.ticks.callback` with the value of the tick 
+ * and it will scale the dataset values to the same metric.
+ */
 export class YTickFormatter {
   currentMetric: null | string;
   scaleValue: number;
@@ -38,6 +45,14 @@ export class YTickFormatter {
     this.numFormatter = new Intl.NumberFormat("default", formatOptions || { maximumFractionDigits: 1} );
   };
 
+  /**
+   * This method scales a value to the correct metric with respect to the data
+   * it was instantiated with. 
+   * 
+   * @param value - The number to scale.
+   * @param withMetric - Whether to add the metric to the resulting string
+   * @returns The formatted value as a string
+   */
   format(value: string | number, withMetric: boolean = false): string | number {
     if (typeof value === "number") {
       const res = this.numFormatter.format(value / this.scaleValue);
