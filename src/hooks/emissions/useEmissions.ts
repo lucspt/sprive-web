@@ -54,7 +54,11 @@ export const useEmissions = (): EmissionsPageData => {
     totalEmissions += co2e;
     const date = new Date(`${source_file.upload_date}Z`);
     const barChartLabel = date.toLocaleString("default", { month: "numeric", year: "numeric" });
-    barChart[barChartLabel] = { sortBy: date, co2e }
+    if (barChart[barChartLabel]) {
+      barChart[barChartLabel].co2e += co2e;
+    } else {
+      barChart[barChartLabel] = { sortBy: date, co2e }
+    };
 
     const doughnutLabel = `Scope ${scope}`
     doughnut[doughnutLabel] = (doughnut[doughnutLabel] || 0) + co2e;

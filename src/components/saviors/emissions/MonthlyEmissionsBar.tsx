@@ -68,10 +68,11 @@ export function MonthlyEmissionsBar({ emissionsByMonth }: { emissionsByMonth: Gr
                 ticks: { 
                   display: true,
                   callback: function(_, index) {
-                    // console.log(numLabels > 1, "here")
+                    console.log(labels[index]);
                     let [ label, year ] = labels[index].split("/")
-                    if (label === "1" || (index === 0 && numLabels > 1)) {
-                      return year
+                    const nextLabel = labels[index + 1]
+                    if (label === "1" || (index === 0 && numLabels > 1 && nextLabel && nextLabel.split("/")[0] !== "1")) {
+                      return year;
                     } else {
                       return months[Number(label) - 1];
                     }

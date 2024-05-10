@@ -20,7 +20,7 @@ export class YTickFormatter {
     formatOptions?: Intl.NumberFormatOptions
   ) {
     let maxData = initData;
-    if (!maxData && typeof initData === "object") {
+    if (typeof initData === "object") {
       if (Array.isArray(initData)) {
         maxData = Math.max(
           ...Array.from((initData as ChartJsDataset[])
