@@ -31,7 +31,6 @@ export async function reductionsLoader() {
     emissionsPerScope[scope].years.add(new Date(`${source_file.upload_date}Z`).getFullYear());
     emissionsPerScope[scope].co2e! += co2e;
   });
-  console.log(scopeThree);
   const scopeOneYears = scopeOne.years;
   const scopeTwoYears = scopeTwo.years;
   const scopeThreeYears = scopeThree.years;
