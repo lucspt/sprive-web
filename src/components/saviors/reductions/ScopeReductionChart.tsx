@@ -114,7 +114,7 @@ export function ScopeReductionChart({
               ticks: {
                 stepSize: (data.datasets[0]?.data?.at(-1) || 100) / 2,
                 callback: (value) => {
-                  return formatter.format(value)
+                  return formatter.format(value, { withMetric: true })
                 }
               },
             }
