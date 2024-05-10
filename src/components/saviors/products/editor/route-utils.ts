@@ -6,14 +6,8 @@ import { Product } from "../types";
 export const loadProductForPartner = async ({ params }: LoaderFunctionArgs) => {
   const productId = params.productId;
   const res = await fetchWithAuth(`saviors/products/${productId}`) as SpriveResponse<Product>;
-  console.log(productId, res);
   return res.content;
 };
-
-// interface ActionFnArgs extends ActionFunction {
-//   params: Params
-//   request: Request // not sure how to 
-// }
 
 export const editProcess  = async ({ request, params }: ActionFunctionArgs) => {
   

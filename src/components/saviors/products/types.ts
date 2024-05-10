@@ -26,7 +26,7 @@ export interface Product {
   _id: string,
   unit_types: string[],
   co2e: number,
-  image?: string,
+  image: string,
   rating?: string,
   stages: ProductStage[],
   published: boolean,

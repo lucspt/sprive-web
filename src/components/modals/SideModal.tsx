@@ -1,3 +1,4 @@
+import { OnClickFn } from "../../types";
 import { Header } from "../header/Header";
 import "./SideModal.css";
 import { SideModalProps } from "./types";
@@ -24,7 +25,7 @@ export function SideModal({
   closeComponent,
   titleText
  }: SideModalProps) {
-
+  console.log(closeComponent);
 
     return visible && (
       <div className="side-modal">
@@ -36,7 +37,7 @@ export function SideModal({
             : titleText && ( 
               <Header text={titleText} className="header-close">
                 <div className="close">
-                  <button onClick={close}>
+                  <button onClick={close as OnClickFn}>
                     <span className="material-symbols-rounded">close</span>
                   </button>
                 </div>

@@ -13,11 +13,6 @@ export interface PartnerProductOptionsProps {
   setName: Dispatch<SetStateAction<string>>
 }
 
-export interface EditingProcessObject {
-  stageIndex: number,
-
-}
-
 export interface EditPopupProps {
   isVisible: boolean, 
   isPublished: boolean, 
@@ -46,6 +41,12 @@ export interface OptionsFooterProps {
   showEditPopup: Function,
   setWarn: Dispatch<SetStateAction<string[]>>
 }
+
+export interface EditingProcessObject extends ProductProcess {
+    "method": RequestMethod,
+    "stageName": ProductStageName,
+    "stageIndex": number
+  }
 
 export interface ProcessEditorProps {
   editingProcess: ProductProcess & {

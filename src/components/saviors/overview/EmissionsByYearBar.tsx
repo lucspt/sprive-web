@@ -2,8 +2,9 @@ import { ComponentPropsWithoutRef, memo } from "react";
 import { Visualization } from "../../visualization/Visualization";
 import { defaultTitle, defaultSubtitle } from "../../visualization/constants";
  import "./EmissionsByYearBar.css"
-import { getEmissionsByYearData, emissionsByYearTooltip } from "./utils";
+import { getEmissionsByYearData, emissionsByYearTooltip, emissionsByYearLegend } from "./utils";
 import { Logs } from "../../../types";
+import { YTickFormatter } from "../../visualization/utils";
 
 /**
  * Renders the stacked bar chart at the top of the <Overview /> component.
@@ -17,7 +18,7 @@ import { Logs } from "../../../types";
  */
 export const EmissionsByYearBar = memo(function EmissionsByYearBar({ logs }: { logs: Logs }) {
   const { labels, datasets, yearTotalEmissions } = getEmissionsByYearData(logs);
-
+  const yTickFormatter = new YTickFormatter(datasets);
   if (!(labels && datasets && yearTotalEmissions)) return;
   
   return(
@@ -43,7 +44,7 @@ export const EmissionsByYearBar = memo(function EmissionsByYearBar({ logs }: { l
           subtitle: {
             ...defaultSubtitle,
             padding: { bottom: 35 },
-            text: "CO₂e by year by category"
+            text: `${yTickFormatter.currentMetric}CO₂e by year by category`
           },
           tooltip: {
             mode: "index",
@@ -62,11 +63,16 @@ export const EmissionsByYearBar = memo(function EmissionsByYearBar({ logs }: { l
             }
           },
           y: {
-            stacked: true
+            stacked: true,
+            ticks: {
+              callback: (value) => {
+                return yTickFormatter.format(value);
+              }
           }
-        },
+        }
+      }
       }}
-      // plugins={[emissionsByYearLegend]}
+      plugins={[emissionsByYearLegend]}
     />
   )
 });

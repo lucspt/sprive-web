@@ -1,7 +1,7 @@
 import { GroupedEmissions } from "../../../types";
 import { Visualization } from "../../visualization/Visualization";
 import { darkBlue, defaultTitle } from "../../visualization/constants";
-import { turnDateStringToSortable } from "./utils";
+import { YTickFormatter } from "../../visualization/utils";
 
 const months = [
   "Jan",
@@ -28,15 +28,9 @@ const months = [
  */
 export function MonthlyEmissionsBar({ emissionsByMonth }: { emissionsByMonth: GroupedEmissions }) {
 
-
-  const _DATASET = Object.fromEntries(
-    Object.entries(emissionsByMonth).sort(([a, ], [b, ]) => {
-      return turnDateStringToSortable(a) - turnDateStringToSortable(b);
-    })
-  );
-
-  const labels = Object.keys(_DATASET);
+  const labels = Object.keys(emissionsByMonth);
   const numLabels = labels.length;
+  const formatter = new YTickFormatter(Math.max(...Object.values(emissionsByMonth)))
 
   return (
     <Visualization
@@ -48,7 +42,7 @@ export function MonthlyEmissionsBar({ emissionsByMonth }: { emissionsByMonth: Gr
           data={{
             labels,
             datasets: [{
-              data: Object.values(_DATASET),
+              data: Object.values(emissionsByMonth),
               label: "CO₂e",
               barThickness: 30,
               backgroundColor: darkBlue
@@ -82,6 +76,11 @@ export function MonthlyEmissionsBar({ emissionsByMonth }: { emissionsByMonth: Gr
                       return months[Number(label) - 1];
                     }
                   }
+                }
+               },
+               y: {
+                ticks: {
+                  callback: (value) => formatter.format(value)
                 }
                }
             },

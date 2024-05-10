@@ -33,7 +33,7 @@ export const Visualization = memo(function Visualization({
   ariaLabel,
   htmlLegendId="",
   legendProps,
-  dataTestId
+  dataTestId,
 }: VisualizationProps) {
   const chartRef = useRef<Chart>();
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -48,25 +48,17 @@ export const Visualization = memo(function Visualization({
         tooltip: {
           boxPadding: 5,
           callbacks: {
-            label: defaultTooltipLabel
+            label: defaultTooltipLabel,
           },
         },
         legend: {
-          display: true
+          display: true,
         },
           canvasBackgroundColor: {
             color: backgroundColor
           },
         },
       }
-
-    // for (let [k, v] of Object.entries(options)) {
-    //   if (typeof v === "object") {
-    //     visOptions[k] = { ...visOptions[k], ...v };
-    //   } else {
-    //     visOptions[k] = v;
-    //   };
-    // };
 
     chartRef.current = new Chart((canvasRef.current as ChartItem), {
       type: type,

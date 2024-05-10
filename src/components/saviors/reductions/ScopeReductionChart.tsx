@@ -7,6 +7,7 @@ import 'rc-slider/assets/index.css';
 import DropdownPicker from "../../inputs/picker/DropdownPicker";
 import { getDropdownPickerValues, createReductionChart } from "./utils";
 import { ScopeReductionChartProps } from "./types";
+import { YTickFormatter } from "../../visualization/utils";
 
 /**
  * Creates a savior's scope reduction chart. The chart which let's them
@@ -38,6 +39,7 @@ export function ScopeReductionChart({
   const data = createReductionChart(
     scopeYearlyAverageEmissions, baseYear, forecastYear, reductionPercentage
   );
+  const formatter = new YTickFormatter(scopeYearlyAverageEmissions);
 
   function resetChart() {
     setForecastYear(DEFAULT_FORECAST_YEAR);
@@ -110,7 +112,10 @@ export function ScopeReductionChart({
                 display: true,
               },
               ticks: {
-                stepSize: (data.datasets[0]?.data?.at(-1) || 100) / 2
+                stepSize: (data.datasets[0]?.data?.at(-1) || 100) / 2,
+                callback: (value) => {
+                  return formatter.format(value)
+                }
               },
             }
           },
@@ -125,7 +130,7 @@ export function ScopeReductionChart({
                 boxHeight: 10,
               }
             }
-          }
+          },
         }}
       />
     </div>

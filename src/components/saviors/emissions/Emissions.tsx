@@ -12,7 +12,7 @@ import { useEmissions } from "../../../hooks/emissions/useEmissions";
  */
 export const Emissions = memo(function Emissions() {
   const { doughnut, barChart, table, logsToDownload } = useEmissions();
-  
+
   return (
   <div className="emissions page">
       <Header text="Emissions" />

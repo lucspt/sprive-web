@@ -36,10 +36,10 @@ export const ProductCard = ({ optionsFooter, setEditingProcess, stageToExpand }:
         fontSize="lg"
       />
       <div className="content" >
-        <img src="https://static.ewg.org/skindeep_images/8236/823601.jpg" className="product-image"/>
+        <img src={product.image} className="product-image"/>
         <div className="body">
           <div className="traceback">
-            <span className="bold">Traceback</span>
+            <span className="bold">Breakdown</span>
             <span className="bold">{formatCO2e(productCO2e, { stringify: true })} </span>
           </div>
           <div className="stages">

@@ -25,7 +25,6 @@ export function EmissionsByScopeDoughnut({ emissionsByScope }: { emissionsByScop
 
   const labels = Object.keys(emissionsByScope);
   const data = Object.values(emissionsByScope);
-  console.log(labels, data);
 
   return (
     <Visualization

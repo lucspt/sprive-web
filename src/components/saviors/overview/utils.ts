@@ -1,8 +1,9 @@
 import { STACKED_COLORS, softGrey } from "../../visualization/constants";
 import { formatCO2e, sumArray } from "../../../utils/utils";
 import { ChartJsDataset, DynamicObject, GroupedEmissions, Logs } from "../../../types";
-import { BarElement, Chart } from "chart.js";
+import { BarElement, Chart, LegendItem } from "chart.js";
 import { EmissionsByYearData, BottomCharts } from "./types";
+import { GHGCategoryToAbbreviatedName } from "../../../constants";
 const MAX_CATEGORIES = 5;
 const MAX_BARS = 3
 
@@ -37,14 +38,15 @@ export const getEmissionsByYearData = (logs: Logs): EmissionsByYearData => {
     let _uniqueCategories: Set<string> = new Set();
     let totalEmissions = 0;
     const yearTotalEmissions: GroupedEmissions = {};
-    LOGS.map(({ co2e, source_file, category}) => {
+    LOGS.map(({ co2e, source_file, ghg_category }) => {
       const year = new Date(`${source_file.upload_date}Z`).getFullYear();
-      _uniqueCategories.add(category);
+      const _category = GHGCategoryToAbbreviatedName[ghg_category as keyof typeof GHGCategoryToAbbreviatedName]
+      _uniqueCategories.add(_category);
       yearTotalEmissions[year] = (yearTotalEmissions[year] || 0) + co2e;
       if (!emissionsPerYear[year]) emissionsPerYear[year] = {};
-      if (!emissionsPerYear[year][category]) emissionsPerYear[year][category] = 0;
+      if (!emissionsPerYear[year][_category]) emissionsPerYear[year][_category] = 0;
       totalEmissions += co2e;
-      emissionsPerYear[year][category] += co2e;
+      emissionsPerYear[year][_category] += co2e;
     });
 
     const labels = Object.keys(emissionsPerYear).slice(0, MAX_BARS);
@@ -126,37 +128,34 @@ const _getOrCreateLegendList = (_: any, id: string) => {
 // Renders the legend to the left of the `<EmissionsByYearBar />`
 export const emissionsByYearLegend = {
   id: 'htmlLegend',
-  afterUpdate(chart: any, _: any, options: any) { // TODO: have to figure out how to static type Chartjs
+  afterUpdate(chart: Chart<"bar">, _: any, options: any) { // TODO: have to figure out how to static type Chartjs
     const ul = _getOrCreateLegendList(chart, options.containerID);
     while (ul.firstChild) {
       ul.firstChild.remove();
     }
 
-    const items = chart.options?.plugins?.legend?.labels;
-    if (!items || !items.generateLabels) return;
-    items.generateLabels(chart);
+    const _items = chart.options?.plugins?.legend?.labels;
+    if (!_items?.generateLabels) return;
+    const items = _items.generateLabels(chart);
     const title = document.createElement("p");
     title.innerText = "Categories";
     title.className = "legend-title";
     ul.append(title);
     const itemsContainer = document.createElement("div");
     ul.append(itemsContainer);
-
-    items.forEach((item: any) => {
+    
+    items.forEach((item: LegendItem) => {
       const li = document.createElement('li');
       li.onclick = () => {
-        const {type} = chart.config;
-        if (type === 'pie' || type === 'doughnut') {
-          chart.toggleDataVisibility(item.index);
-        } else {
-          chart.setDatasetVisibility(item.datasetIndex, !chart.isDatasetVisible(item.datasetIndex));
-        }
+        chart.setDatasetVisibility(
+          item.datasetIndex as number, !chart.isDatasetVisible(item.datasetIndex as number)
+        );
         chart.update();
       };
 
       const boxSpan = document.createElement('span');
-      boxSpan.style.background = item.fillStyle;
-      boxSpan.style.borderColor = item.strokeStyle;
+      boxSpan.style.background = item.fillStyle as string;
+      boxSpan.style.borderColor = item.strokeStyle as string;
 
       const textContainer = document.createElement('p');
       textContainer.style.textDecoration = item.hidden ? 'line-through' : '';
@@ -286,8 +285,9 @@ export const getBottomCharts = (logs: Logs, mostRelevantYear: number): BottomCha
     return new Date(`${source_file.upload_date}Z`).getFullYear() === mostRelevantYear
   })
   .sort((a, b) => b.co2e - a.co2e)
-  .map(({ category, co2e, activity }) => { 
+  .map(({ ghg_category, co2e, activity }) => { 
     totalEmissions += co2e;
+    let category = GHGCategoryToAbbreviatedName[ghg_category as keyof typeof GHGCategoryToAbbreviatedName];
     if (otherCategories.has(category)) {
       category = "Other";
     }
@@ -314,7 +314,6 @@ export const getBottomCharts = (logs: Logs, mostRelevantYear: number): BottomCha
 }
 
 export const PER_CATEGORY_CHART_PADDING = 60
-const PER_CATEGORY_BAR_VALUES_PADDING = PER_CATEGORY_CHART_PADDING - 10;
 /**
  * Renders the dataset value on the side of the bars (since it's a horizontal bar chart).
  */
@@ -328,7 +327,7 @@ export const emissionsPerCategoryBarValues = {
       bar: BarElement & {$context: { raw: number }}
     ) => {
       const barValue = bar.$context.raw;
-      ctx.fillText(formatCO2e(barValue), width - PER_CATEGORY_BAR_VALUES_PADDING, bar.y);
+      ctx.fillText(formatCO2e(barValue), width - PER_CATEGORY_CHART_PADDING, bar.y);
     });
 
   },
@@ -378,4 +377,4 @@ export const getSubcategoriesDoughnut = (
   };
 
   return { labels, data };
-}
+};

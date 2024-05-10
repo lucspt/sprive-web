@@ -3,7 +3,7 @@
 import { Outlet, RouteObject } from 'react-router-dom';
 import { Root } from './Root';
 import { Login } from './components/login/Login';
-import AccountCreator from "./components/signup/AccountCreator";
+import { AccountCreator } from "./components/signup/AccountCreator";
 import Ecosystem, { loader as ecosystemLoader } from './components/ecosystem/Ecosystem';
 import PartnerCard, { 
   loader as partnerLoader, likePledge

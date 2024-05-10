@@ -11,6 +11,7 @@ export const Products = memo(function Products() {
   const nav = useNavigate();
 
   const { length } = (products || []);
+  
   return (
     <div className="container products page">
       <Header text="Products">
@@ -18,13 +19,13 @@ export const Products = memo(function Products() {
       </Header>
       {length > 0 ? (
         <div className="content" style={{ justifyContent: "center" }}>
-          { products.map((p) => (
+          { products.filter(x => x.name !== "ggg").map((p) => (
             <ProductWidget
               onClick={() => nav(`./${p._id}`)}
               key={Math.random()}
               name={p.name}
               co2e={p.co2e}
-              // image={p.image}
+              image={p.image}
               // rating={p.rating}
             />
             ))}

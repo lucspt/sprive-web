@@ -49,7 +49,7 @@ export interface StageDropdownProps {
 
 export interface ProductWidgetProps {
   name: string, 
-  // image?: string,
+  image: string,
   // rating?: string,
   co2e: number,
   onClick: OnClickFn,

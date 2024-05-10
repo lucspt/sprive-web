@@ -4,11 +4,11 @@ import { isObjectEmpty } from "../../../../utils/utils";
 import { ProductCard } from "../../../products/ProductCard";
 import ProcessEditor from "./ProcessEditor";
 import { UnpublishFirstPopup } from "./UnpublishFirstPopup";
-import { EditingProcessObject } from "./types";
 import { Product, ProductProcess } from "../types";
+import { EditingProcessObject } from "./types";
 
 export const EditableProductCard = memo(function EditableProductCard() {
-  const [ editingProcess, setEditingProcess ] = useState<EditingProcessObject|{}>({});
+  const [ editingProcess, setEditingProcess ] = useState<EditingProcessObject | {}>({});
   const product = useLoaderData() as Product;
   const [ showUnpublishWarning, setShowUnpublishWarning ] = useState(false);
   const [ stageToExpand, setStageToExpand ] = useState<null|number>(null);
@@ -44,5 +44,5 @@ export const EditableProductCard = memo(function EditableProductCard() {
         )
       }
     </div>
-  ) : <ProcessEditor editingProcess={editingProcess} onFinish={onFinishEdit} fetcher={fetcher}/>
+  ) : <ProcessEditor editingProcess={editingProcess as EditingProcessObject} onFinish={onFinishEdit} fetcher={fetcher}/>
 });

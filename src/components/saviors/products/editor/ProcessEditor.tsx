@@ -8,7 +8,7 @@ import { ProcessEditorProps } from "./types";
 // import EmissionFactors from "../../factors/EmissionFactors";
 
 export default function ProcessEditor({ editingProcess, onFinish, fetcher }: ProcessEditorProps) {
-  const [ chosen, setChosen ] = useState({});
+  const [ chosen, _ ] = useState({});
   const { stageName } = editingProcess;
   const { name: productName } = useLoaderData() as Product;
   const [ wasEdited, setWasEdited ] = useState(false);

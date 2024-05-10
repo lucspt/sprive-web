@@ -1,8 +1,17 @@
-# React + Vite
+# Sprive Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This sprive application is meant to be a carbon management system for businesses. It is heavily inspired by [Watershed](https://watershed.com)!
 
-Currently, two official plugins are available:
+Videos:
+TODO: ADD VIDEOS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+The code is currently being converted to TypeScript.
+
+Made with 
+ - Vite
+ - React (TS & JS)
+ - CSS
+
+Built by:
+  [Luca Caputo](https://github.com/lucspt)

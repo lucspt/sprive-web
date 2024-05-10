@@ -42,17 +42,19 @@ export const useEmissions = (): EmissionsPageData => {
     useContext(SaviorContext) as SaviorContextValuesWithSavior
   ).savior.joined;
 
-  const logs = filterLogsForRelevantDate(useLoaderData() as Logs, joined, { onlyProcessed: true });
-  const barChart: GroupedEmissions = {},
+  const logs = filterLogsForRelevantDate(
+    useLoaderData() as Logs, joined, { onlyProcessed: true }
+  );
+  let barChart: GroupedEmissions<{sortBy: Date, co2e: number}> = {},
   doughnut: GroupedEmissions = {},
   table: EmissionsByScopeTable = {},
   scopeLogs: ScopeLogs = {};
   let totalEmissions = 0;
   logs.map(({ source_file, co2e, scope, activity, unit, value, ghg_category }) => {
     totalEmissions += co2e;
-    const date = new Date(source_file.upload_date);
+    const date = new Date(`${source_file.upload_date}Z`);
     const barChartLabel = date.toLocaleString("default", { month: "numeric", year: "numeric" });
-    barChart[barChartLabel] = (barChart[barChartLabel] || 0) + co2e;
+    barChart[barChartLabel] = { sortBy: date, co2e }
 
     const doughnutLabel = `Scope ${scope}`
     doughnut[doughnutLabel] = (doughnut[doughnutLabel] || 0) + co2e;
@@ -72,31 +74,33 @@ export const useEmissions = (): EmissionsPageData => {
     };
     ((scopeLogs[scope] as LogsAndTotalCO2e).totalCO2e as number) += co2e;
     if (scope === "3") {
-      let currentCategoryLogs = (scopeLogs[scope] as ScopeLogsScopeThree)[ghg_category as GHGCategory] as GHGCategoryActivities;
-      if (!currentCategoryLogs?.[label]) {
-        (scopeLogs[scope] as ScopeLogsScopeThree)[ghg_category as GHGCategory] = {totalCO2e: 0};
-      };
-      let currentEmissionsPageLog: GHGCategoryActivities | EmissionsPageLog = (
+      let currentCategoryLogs: GHGCategoryActivities | EmissionsPageLog = (
         (scopeLogs[scope] as ScopeLogsScopeThree)[(ghg_category as GHGCategory)] as GHGCategoryActivities
       );
-      if (!currentEmissionsPageLog?.[label]) {
-        currentEmissionsPageLog = initEmissionsPageLog as EmissionsPageLog;
-        ((scopeLogs[scope] as ScopeLogsScopeThree)[(ghg_category as GHGCategory)] as GHGCategoryActivities)[label] = currentEmissionsPageLog;
+      if (!currentCategoryLogs) {
+        (scopeLogs[scope] as ScopeLogsScopeThree)[ghg_category as GHGCategory] = {totalCO2e: 0};
+      }
+      let currentActivityLogs = (
+        (scopeLogs[scope] as ScopeLogsScopeThree)[ghg_category as GHGCategory] as {[key: string]: EmissionsPageLog}
+      )[label];
+      if (!currentActivityLogs) {
+        currentActivityLogs = initEmissionsPageLog;
+        ((scopeLogs[scope] as ScopeLogsScopeThree)[(ghg_category as GHGCategory)] as GHGCategoryActivities)[label] = currentActivityLogs;
       };
       (((scopeLogs[scope] as ScopeLogsScopeThree)[ghg_category as GHGCategory] as {totalCO2e: number}).totalCO2e) += co2e;
       ((scopeLogs[scope] as ScopeLogsScopeThree)[(ghg_category as GHGCategory)] as {[key: string]: Partial<EmissionsPageLog>})[label] = {
-        ...currentEmissionsPageLog,
-        sourceFiles: ((currentEmissionsPageLog as EmissionsPageLog).sourceFiles as SourceFile[]).concat(source_file),
-        value: (currentEmissionsPageLog as EmissionsPageLog).value + value,
-        co2e: (currentEmissionsPageLog as EmissionsPageLog).co2e + co2e,
+        ...currentActivityLogs,
+        sourceFiles: ((currentActivityLogs as EmissionsPageLog).sourceFiles as SourceFile[]).concat(source_file),
+        value: (currentActivityLogs as EmissionsPageLog).value + value,
+        co2e: (currentActivityLogs as EmissionsPageLog).co2e + co2e,
       };
     } else {
-      const currentEmissionsPageLog = ((scopeLogs[scope] as ScopeLogsOneAndTwo)[label] || initEmissionsPageLog);
+      const currentActivityLogs = ((scopeLogs[scope] as ScopeLogsOneAndTwo)[label] || initEmissionsPageLog);
       (scopeLogs[scope] as ScopeLogsOneAndTwo)[label] = {
-        ...currentEmissionsPageLog,
-        sourceFiles: (currentEmissionsPageLog.sourceFiles as SourceFile[]).concat(source_file),
-        value: currentEmissionsPageLog.value + value,
-        co2e: currentEmissionsPageLog.co2e + co2e
+        ...currentActivityLogs,
+        sourceFiles: (currentActivityLogs.sourceFiles as SourceFile[]).concat(source_file),
+        value: currentActivityLogs.value + value,
+        co2e: currentActivityLogs.co2e + co2e
       };
     };
   });
@@ -114,9 +118,15 @@ export const useEmissions = (): EmissionsPageData => {
     };
   });
 
+  const _barChart = Object.fromEntries(
+    Object.entries(barChart).sort(([, a], [, b]) => {
+      return a.sortBy.getTime() - b.sortBy.getTime();
+    }).map(([k, v]) => [k, v.co2e])
+  );
+
   return { 
     table,  
-    barChart, 
+    barChart: _barChart,
     doughnut, 
     logsToDownload: logs
   };

@@ -3,12 +3,12 @@ import "./ProductWidget.css";
 import { ProductWidgetProps } from "./types";
 
 
-export function ProductWidget({ name, co2e, onClick }: ProductWidgetProps) {
+export function ProductWidget({ name, co2e, image, onClick }: ProductWidgetProps) {
 
   return (
     <button className="product-widget" onClick={onClick}>
       <div className="image">
-        <img src="https://static.ewg.org/skindeep_images/8236/823601.jpg" />
+        <img src={image} />
         <span className="title">{ name }</span>
       </div>
       {/* <Rating rating={rating || "good"} showText={false} size={16} /> */}

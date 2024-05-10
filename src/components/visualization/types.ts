@@ -16,5 +16,6 @@ export interface VisualizationProps {
   ariaLabel: string,
   htmlLegendId?: string,
   legendProps?: ComponentPropsWithoutRef<"div">,
-  dataTestId?: string
-}
+  dataTestId?: string,
+  scaleToTons?: boolean,
+};
