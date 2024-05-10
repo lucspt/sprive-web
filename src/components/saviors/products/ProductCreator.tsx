@@ -19,7 +19,7 @@ export const ProductCreator = function ProductCreator() {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let res = await fetchWithAuth(
-      "http://localhost:8000/products", 
+      "products", 
       { 
         body: new FormData(e.currentTarget), 
         stringifyBody: false, 

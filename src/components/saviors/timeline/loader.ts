@@ -10,7 +10,6 @@ export async function timelineLoader(): Promise<TimelineLoaderResponse> {
   const groupedByMonth: TasksGroupedByMonthAndType = {};
   const isBehindTracker: DynamicObject<number> = {};
   content?.map(({ created_at, complete, type }) => {
-    console.log(created_at);
     const dateCreated = new Date(`${created_at}Z`);
     const month = dateCreated.getMonth();
     if (!groupedByMonth[month]) groupedByMonth[month] = {collection: {}, processing: {}, review: {}};

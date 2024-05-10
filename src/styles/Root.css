@@ -93,6 +93,10 @@ input {
   border: none;
 }
 
+img {
+  height: auto;
+}
+
 .input-encasing {
   height: 170px;
   width: 500px;

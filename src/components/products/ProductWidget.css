@@ -19,8 +19,9 @@
 }
 
 .product-widget img {
-  height: 130px;
-  width: 130px;
+  width: auto;
+  max-height: 160px;
+  max-width: 130px;
 }
 
 .product-widget .title {

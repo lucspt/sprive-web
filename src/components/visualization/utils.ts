@@ -53,10 +53,9 @@ export class YTickFormatter {
    * @param withMetric - Whether to add the metric to the resulting string
    * @returns The formatted value as a string
    */
-  format(value: string | number, options: { withMetric: boolean }): string | number {
-    const { withMetric = false } = options;
+  format(value: string | number, options: { withMetric: boolean } = { withMetric: false }): string | number {
+    const { withMetric } = options;
     if (typeof value === "number") {
-      console.log(value, this.scaleValue);
       const res = this.numFormatter.format(value / this.scaleValue);
       if (withMetric) {
         return `${res} ${this.currentMetric}`
