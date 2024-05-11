@@ -1,6 +1,12 @@
 # Sprive Web
 
-This sprive application is meant to be a carbon management system for businesses. It is heavily inspired by [Watershed](https://watershed.com)!
+This application is a carbon management system for businesses. It is a part of my Sprive projects group and allows for 
+emissions tracking from scope & GHG category level down to the activity level. Businesses can track emissions, 
+simulate reduction plans and create pledges (reduction goals) to stand by, in order to lower their carbon footprint. 
+They also can create carbon lifecycle assesments of their products and publish them for users to be able to 
+interact with on the [Sprive mobile](https://github.com/lucspt/sprive-mobile) app!
+
+This app is heavily inspired by [Watershed](https://watershed.com)!
 
 Application:
 
