@@ -16,6 +16,7 @@
 .product-widget .image {
   display: flex;
   gap: 20px;
+  min-width: 100%;
 }
 
 .product-widget img {
@@ -25,12 +26,14 @@
 }
 
 .product-widget .title {
-  text-align: start;
   display: inline-block;
   width: 100%;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  height: fit-content;
+  flex: 1;
   overflow: hidden;
-  text-wrap: nowrap;
+  text-wrap: wrap;
 }
 
 .product-widget .co2e {

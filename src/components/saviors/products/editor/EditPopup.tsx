@@ -22,7 +22,7 @@ export default function EditPopup({
     if (name !== productName) {
       setLoading(true)
       const res = await fetchWithAuth(
-        `products/${productId}`, 
+        `saviors/products/${productId}`, 
         { body: { name }, method: "PATCH" }
       )
       if ((res as Response).status === 409) {
