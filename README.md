@@ -8,7 +8,7 @@ interact with on the [Sprive mobile](https://github.com/lucspt/sprive-mobile) ap
 
 This app is heavily inspired by [Watershed](https://watershed.com)!
 
-Application:
+## Application:
 
 <img width="600" alt="Sprive-web-overview" src="https://github.com/lucspt/sprive-web/assets/149544385/28afdcbb-1154-46f0-b0b6-91b5347e0283">
 <img width="600" alt="Sprive-web-emissions" src="https://github.com/lucspt/sprive-web/assets/149544385/98c4187e-32c8-4409-b982-76202efb99a7">
