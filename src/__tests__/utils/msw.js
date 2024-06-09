@@ -2,7 +2,7 @@ import { getCookie } from "../../utils/utils";
 import { server } from "../msw/server"
 import { http, HttpResponse } from "msw";
 
-const endpoint = "http://localhost:8000";
+const endpoint = import.meta.env.VITE_API_URL;
 export const fetchWithAuthEndpoint = "fetchWithAuthTest"
 export const fetchWithAuthRes = "RESPONSE";
 export const fetchWithAuthSuccessCode = 200;

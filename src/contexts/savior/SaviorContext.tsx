@@ -66,7 +66,7 @@ export default function SaviorContextProvider({ children }: PropsWithChildren) {
     const loginData = Object.fromEntries(data);
     try {
       const response = await fetch(
-        "http://localhost:8000/partners/login", {
+        `${import.meta.env.VITE_API_URL}/partners/login`, {
         headers: {
           ...fetchHeadersIncludeCookies,
           "Content-Type": "application/json",

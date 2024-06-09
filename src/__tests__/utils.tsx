@@ -43,7 +43,7 @@ export const canvasTestingBeforeEach = (global: any) => {
 
 export const setupEmptyDataHandler = (endpoint: string, emptyObject=[]) => {
   server.use(
-    http.get(`http://localhost:8000/${endpoint}`, () => {
+    http.get(`${import.meta.env.VITE_API_URL}/${endpoint}`, () => {
       return HttpResponse.json({ content: emptyObject }, { status: 200 } );
     })
   );

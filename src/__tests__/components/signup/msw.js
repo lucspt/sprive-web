@@ -6,7 +6,7 @@ export const mockSuccessEmail = "emailsuccess@emailsuccess.com";
 export const setupHandlers = () => {
   server.use(
     http.get(
-      "http://localhost:8000/partners/emails/:email",  ({ params }) => {
+      `${import.meta.env.VITE_API_URL}/partners/emails/:email`,  ({ params }) => {
         const { email } = params;
         if (email === mockTakenEmail) {
           return HttpResponse.json(

@@ -9,7 +9,7 @@ import {
   mockProduct
  } from "./mock-data";
 
-const apiEndpoint = "http://localhost:8000"
+const apiEndpoint = import.meta.env.VITE_API_URL;
 const logsEndpoint = `${apiEndpoint}/saviors/logs`;
 
 const mockGetAndPost = (endpoint, content, onPost) => {

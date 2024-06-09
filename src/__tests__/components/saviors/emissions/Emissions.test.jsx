@@ -71,7 +71,7 @@ describe("Emissions", () => {
         _render();
         
         await waitFor(async () => {
-          const expandableScope = screen.getByText(`Scope ${mockLog.scope}`);
+          const expandableScope = screen.getByText(`Scope ${mockLog.scope}`, {exact: false});
           act(() => fireEvent.click(expandableScope));
           const activityLog = await screen.findByText(mockLog.activity);
           act(() => fireEvent.click(activityLog))

@@ -1,7 +1,7 @@
 import { HttpResponse, http } from "msw";
 import { server } from "../../../msw/server";
 
-const endpoint = "http://localhost:8000/saviors";
+const endpoint = `${import.meta.env.VITE_API_URL}/saviors`;
 export const setupEmptyHadlers = () => {
   server.use(
     http.get(`${endpoint}/pledges`, () => {

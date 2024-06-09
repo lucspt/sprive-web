@@ -7,7 +7,7 @@ import MeasurementsApplication from "./MeasurementsApplication";
 import { SaviorContextValues } from "../../contexts/savior/types";
 import { emailRegex } from "./constants";
 
-const partnersEndpoint = `http://localhost:8000/partners`
+const partnersEndpoint = `${import.meta.env.VITE_API_URL}/partners`
 /**
  * Component to create a new account
  * 

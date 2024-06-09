@@ -26,7 +26,7 @@ import { defaultMockLogs } from "../../../msw/mock-data"
 
 // export const setupLogsHandler = () => {
 //   server.use(
-//     http.get("http://localhost:8000/saviors/logs", () => {
+//     http.get(`${import.meta.env.VITE_API_URL}/saviors/logs`, () => {
 //       return HttpResponse.json({ content: defaultMockLogs}, { status: 200 });
 //     })
 //   )

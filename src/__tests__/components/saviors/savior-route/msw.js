@@ -8,7 +8,7 @@ export const mockLoginCredentials = {
 }
 export const setupHandlers = () => {
   server.use(
-    http.get("http://localhost:8000/saviors", () => {
+    http.get(`${import.meta.env.VITE_API_URL}/saviors`, () => {
       return HttpResponse.json({ content : mockUserAccount }, {status: 200});
     })
   );

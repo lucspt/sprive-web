@@ -1,7 +1,7 @@
 import { HttpResponse, http } from "msw";
 import { server } from "../../../msw/server";
 
-const api = "http://localhost:8000";
+const api = import.meta.env.VITE_API_URL;
 const endpoint = `${api}/saviors/products`;
 
 export const setupEmptyProductsHandler = () => {

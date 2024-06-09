@@ -9,7 +9,7 @@ import { ProductWidget } from "../products/ProductWidget";
 
 export const loader = async ({ params }) => {
   let res = await fetch(
-    `http://localhost:8000/partners/${params.partnerId}`
+    `${import.meta.env.VITE_API_URL}/partners/${params.partnerId}`
   )
   if (res.ok) {
     res = await res.json()

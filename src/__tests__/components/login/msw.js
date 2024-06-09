@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw"
 import { server } from "../../msw/server";
 
-const endpoint = "http://localhost:8000/partners/login"
+const endpoint = `${import.meta.env.VITE_API_URL}/partners/login`;
 const email = "lovelife@sprive.com",
 password = "123";
 

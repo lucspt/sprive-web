@@ -3,7 +3,7 @@ import { mockServerDateString, setupEmptyDataHandler } from "../../../utils";
 import { mockTasks } from "../../../msw/mock-data";
 import { server } from "../../../msw/server";
 
-const endpoint = "http://localhost:8000/tasks";
+const endpoint = `${import.meta.env.VITE_API_URL}/tasks`;
 export const setupEmptyTasks = () => setupEmptyDataHandler("tasks");
 
 

@@ -2,7 +2,7 @@ import { HttpResponse, http } from "msw";
 import { server } from "../../../msw/server"
 import { mockTasks } from "../../../msw/mock-data";
 
-const endpoint = "http://localhost:8000/tasks";
+const endpoint = `${import.meta.env.VITE_API_URL}/tasks`;
 
 export const setupHandlers = () => {
   server.use(

@@ -37,7 +37,7 @@ export const getCookie = (key: "csrf_access_token"): string | undefined => {
 /** 
  * Perform a `fetch` call to an endpoint that requires authorization.
  * 
- * @param endpoint - The endpoint to fetch, this function prepends http://localhost:8000 to this value.
+ * @param endpoint - The endpoint to fetch, this function prepends import.meta.env.VITE_API_URL to this value.
  * @param method - The method to fetch with.
  * @param options - Options for customizing this functions implementation.
  * @param options.body - A fetch request's body.
@@ -102,7 +102,7 @@ export const fetchWithAuth = async (
       fetchOpts.body = stringifyBody ? JSON.stringify(body) : body;
     };
     
-    const request = new Request(`http://localhost:8000/${endpoint}`, fetchOpts);
+    const request = new Request(`${import.meta.env.VITE_API_URL}/${endpoint}`, fetchOpts);
     let response: Response | SpriveResponse = await fetch(request);
     if (response.ok) {
       response = await response[responseMethod]() as SpriveResponse;

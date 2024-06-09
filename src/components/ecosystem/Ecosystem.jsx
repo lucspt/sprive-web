@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react"
  
 export const loader = async () => {
   let ecosystem = await fetch(
-    "http://localhost:8000/partners", { method: "GET" }
+    `${import.meta.env.VITE_API_URL}/partners`, { method: "GET" }
   )
   if (ecosystem.ok) {
     ecosystem = await ecosystem.json();
